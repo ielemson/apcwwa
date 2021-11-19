@@ -13,7 +13,12 @@
                         
                     </li>
                     <li><a href="event.html" title="">Event</a></li>
-                    <li><a href="crowd-funding.html" title="">Donate</a></li>
+                    <li class="menu-item-has-children"><a href="#" title="">Account</a>
+                        <ul>
+                            <li><a href="{{route('login')}}" title="">Login</a></li>
+                            <li><a href="{{route('register')}}" title="">Register</a></li>
+                        </ul>
+                    </li>
                     <li><a href="{{url('/about-us')}}" title="">About</a></li>
                     <li><a href="{{url('/contact-us')}}" title="">Contact</a></li>
                 </ul>

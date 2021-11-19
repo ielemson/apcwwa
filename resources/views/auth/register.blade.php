@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
+    <div class="header bg-gradient-success py-7 py-lg-8 pt-lg-9">
         <div class="container">
             <div class="header-body text-center mb-7">
                 <div class="row justify-content-center">
@@ -83,10 +83,10 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-success">
                                     {{ __('Register') }}
                                 </button>
-                                <a class="text-gray ml-3" href="{{ route('login') }}">
+                                <a class="text-white ml-3 btn btn-primary" href="{{ route('login') }}">
                                     Login
                                 </a>
                             </div>
