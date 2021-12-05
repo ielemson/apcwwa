@@ -22,24 +22,27 @@
                         <div class="contact-info-box">
                             <i class="flaticon-location-pin"></i>
                             <strong>Our Location</strong>
-                            <span>(800) 123 456 789 / (800) 123 456 789</span>
-                            <a href="#" title="">info@example.com</a>
+                            <span>#11 Ngwa Close, Off Fumilayo Ransome Kuti Way, 
+                             </span>
+                            <a href="#" title="">Area 3 Garki, FCT- Abuja.</a>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6 col-lg-4">
                         <div class="contact-info-box">
                             <i class="flaticon-call"></i>
                             <strong>Contact us Anytime</strong>
-                            <span>Mobile: 012 345 678</span>
-                            <span>Fax: 123 456 789</span>
+                            <span>Mobile: 0703-151-4509</span>
+                            <span>0803-453-1635</span>
+                            <span>0802-275-5235</span>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6 col-lg-4">
                         <div class="contact-info-box">
                             <i class="flaticon-email"></i>
                             <strong>Write Some Words</strong>
-                            <a href="#" title="">Support24/7@example.com</a>
-                            <a href="#" title="">info@example.com</a>
+                            <a href="#" title="">Apcward2wardambassadors@gmail.com</a>
+                            <a href="#" title="">info@apcwwa.com</a>
+                            <a href="#" title="">support@apcwwa.com</a>
                         </div>
                     </div>
                 </div>
@@ -49,7 +52,7 @@
 </section>
 <section>
     <div class="gap no-gap">
-        <div class="contact-loc" id="contact-loc"></div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4800262.283237964!2d6.067591849541853!3d8.887278280575119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0baf7da48d0d%3A0x99a8fe4168c50bc8!2sNigeria!5e0!3m2!1sen!2sng!4v1638711264187!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 </section>
 <section>

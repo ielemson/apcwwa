@@ -12,7 +12,7 @@
         </form>
     </div>
     <div class="lg-mn">
-        <div class="logo"><a href="index-2.html" title="Logo"><img src="/frontend/images/logo2.png" alt="logo2.png"></a></div>
+        <div class="logo"><a href="{{url('/')}}" title="Logo"><img src="/frontend/images/logo/logo2.png" alt="logo" style="height: 8vh"></a></div>
         <div class="rspn-cnt">
             <span><i class="fa fa-envelope thm-clr"></i><a href="#" title="">info@apcwwa.com</a></span>
             <span><i class="fa fa-phone thm-clr"></i>+(00) 123-345-11</span>
@@ -29,7 +29,12 @@
                 
             </li>
             <li><a href="event.html" title="">Event</a></li>
-            <li><a href="crowd-funding.html" title="">Donate</a></li>
+            <li class="menu-item-has-children"><a href="#" title="">Account</a>
+                <ul>
+                    <li><a href="{{route('login')}}" title="">Login</a></li>
+                    <li><a href="{{route('register')}}" title="">Register</a></li>
+                </ul>
+            </li>
             <li><a href="{{url('/about-us')}}" title="">About</a></li>
             <li><a href="{{url('/contact-us')}}" title="">Contact</a></li>
         </ul>
