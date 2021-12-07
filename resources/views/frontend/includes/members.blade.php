@@ -1,83 +1,73 @@
-<section class = "team-green-block">
-    <div class="gap thm-layer opc95">
-        <div class="fixed-bg ptrn-bg" style="background-image: url(/frontend/images/pattern-bg.jpg);"></div>
-        <div class="container">
-            <div class="sec-title2 text-center">
-                <div class="sec-title-inner2">
-                    {{-- <span>Our Members</span> --}}
-                    <h3>Our Zonal And State Cordinators</h3>
+
+ <section class = "team-green-block">
+            <div class="gap thm-layer opc95">
+                <div class="fixed-bg ptrn-bg" style="background-image: url(frontend/images/pattern-bg.jpg);"></div>
+                <div class="container">
+                    <div class="sec-title2 text-center">
+                        <div class="sec-title-inner2">
+                            <h3>Our Zonal And State Cordinators</h3>
+                        </div>
+                    </div>
+                    <div class="team-wrap text-center remove-ext3">
+                        <div class="">
+                         <div >
+            <div class="owl-carousel owl-carousel-members owl-theme">
+               <div>
+                  <div class="card text-center">
+                     <img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+                     <div class="card-body">
+                        <h5>Ronne Galle <br />
+                           <span> Project Manager </span>
+                        </h5>
+                        <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                           impedit quo minus id quod maxime placeat ” 
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <div class="card text-center">
+                     <img class="card-img-top" src="https://images.unsplash.com/photo-1588361035994-295e21daa761?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=301&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=301" alt="">
+                     <div class="card-body">
+                        <h5>Missy Limana<br />
+                           <span> Engineer </span>
+                        </h5>
+                        <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                           impedit quo minus id quod maxime placeat ” 
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <div class="card text-center">
+                     <img class="card-img-top" src="https://images.unsplash.com/photo-1575377222312-dd1a63a51638?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=302&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=302" alt="">
+                     <div class="card-body">
+                        <h5>Martha Brown<br />
+                           <span> Project Manager </span>
+                        </h5>
+                        <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                           impedit quo minus id quod maxime placeat ” 
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <div class="card text-center">
+                     <img class="card-img-top" src="https://images.unsplash.com/photo-1549836938-d278c5d46d20?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=303&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=303" alt="">
+                     <div class="card-body">
+                        <h5>Hanna Lisem<br />
+                           <span> Project Manager </span>
+                        </h5>
+                        <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                           impedit quo minus id quod maxime placeat ” 
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+                        </div>
+                    </div><!-- Team Wrap -->
                 </div>
             </div>
-            <div class="team-wrap text-center remove-ext3">
-                <div class="row">
-
-                    <div class="col-md-3 col-sm-6 col-lg-3 fadeIn" data-wow-duration=".8s" data-wow-delay=".2s">
-                        <div class="team-box2">
-                            <img src="/frontend/images/resources/team-img2-1.jpg" alt="team-img2-1.jpg">
-                            <div class="team-info2">
-                                <h4>Joe Amaka</h4>
-                                <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to.</p>
-                                <div class="team-scl">
-                                    <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest-p"></i></a>
-                                    <a href="#" title="Google Plus" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6 col-lg-3 fadeIn" data-wow-duration=".8s" data-wow-delay=".3s">
-                        <div class="team-box2">
-                            <img src="/frontend/images/resources/team-img2-2.jpg" alt="team-img2-2.jpg">
-                            <div class="team-info2">
-                                <h4>Umair</h4>
-                                <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to.</p>
-                                <div class="team-scl">
-                                    <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest-p"></i></a>
-                                    <a href="#" title="Google Plus" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6 col-lg-3 fadeIn" data-wow-duration=".8s" data-wow-delay=".4s">
-                        <div class="team-box2">
-                            <img src="/frontend/images/resources/team-img2-3.jpg" alt="team-img2-3.jpg">
-                            <div class="team-info2">
-                                <h4>Fatima</h4>
-                                <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to.</p>
-                                <div class="team-scl">
-                                    <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest-p"></i></a>
-                                    <a href="#" title="Google Plus" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6 col-lg-3 fadeIn" data-wow-duration=".8s" data-wow-delay=".5s">
-                        <div class="team-box2">
-                            <img src="/frontend/images/resources/team-img2-4.jpg" alt="team-img2-4.jpg">
-                            <div class="team-info2">
-                                <h4>Ammara</h4>
-                                <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to.</p>
-                                <div class="team-scl">
-                                    <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest-p"></i></a>
-                                    <a href="#" title="Google Plus" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <!-- Team Wrap -->
-        </div>
-    </div>
-</section>
+        </section>

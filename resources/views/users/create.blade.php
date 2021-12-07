@@ -25,12 +25,35 @@
                                 </div>
                             </div>
                             <div class="row">
+                            
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         {{ Form::label('phone_number', 'Phone number', ['class' => 'form-control-label']) }}
                                         {{ Form::text('phone_number', null, ['class' => 'form-control']) }}
                                     </div>
                                 </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        {{ Form::label('user_post', 'User post', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('post', null, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        {{ Form::label('user_state', 'User state', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('state', null, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        {{ Form::label('user_info', 'User info', ['class' => 'form-control-label']) }}
+                                        {{ Form::textarea('about', null, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         {{ Form::label('profile_photo', 'Photo', ['class' => 'form-control-label']) }}

@@ -33,6 +33,27 @@
                                         {{ Form::text('phone_number', $user->phone_number, ['class' => 'form-control']) }}
                                     </div>
                                 </div>
+
+                                 <div class="col-lg-6">
+                                    <div class="form-group">
+                                        {{ Form::label('user_post', 'User post', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('post', $user->post, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        {{ Form::label('user_state', 'User state', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('state', $user->state, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        {{ Form::label('user_info', 'User info', ['class' => 'form-control-label']) }}
+                                        {{ Form::textarea('about', $user->about, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         {{ Form::label('profile_photo', 'Photo', ['class' => 'form-control-label d-block']) }}

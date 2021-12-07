@@ -1,6 +1,5 @@
 $(function() {
 
-
     $('.slide-one-item').owlCarousel({
         center: false,
         autoplayHoverPause: true,
@@ -21,16 +20,15 @@ $(function() {
 
 
 
-
-
 (function () {
   "use strict";
 
   var carousels = function () {
-    $(".owl-carousel1").owlCarousel({
+    $(".owl-carousel-members").owlCarousel({
       loop: true,
+      autoplay:true,
       center: true,
-      margin: 0,
+      margin: 4,
       responsiveClass: true,
       nav: false,
       responsive: {
@@ -45,7 +43,7 @@ $(function() {
         },
         1000: {
           items: 3,
-          nav: true
+          nav: false
         }
       }
     });
@@ -56,5 +54,38 @@ $(function() {
   })(jQuery);
 })();
 
+(function () {
+  "use strict";
+
+  var carousels = function () {
+    $(".owl-carousel1").owlCarousel({
+      loop: true,
+      autoplay:true,
+      center: true,
+      margin: 4,
+      responsiveClass: true,
+      nav: false,
+      responsive: {
+        0: {
+          items: 1,
+          nav: false
+        },
+        680: {
+          items: 2,
+          nav: false,
+          loop: false
+        },
+        1000: {
+          items: 3,
+          nav: false
+        }
+      }
+    });
+  };
+
+  (function ($) {
+    carousels();
+  })(jQuery);
+})();
 
 

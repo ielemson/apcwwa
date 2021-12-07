@@ -17,9 +17,12 @@ use Illuminate\Support\Facades\Auth;
 //     return redirect()->route('home');
 // });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'HomeController@welcome')->name('welcome');
+
 Route::get('/contact-us', function () {
     return view('frontend.contactus');
 });

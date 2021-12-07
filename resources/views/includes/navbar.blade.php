@@ -67,6 +67,35 @@
 
                     @endcan
 
+                    @canany(['view-state', 'create-state'])
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('state*')) ? 'active' : '' }}" href="#navbar-state"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-category">
+                                <i class="fas text-primary fa-list-alt"></i>
+                                <span class="nav-link-text">Manage State</span>
+                            </a>
+                            <div class="collapse" id="navbar-state">
+                                <ul class="nav nav-sm flex-column">
+                                 @can('view-state')
+                                    <li class="nav-item">
+                                        <a href="{{route('category.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">All States</span></a>
+                                    </li>
+                                    @endcan
+                                    @can( 'create-state')
+                                    <li class="nav-item">
+                                        <a href="{{route('category.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New State</span></a>
+                                    </li>
+                                    @endcan
+                                    @can( 'create-state')
+                                    <li class="nav-item">
+                                        <a href="{{route('category.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New LGA</span></a>
+                                    </li>
+                                    @endcan
+                                </ul>
+                            </div>
+                        </li>
+
+                    @endcan
+
                     @canany(['view-post', 'create-post'])
 
                         <li class="nav-item">
