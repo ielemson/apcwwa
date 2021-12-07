@@ -143,6 +143,31 @@
                         </li>
                     @endcan
 
+                       @canany(['view-user', 'create-user'])
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('users*')) ? 'active' : '' }}" href="#navbar-desk"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-users">
+                                <i class="fas text-primary fa-tasks"></i>
+                                <span class="nav-link-text">Manage Desk</span>
+                            </a>
+                            <div class="collapse" id="navbar-desk">
+                                <ul class="nav nav-sm flex-column">
+                                 @can('view-user')
+                                    <li class="nav-item">
+                                        <a href="{{route('desk.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">All Desks</span></a>
+                                    </li>
+                                    @endcan
+                                    @can( 'create-user')
+                                    <li class="nav-item">
+                                        <a href="{{route('desk.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New Desk</span></a>
+                                    </li>
+                                    @endcan
+
+                                </ul>
+                            </div>
+                        </li>
+                    @endcan
+
                     @canany(['view-permission', 'create-permission'])
                         <li class="nav-item">
                             <a class="nav-link {{ (request()->is('permissions*')) ? 'active' : '' }}" href="{{route('permissions.index')}}">

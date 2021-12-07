@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
 
 
     Route::resource('users', 'UserController');
+    Route::resource('desk', 'DeskController');
 
     Route::get('/profile/{user}', 'UserController@profile')->name('profile.edit');
 
