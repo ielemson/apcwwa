@@ -1,0 +1,10 @@
+<script src="/frontend/boostrap/js/jquery.min.js"></script>
+<script src="/frontend/boostrap/js/bootstrap.min.js"></script>
+<script src="/frontend/boostrap/js/downCount.js"></script>
+<script src="/frontend/boostrap/js/fancybox.min.js"></script>
+<script src="/frontend/boostrap/js/isotope.pkgd.min.js"></script>
+<script src="/frontend/boostrap/js/perfectscrollbar.min.js"></script>    
+<script src="/frontend/boostrap/js/wow.min.js"></script>
+<script src="/frontend/boostrap/js/owl.carousel.min.js"></script>
+<script src="/frontend/boostrap/js/jquery.circliful.min.js"></script>
+<script src="/frontend/boostrap/js/custom-scripts.js"></script>

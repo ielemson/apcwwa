@@ -9,15 +9,13 @@
 
 {{-- @include('frontend.includes.contactusform') --}}
 
-@include('frontend.includes.slider')
+@include('frontend.includes.main_slider')
 
 @include('frontend.includes.desk')
 
 @include('frontend.includes.members')
 
 @include('frontend.includes.diaspora')
-
-
 
 
 <section>
@@ -101,7 +99,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-lg-4">
-                    <div class="fea-itm" style="background-image: url(/frontend/images/resources/fea-img2.jpg);">
+                    <div class="fea-itm" style="background-image: url(/frontend/images/slider/apc.jpeg);">
                         <i class="flaticon-museum"></i>
                         <div class="fea-info2">
                             <h4>Our Academies</h4>
@@ -263,7 +261,7 @@
 
 <section>
     <div class="gap thm-layer opc9">
-        <div class="fixed-bg" style="background-image: url(/frontend/images/parallax7.jpg);"></div>
+        <div class="fixed-bg" style="background-image: url(/frontend/images/slider/slider-5.jpeg);"></div>
         <div class="container">
             <div class="nwsltr-wrp text-center">
                 <div class="nwsltr-innr">
