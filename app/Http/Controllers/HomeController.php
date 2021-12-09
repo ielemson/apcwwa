@@ -43,4 +43,13 @@ class HomeController extends Controller
 
         return view('welcome',compact('state_cordinator','diaspora_network_chapter','desk'));
     }
+
+    public function dnc(){
+
+        $dncs = User::whereHas('roles', function ($query) {
+            return $query->where('name', 'dnc');
+        })->get();
+
+        return view('frontend.dnc',compact('dncs'));
+    }
 }

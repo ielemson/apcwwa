@@ -34,6 +34,7 @@
     {{-- From  Desk Style Ends --}}
 
     @include('frontend.includes.head')
+    @yield('styles')
     <link rel="stylesheet" href="{{asset('frontend/css/slides.css')}}">
     
 </head>

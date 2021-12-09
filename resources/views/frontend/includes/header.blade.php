@@ -10,7 +10,7 @@
                     
                     </li>
                     <li><a href="#" title="">36 States And The FCT</a> </li>
-                    <li><a href="#" title="">Diaspora Network Coordinate</a> </li>
+                    <li><a href="{{route('dnc')}}" title="">Diaspora Network Coordinate</a> </li>
                     <li><a href="event.html" title="">Event</a></li>
                     {{-- <li class="menu-item-has-children"><a href="#" title="">Account</a>
                         <ul>

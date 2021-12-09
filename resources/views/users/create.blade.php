@@ -49,10 +49,18 @@
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
+                                        {{ Form::label('user_base', 'User base', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('base', null, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-6">
+                                    <div class="form-group">
                                         {{ Form::label('user_info', 'User info', ['class' => 'form-control-label']) }}
                                         {{ Form::textarea('about', null, ['class' => 'form-control']) }}
                                     </div>
                                 </div>
+                               
 
                                 <div class="col-lg-6">
                                     <div class="form-group">

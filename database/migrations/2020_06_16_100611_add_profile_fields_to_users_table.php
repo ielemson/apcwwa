@@ -15,6 +15,7 @@ class AddProfileFieldsToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('phone_number')->after('email')->nullable();
+            $table->text('about')->after('phone')->nullable();
             $table->string('profile_photo')->after('phone_number')->nullable();
             $table->string('post')->after('profile_photo')->nullable();
             $table->boolean('status')->default(0);

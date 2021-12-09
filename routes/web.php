@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Auth;
 // });
 
 Route::get('/', 'HomeController@welcome')->name('welcome');
+Route::get('/dnc', 'HomeController@dnc')->name('dnc');
 
 Route::get('/contact-us', function () {
     return view('frontend.contactus');
