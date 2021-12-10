@@ -1,13 +1,13 @@
 <section class ="owl-curve-green">
     <div class="gap no-gap">
         <div class="featured-area-wrap text-center">
-            <a class="contact-btn" href="#" title=""><i class="flaticon-comment"></i>Contact Us</a>
+            {{-- <a class="contact-btn" href="#" title=""><i class="flaticon-comment"></i>Contact Us</a> --}}
             <div class="featured-area2 owl-carousel">
                 <div class="featured-item style2" style="background-image: url(frontend/images/slider/slider-1.jpg);">
                     <div class="featured-cap">
                   
-                        <h3>APCWWA</h3>
-                        <span>APC Ward To Ward Ambassadors</span>
+                        <h3>Our Core Principle</h3>
+                        <span>We do not root for any individual. We root for the institution of Party and Government.</span>
                        
                     </div>
                 </div>

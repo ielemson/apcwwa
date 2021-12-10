@@ -9,9 +9,9 @@
 
 {{-- @include('frontend.includes.contactusform') --}}
 
-@include('frontend.includes.main_slider')
+@include('frontend.includes.slider')
 
-@include('frontend.includes.desk')
+@include('frontend.includes.zonalslider')
 
 @include('frontend.includes.members')
 

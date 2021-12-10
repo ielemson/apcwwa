@@ -19,8 +19,9 @@
                      <img class="card-img-top" style="max-height:35vh; width:100%" src="{{$member->profile_photo}}" alt="">
                      <div class="card-body">
                         <h5>{{$member->name}}<br />
-                           <span>{{$member->post}}</span>
-                        </h5>
+                        {{-- <strong>{{$member->post}}</strong> --}}
+                        {{-- <br/> --}}
+                        <h6>{{$member->state}}</h6>
                         
                      </div>
                   </div>
