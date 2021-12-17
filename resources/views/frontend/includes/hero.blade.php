@@ -2,7 +2,7 @@
 
 <section>
     <div class="gap remove-bottom black-layer2 opc85">
-        <div class="fixed-bg" style="background-image: url(frontend/images/parallax14.jpg);"></div>
+        <div class="fixed-bg" style="background-image: url(/frontend/images/parallax14.jpg);"></div>
         <div class="container">
             <div class="page-title-wrap">
                 <h1 class="text-white">{{$header1Text ?? ''}}</h1>

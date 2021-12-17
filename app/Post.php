@@ -10,6 +10,7 @@ class Post extends Model
     use LogsActivity;
     protected $fillable = [
         'post_title',
+        'post_slug',
         'post_body',
         'featured_image',
         'status',

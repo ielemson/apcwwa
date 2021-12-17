@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use App\User;
 use App\Desk;
+use App\Post;
 class HomeController extends Controller
 {
     /**
@@ -51,5 +53,25 @@ class HomeController extends Controller
         })->get();
 
         return view('frontend.dnc',compact('dncs'));
+    }
+
+    public function events(){
+
+        $posts = Post::where('status',1)
+                        ->orderBy('id', 'asc')
+                        ->get();
+        return view('frontend.events',compact('posts'));
+    }
+
+    public function event($slug){
+
+        $post = Post::where('post_slug',$slug)->first();
+         $categories = Category::with('posts')->get();
+
+          $latest_posts = Post::where('status',1)
+         ->orderBy('id', 'asc')
+         ->limit(4)->get();
+
+        return view('frontend.event',compact('post','categories','latest_posts'));
     }
 }

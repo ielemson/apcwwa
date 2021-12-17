@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Requests\PostRequest;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -55,7 +56,8 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $request->merge(['user_id' => Auth::user()->id]);
+        $slug = Str::slug($request->post_title.'-'.Str::random(5), '-');
+        $request->merge(['user_id' => Auth::user()->id,'post_slug' =>$slug]);
         $post = $request->except('featured_image');
         if ($request->featured_image) {
             $post['featured_image'] = parse_url($request->featured_image, PHP_URL_PATH);
