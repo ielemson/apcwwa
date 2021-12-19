@@ -77,12 +77,12 @@
                                 <ul class="nav nav-sm flex-column">
                                  @can('view-state')
                                     <li class="nav-item">
-                                        <a href="{{route('category.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">All States</span></a>
+                                        <a href="{{route('state.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">All States</span></a>
                                     </li>
                                     @endcan
                                     @can( 'create-state')
                                     <li class="nav-item">
-                                        <a href="{{route('category.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New State</span></a>
+                                        <a href="{{route('state.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New State</span></a>
                                     </li>
                                     @endcan
                                     @can( 'create-state')

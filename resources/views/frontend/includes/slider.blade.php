@@ -35,3 +35,51 @@
   </a>
 </div>
 </div>
+
+@section('styles')
+<style>
+  #header {
+    width: 100%;
+    height: 90vh;
+  }
+  #header .carousel {
+    height: 100%;
+  }
+  #header .carousel .carousel-inner {
+    height: 100%;
+  }
+  #header .carousel .carousel-inner .carousel-item {
+    height: 100%;
+  }
+  #header .carousel .carousel-inner .carousel-item .title {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+      padding: 10px;
+      color: #fff !important;
+      position: absolute;
+      text-align: center;
+      width: auto;
+      left: 50%;
+      top: 60%;
+      transform: translate(-50%, -50%);
+  }
+  #header .carousel .carousel-inner .carousel-item .title h1 {
+    font-size: 3vw;
+    color:#fff;
+  }
+  .ext{
+    color:;
+    font-size:1.5vw;
+  }
+  #header .carousel .carousel-inner .carousel-item .title .animated {
+    animation-duration: 1.3s;
+    animation-delay: 0.5s;
+  }
+  #header .carousel .carousel-inner .carousel-item img {
+    object-fit: cover;
+    height: 100%;
+  }
+  
+  
+      </style>
+@endsection

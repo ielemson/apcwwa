@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->text('post_body');
             $table->string('featured_image');
             $table->boolean('status')->default(0);
-            $table->foreignId('category_id')->nullable()
+            $table->foreignId('category_id')
                     ->constrained()
                     ->onDelete('cascade');
             $table->foreignId('user_id')

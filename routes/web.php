@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WardController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -47,7 +48,16 @@ Route::group(['middleware' => ['auth','verified']], function () {
 
 
     Route::resource('users', 'UserController');
+
     Route::resource('desk', 'DeskController');
+
+    Route::resource('lga', 'LGAController');
+
+    Route::resource('state', 'StateController');
+
+    Route::resource('ward','WardController');
+
+    Route::post('getLga','LGAController@getLga')->name('getLga');
 
     Route::get('/profile/{user}', 'UserController@profile')->name('profile.edit');
 

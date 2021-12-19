@@ -33,53 +33,8 @@
 
     {{-- @include('frontend.includes.head') --}}
     @yield('styles')
-
     <link rel="stylesheet" href="{{asset('frontend/css/slides.css')}}">
-    <style>
-#header {
-  width: 100%;
-  height: 90vh;
-}
-#header .carousel {
-  height: 100%;
-}
-#header .carousel .carousel-inner {
-  height: 100%;
-}
-#header .carousel .carousel-inner .carousel-item {
-  height: 100%;
-}
-#header .carousel .carousel-inner .carousel-item .title {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    padding: 10px;
-    color: #fff !important;
-    position: absolute;
-    text-align: center;
-    width: auto;
-    left: 50%;
-    top: 60%;
-    transform: translate(-50%, -50%);
-}
-#header .carousel .carousel-inner .carousel-item .title h1 {
-  font-size: 3vw;
-  color:#fff;
-}
-.ext{
-  color:;
-  font-size:1.5vw;
-}
-#header .carousel .carousel-inner .carousel-item .title .animated {
-  animation-duration: 1.3s;
-  animation-delay: 0.5s;
-}
-#header .carousel .carousel-inner .carousel-item img {
-  object-fit: cover;
-  height: 100%;
-}
 
-
-    </style>
 </head>
 <body>
     <main>
@@ -104,7 +59,8 @@
     </main>
     <!-- Main Wrapper -->
 
-  <script src="{{asset('frontend/js/jquery.min.js')}}"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  {{-- <script src="{{asset('frontend/js/jquery.min.js')}}"></script> --}}
     <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('frontend/js/downCount.js')}}"></script>
     <script src="{{asset('frontend/js/fancybox.min.js')}}"></script>
@@ -115,12 +71,12 @@
  
   
     {{-- From the desk starts--}}
-    <script src="{{asset('frontend/js/popper.j')}}s"></script>
-    <script src="/frontend/js/bootstrap.min.js"></script>
+    {{-- <script src="{{asset('frontend/js/popper.j')}}s"></script> --}}
+    {{-- <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script> --}}
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'></script>
     <script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('frontend/js/main.js')}}"></script>
     {{-- From the desk ends--}}
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'></script>
     @include('frontend.includes.foot')
     {{-- <script src="{{asset('frontend/js/main.js')}}"></script>  --}}
 </body>	

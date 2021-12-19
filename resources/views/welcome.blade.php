@@ -78,49 +78,49 @@
     </div>
 </section>
 <section>
-    <div class="gap remove-gap three-block-section">
-        <div class="sec-title2 text-center">
-            <div class="sec-title-inner2">
-                <span>PRESENT TO YOU</span>
-                <h3>What We Do</h3>
-            </div>
-            <p>Our insitutions running all over the country providing facilities and help in every area of life including education counselling hadees classes and health facilites</p>
+<div class="gap remove-gap three-block-section">
+    <div class="sec-title2 text-center">
+        <div class="sec-title-inner2">
+            <span>PRESENT TO YOU</span>
+            <h3>What We Do</h3>
         </div>
-        <div class="fea-car text-center">
-            <div class="row mrg">
-                <div class="col-md-4 col-sm-6 col-lg-4">
-                    <div class="fea-itm" style="background-image: url(/frontend/images/resources/fea-img1.jpg);">
-                        <i class="flaticon-reading-quran"></i>
-                        <div class="fea-info2">
-                            <h4>Hadees Class</h4>
-                            <p>Along with quran teachings we are giving classes of Ahadees, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
-                            <a href="#" title="">Read More</a>
-                        </div>
+        <p>Our insitutions running all over the country providing facilities and help in every area of life including education counselling hadees classes and health facilites</p>
+    </div>
+    <div class="fea-car text-center">
+        <div class="row mrg">
+            <div class="col-md-4 col-sm-6 col-lg-4">
+                <div class="fea-itm" style="background-image: url(/frontend/images/resources/fea-img1.jpg);">
+                    <i class="flaticon-reading-quran"></i>
+                    <div class="fea-info2">
+                        <h4>Hadees Class</h4>
+                        <p>Along with quran teachings we are giving classes of Ahadees, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+                        <a href="#" title="">Read More</a>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 col-lg-4">
-                    <div class="fea-itm" style="background-image: url(/frontend/images/slider/apc.jpeg);">
-                        <i class="flaticon-museum"></i>
-                        <div class="fea-info2">
-                            <h4>Our Academies</h4>
-                            <p>Our academies and insitutes spread all over regions with 100+ locations, adipi sicing elit, sed do eiusmod tempor</p>
-                            <a href="#" title="">Read More</a>
-                        </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-lg-4">
+                <div class="fea-itm" style="background-image: url(/frontend/images/slider/apc.jpeg);">
+                    <i class="flaticon-museum"></i>
+                    <div class="fea-info2">
+                        <h4>Our Academies</h4>
+                        <p>Our academies and insitutes spread all over regions with 100+ locations, adipi sicing elit, sed do eiusmod tempor</p>
+                        <a href="#" title="">Read More</a>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 col-lg-4">
-                    <div class="fea-itm" style="background-image: url(/frontend/images/resources/fea-img3.jpg);">
-                        <i class="flaticon-heart-1"></i>
-                        <div class="fea-info2">
-                            <h4>Counselling</h4>
-                            <p>Along with quran teachings we are giving classes of Ahadees, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
-                            <a href="#" title="">Read More</a>
-                        </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-lg-4">
+                <div class="fea-itm" style="background-image: url(/frontend/images/resources/fea-img3.jpg);">
+                    <i class="flaticon-heart-1"></i>
+                    <div class="fea-info2">
+                        <h4>Counselling</h4>
+                        <p>Along with quran teachings we are giving classes of Ahadees, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+                        <a href="#" title="">Read More</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </section>
 
 <section>
@@ -256,8 +256,6 @@
         </div>
     </div>
 </section>
-
-
 
 <section>
     <div class="gap thm-layer opc9">
