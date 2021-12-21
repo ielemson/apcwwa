@@ -1,7 +1,6 @@
 <section class="ftco-section">
     <div class="container">
         <div class="row">
-            
             <div class="col-md-12">
                 <div class="featured-carousel owl-carousel">
                     @foreach ($desk as $user)

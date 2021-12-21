@@ -85,9 +85,35 @@
                                         <a href="{{route('state.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New State</span></a>
                                     </li>
                                     @endcan
+                                    {{-- @can( 'create-state')
+                                    <li class="nav-item">
+                                        <a href="{{route('state.activity')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">State Activities</span></a>
+                                    </li>
+                                    @endcan --}}
+                                </ul>
+                            </div>
+                        </li>
+
+                    @endcan
+
+                    @canany(['view-state', 'create-state'])
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('state*')) ? 'active' : '' }}" href="#navbar-state-activity"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-state-activity">
+                                <i class="fas text-primary fa-list-alt"></i>
+                                <span class="nav-link-text">Manage State Events</span>
+                            </a>
+                            <div class="collapse" id="navbar-state-activity">
+                                <ul class="nav nav-sm flex-column">
+                                 
+                                    @can( 'view-state')
+                                    <li class="nav-item">
+                                        <a href="{{route('state-event.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">State Events</span></a>
+                                    </li>
+                                    @endcan
+                                 
                                     @can( 'create-state')
                                     <li class="nav-item">
-                                        <a href="{{route('category.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New LGA</span></a>
+                                        <a href="{{route('state-event.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Create State Events</span></a>
                                     </li>
                                     @endcan
                                 </ul>

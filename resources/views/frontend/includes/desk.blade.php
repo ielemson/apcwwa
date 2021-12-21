@@ -7,11 +7,13 @@
                 <div class="owl-carousel slide-one-item">
         @foreach ($desk as $user)
             
-             <div class="d-md-flex testimony-29101 align-items-stretch">
+             <div class="d-md-flex testimony-29101 align-items-stretch" style="height:auto">
                       <div class="image" style="background-image: url('{{$user->user_photo}}');"></div>
                       <div class="col-md-6 col-sm-12 col-lg-6">
                         <div class="hstry-desc">
-                            <span>From the desk of the {{$user->post}}</span>
+                            <span>
+                                <h4>From the desk of the {{$user->post}}</h4>
+                            </span>
                             <h2>{{$user->name}}</h2>
                             <p>
                             {{$user->speech}}

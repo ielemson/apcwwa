@@ -19,4 +19,8 @@ class LGA extends Model
     {
         return $this->belongsTo('App\Ward');
     }
+
+    public function stateActivity(){
+        return $this->belongsTo('App\StateActivity','lga_id');
+    }
 }

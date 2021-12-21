@@ -13,8 +13,18 @@ class State extends Model
         return $this->hasMany('App\LGA');
     }
 
+    public function lga()
+    {
+        return $this->hasOne('App\LGA','lga_id');
+    }
+
     public function wards()
     {
         return $this->hasMany('App\Ward');
+    }
+
+    public function state_events()
+    {
+        return $this->hasMany('App\StateActivity');
     }
 }

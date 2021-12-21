@@ -41,9 +41,19 @@
                                 </div>
 
                                 <div class="col-lg-6">
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         {{ Form::label('user_state', 'User state', ['class' => 'form-control-label']) }}
                                         {{ Form::text('state', null, ['class' => 'form-control']) }}
+                                    </div> --}}
+                                    <div class="form-group">
+                                        <label for="user_state" class="form-control-label">Select State</label>
+                                        <select class="form-control" name="state" id="state">
+                                            <option>Select States</option>
+                                            
+                                            @foreach ($states as $state)
+                                            <option value="{{$state->id}}">{{$state->name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
 

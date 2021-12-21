@@ -1,4 +1,4 @@
-@include('frontend.includes.header')
+@include('partials.header')
 
 <section>
     <div class="gap remove-bottom black-layer2 opc85">

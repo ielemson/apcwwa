@@ -16,6 +16,7 @@ class Post extends Model
         'status',
         'category_id',
         'user_id',
+        'event_status'
     ];
     protected static $logFillable = true;
     protected static $logName = 'post';

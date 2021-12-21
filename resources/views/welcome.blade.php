@@ -1,7 +1,7 @@
-@extends('layouts.frontend')
+@extends('layouts.master')
 
 @section('header')
-@include('frontend.includes.header')
+@include('partials.header')
 @include('frontend.includes.mobileheader')
 @endsection
 
@@ -9,9 +9,9 @@
 
 {{-- @include('frontend.includes.contactusform') --}}
 
-@include('frontend.includes.slider')
+@include('partials.slider')
 
-@include('frontend.includes.zonalslider')
+@include('frontend.includes.desk')
 
 @include('frontend.includes.members')
 
@@ -123,115 +123,9 @@
 </div>
 </section>
 
-<section>
-    <div class="gap">
-        <div class="container">
-            <div class="evnt-pry-wrap">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-lg-12">
-                        <div class="sec-title">
-                            <div class="sec-title-inner">
-                                <h3><span>Upcoming</span> Events</h3>
-                            </div>
-                            <p>APC Ward To Ward Multiple Events</p>
-                        </div>
-                        <div class="evnt-wrap remove-ext5">
-                            <div class="row mrg20">
+@include('partials.upcomingEvents')
 
-                                <div class="col-md-4 col-sm-12 col-lg-4">
-                                    <div class="evnt-box">
-                                        <div class="evnt-thmb">
-                                            <a href="#" title=""><img src="/frontend/images/resources/evnt-img1.jpg" alt="evnt-img1.jpg"></a>
-                                        </div>
-                                        <div class="evnt-info">
-                                            <h4>apcwwa  Event</h4>
-                                            <ul class="pst-mta">
-                                                <li class="thm-clr">07/10/2020</li>
-                                                <li class="thm-clr">12:00 AM to 02:00 PM</li>
-                                            </ul>
-                                            <p>Giviing hope to all children</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-4 col-sm-12 col-lg-4">
-                                    <div class="evnt-box">
-                                        <div class="evnt-thmb">
-                                            <a href="#" title=""><img src="/frontend/images/resources/evnt-img1.jpg" alt="evnt-img1.jpg"></a>
-                                        </div>
-                                        <div class="evnt-info">
-                                            <h4>apcwwa  Event</h4>
-                                            <ul class="pst-mta">
-                                                <li class="thm-clr">07/10/2020</li>
-                                                <li class="thm-clr">12:00 AM to 02:00 PM</li>
-                                            </ul>
-                                            <p>Giviing hope to all children</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 col-sm-12 col-lg-4">
-                                    <div class="evnt-box">
-                                        <div class="evnt-thmb">
-                                            <a href="#" title=""><img src="/frontend/images/resources/evnt-img1.jpg" alt="evnt-img1.jpg"></a>
-                                        </div>
-                                        <div class="evnt-info">
-                                            <h4>apcwwa  Event</h4>
-                                            <ul class="pst-mta">
-                                                <li class="thm-clr">07/10/2020</li>
-                                                <li class="thm-clr">12:00 AM to 02:00 PM</li>
-                                            </ul>
-                                            <p>Giviing hope to all children</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                               
-
-                                {{-- <div class="col-md-6 col-sm-6 col-lg-6">
-                                    <div class="evnt-box">
-                                        <div class="evnt-thmb">
-                                            <a href="#" title=""><img src="/frontend/images/resources/evnt-img2.jpg" alt="evnt-img2.jpg"></a>
-                                        </div>
-                                        <div class="evnt-info">
-                                            <h4>apcwwa Teaching Event</h4>
-                                            <ul class="pst-mta">
-                                                <li class="thm-clr">10/10/2020</li>
-                                                <li class="thm-clr">12:00 AM to 02:00 PM</li>
-                                            </ul>
-                                            <p>Central masque, New town, Las Vegas MuslimHub Center</p>
-                                        </div>
-                                    </div>
-                                </div> --}}
-                            </div>
-                        </div><!-- Events Wrap -->
-                    </div>
-                    {{-- <div class="col-md-4 col-sm-12 col-lg-4">
-                        <div class="sec-title">
-                            <div class="sec-title-inner">
-                                <h3>Prayer <span>Times</span></h3>
-                            </div>
-                        </div>
-                        <ul class="prayer-times">
-                            <li class="pry-tim-hed"><span>Salat</span><span>Start</span><span>Iqamah</span></li>
-                            <li><span class="thm-clr">Fajar</span><span>03:58 am</span><span>04:45 am</span></li>
-                            <li><span class="thm-clr">Sunrise</span><span>05:31 am</span><span>05:31 am</span></li>
-                            <li><span class="thm-clr">Zuhr</span><span>12:47 pm</span><span>12:47 pm</span></li>
-                            <li><span class="thm-clr">Asr</span><span>05:53 pm</span><span>05:50 pm</span></li>
-                            <li><span class="thm-clr">Maghrib</span><span>08:04 pm</span><span>08:04 pm</span></li>
-                            <li><span class="thm-clr">Isha</span><span>09:37 pm</span><span>09:30 pm</span></li>
-                            <li><span class="thm-clr">Jumu'ah 1</span><span>01:15 pm</span><span>01:15 pm</span></li>
-                        </ul>
-                    </div> --}}
-                </div>
-            </div><!-- Events & Prayer Wrap -->
-        </div>
-    </div>
-</section>
-
-<section>
+{{-- <section>
     <div class="gap top-spac120 white-grad-layer">
         <img class="top-shp shp-img" src="frontend/images/shp2.png" alt="shp2.png">
         <img class="botm-shp shp-img" src="frontend/images/shp3.png" alt="shp3.png">
@@ -255,7 +149,7 @@
             </div><!-- About Wrap -->
         </div>
     </div>
-</section>
+</section> --}}
 
 <section>
     <div class="gap thm-layer opc9">
