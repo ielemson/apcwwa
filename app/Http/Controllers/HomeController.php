@@ -9,6 +9,7 @@ use Spatie\Permission\Models\Role;
 use App\User;
 use App\Desk;
 use App\Post;
+use App\Service;
 use App\State;
 
 class HomeController extends Controller
@@ -49,17 +50,21 @@ class HomeController extends Controller
             return $query->where('name', 'state-cordinator');
         })->get();
 
+
         $diaspora_network_chapter = User::whereHas('roles', function ($query) {
             return $query->where('name', 'diaspora-network-chapter');
         })->get();
+
 
         $desk = Desk::all();
 
         $states = State::all();
 
-        $upcoming_events = Post::where('status',1)->where('event_status','upcoming')->get();
+        $upcoming_events = Post::where('status',1)->where('event_status','upcoming')->paginate(10);
 
-        return view('welcome',compact('state_cordinator','diaspora_network_chapter','desk','states','upcoming_events'));
+        $services = Service::paginate(10);
+
+        return view('welcome',compact('state_cordinator','diaspora_network_chapter','desk','states','upcoming_events','services'));
     }
 
     public function dnc(){
@@ -75,7 +80,7 @@ class HomeController extends Controller
 
         $posts = Post::where('status',1)
                         ->orderBy('id', 'asc')
-                        ->get();
+                        ->paginate(9);
          $states = State::all();
         return view('frontend.events',compact('posts','states'));
     }

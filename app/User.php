@@ -21,7 +21,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone_number', 'profile_photo', 'status','post','state','about','base'];
+        'name', 'email', 'password', 'phone_number', 'profile_photo', 'status','post','state_id','about','base'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -61,5 +61,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function posts()
     {
         return $this->hasMany('App\Post');
+    }
+    
+    public function state(){
+
+        return $this->belongsTo('App\State','state_id');
     }
 }

@@ -62,6 +62,8 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::resource('desk', 'DeskController');
 
     Route::resource('lga', 'LGAController');
+    Route::resource('service', 'ServiceController');
+    Route::resource('slider', 'SliderController');
 
     // Route::get('state/{id}/{lga_id}', 'StateController@edit_data')->name('edit.state.data');
 

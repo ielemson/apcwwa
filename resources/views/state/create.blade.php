@@ -72,7 +72,7 @@
                                         {{ Form::text('lga_name', null, ['class' => 'form-control']) }}
                                     </div> --}}
 
-                            <label for="lga_name" class="form-control-label">State Name</label>
+                            <label for="lga_name" class="form-control-label">LGA Name</label>
 
                             <select class="form-control" name="lga_id" type="text" id="lga">
                                 <option>LGA</option>

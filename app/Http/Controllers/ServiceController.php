@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Desk;
+use App\Service;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class DeskController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +16,8 @@ class DeskController extends Controller
      */
     public function index()
     {
-        $title =  'Manage Desk';
-        $desks = Desk::all();
-        return view('desk.index', compact('title','desks'));
+        $services = Service::all();
+        return view('services.index',compact('services'));
     }
 
     /**
@@ -26,7 +27,7 @@ class DeskController extends Controller
      */
     public function create()
     {
-        return view('desk.create');
+        return view('services.create');
     }
 
     /**
@@ -37,22 +38,25 @@ class DeskController extends Controller
      */
     public function store(Request $request)
     {
-        $userData = $request->all();
-        if ($request->profile_photo) {
-            $userData['user_photo'] = parse_url($request->profile_photo, PHP_URL_PATH);
+        $slug = Str::slug($request->title.'-'.Str::random(5), '-');
+        $request->merge(['slug'=>$slug]);
+        $service = $request->except('featured_image');
+        if ($request->featured_image) {
+            $service['featured_image'] = parse_url($request->featured_image, PHP_URL_PATH);
         }
-        // $user = Desk::create($userData);
-        flash('User created successfully!')->success();
-        return redirect()->route('desk.create');
+
+        Service::create($service);
+        flash('Service created successfully!')->success();
+        return redirect()->route('service.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Desk  $desk
+     * @param  \App\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function show(Desk $desk)
+    public function show(Service $service)
     {
         //
     }
@@ -60,10 +64,10 @@ class DeskController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Desk  $desk
+     * @param  \App\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit(Desk $desk)
+    public function edit(Service $service)
     {
         //
     }
@@ -72,10 +76,10 @@ class DeskController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Desk  $desk
+     * @param  \App\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Desk $desk)
+    public function update(Request $request, Service $service)
     {
         //
     }
@@ -83,10 +87,10 @@ class DeskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Desk  $desk
+     * @param  \App\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Desk $desk)
+    public function destroy(Service $service)
     {
         //
     }

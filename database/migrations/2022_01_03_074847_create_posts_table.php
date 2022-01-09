@@ -16,6 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('post_title', 255);
+            $table->string('post_slug', 255);
             $table->text('post_body');
             $table->string('featured_image');
             $table->enum('event_status', ['upcoming','past'])->default('upcoming');

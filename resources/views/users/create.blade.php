@@ -47,7 +47,7 @@
                                     </div> --}}
                                     <div class="form-group">
                                         <label for="user_state" class="form-control-label">Select State</label>
-                                        <select class="form-control" name="state" id="state">
+                                        <select class="form-control" name="state_id" id="state_id">
                                             <option>Select States</option>
                                             
                                             @foreach ($states as $state)

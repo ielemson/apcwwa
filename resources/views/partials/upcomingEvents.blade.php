@@ -1,5 +1,6 @@
 <section>
     <div class="gap">
+        <div class="fixed-bg" style="background-image: url(/frontend/images/parallax2.jpg);"></div>
         <div class="container">
             <div class="evnt-pry-wrap">
                 <div class="row">
@@ -31,6 +32,12 @@
                                         </div>
                                     </div>
                                     @endforeach
+
+                                    <div class="pagination-wrap text-center mb-2">
+                                        <ul class="pagination">
+                                            {!! $upcoming_events->links() !!}
+                                        </ul>
+                                    </div>
                                 @else
                                     
                                 @endif
