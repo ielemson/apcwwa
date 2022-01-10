@@ -8,20 +8,20 @@
         <div class="card mb-5">
             <div class="card-body">
                 {!! Form::open(['route' => 'state-event.store']) !!}
-                <h6 class="heading-small text-muted mb-4">Add Ward To State And Ward</h6>
+                <h6 class="heading-small text-muted mb-4">Create State Events</h6>
                 <div class="pl-lg-4">
                     <div class="row">
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                             <div class="form-group">
                                 {{ Form::label('event_title', 'Post title', ['class' => 'form-control-label']) }}
                                 {{ Form::text('event_title', null, ['class' => 'form-control']) }}
                             </div>
                         </div>
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                             <div class="form-group">
-                                <label for="state_name" class="form-control-label">State Name</label>
+                                <label for="state_name" class="form-control-label">Select State</label>
                                 <select class="form-control" name="state_id" type="text" id="state">
                                     <option>Select States</option>
                                     @foreach ($states as $state)
@@ -32,22 +32,22 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                          
-                            <label for="lga_name" class="form-control-label">State Name</label>
+                            <label for="lga_name" class="form-control-label">Select LGA</label>
 
                             <select class="form-control" name="lga_id" type="text" id="lga">
                                 <option>LGA</option>
                             </select>
                         </div>
 
-                        <div class="col-lg-3">
+                        {{-- <div class="col-lg-3">
                             <div class="form-group">
                                 {{ Form::label('ward_id', 'Ward Name', ['class' => 'form-control-label']) }}
                                 {{ Form::text('ward_id', null, ['class' => 'form-control']) }}
                             </div>
 
-                        </div>
+                        </div> --}}
 
                         <div class="col-lg-12">
                             <div class="form-group">
@@ -122,6 +122,12 @@
                     }
                 })
             });
+
+            // $('#lga').on('change', function(e) {
+            //     let lga_id = e.target.value;
+            //     let state_id = $('#state').val();
+            //    console.log(state_id);
+            // });
         });
     </script>
 

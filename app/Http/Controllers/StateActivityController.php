@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\LGA;
+use App\Slider;
 use App\State;
 use App\StateActivity;
 use Illuminate\Support\Str;
@@ -48,14 +49,29 @@ class StateActivityController extends Controller
     public function state_events($state){
 
         $state = State::where('name',$state)->first();
+
+        $sliders = Slider::where('state_id',$state->id)->get();
+
+        if(count($sliders)==0){
+            $sliders = Slider::whereNull('state_id')->OrderBy('position','ASC')->get();
+        //    $sliders =  Slider::select("*")
+        //                 ->whereNull('state_id')
+        //                 ->get();
+        }
+
+        // dd($sliders);
+
         $states = State::all();
         $state_events = StateActivity::where('state_id',$state->id)->where('status', '=',1)->with('state')->paginate(6);
-        return view('frontend.stateEvents',compact('state_events','state','states'));
+        return view('frontend.stateEvents',compact('state_events','state','states','sliders'));
     }
 
     public function state_event($state,$slug){
 
         $state = State::where('name',$state)->first();
+        $slider = Slider::where('state_id',$state->id)->get();
+        // dd($slider);
+
         $states = State::all();
         $state_event = StateActivity::where('event_slug',$slug)->with('state')->first();
         $state_events = StateActivity::where('state_id',$state->id)->where('status', '=',1)->with('state')->limit(4)->get();

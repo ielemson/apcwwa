@@ -27,9 +27,9 @@ class CreateStateActivitiesTable extends Migration
             $table->foreignId('lga_id')
                     ->constrained()
                     ->onDelete('cascade');
-            $table->foreignId('ward_id')
-                    ->constrained()
-                    ->onDelete('cascade');
+            // $table->foreignId('ward_id')
+            //         ->constrained()
+            //         ->onDelete('cascade');
 
             $table->timestamps();
         });
