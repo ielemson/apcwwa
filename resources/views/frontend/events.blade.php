@@ -2,7 +2,10 @@
 
 @section('header')
 @include('frontend.includes.mobileheader')
-@include('frontend.includes.hero',['title'=>'Event','header2Text'=>'Contact','header1Text'=>'Event'])
+@php
+    $img = "frontend/images/events.jpg"
+@endphp
+@include('frontend.includes.hero',['title'=>'Events','header2Text'=>'Events','header1Text'=>'Events','img'=>$img])
 @endsection
 
 

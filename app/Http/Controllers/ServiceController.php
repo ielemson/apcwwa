@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Service;
+use App\State;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -58,7 +59,8 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        $states = State::all();
+        return view('frontend.service',compact('service','states'));
     }
 
     /**

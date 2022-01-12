@@ -30,6 +30,7 @@ Route::get('/events', 'HomeController@events')->name('events');
 Route::get('/event/{slug}', 'HomeController@event')->name('event');
 Route::get('events/{state}', 'StateActivityController@state_events')->name('events.state');
 Route::get('event/{state}/{slug}', 'StateActivityController@state_event')->name('event.state');
+Route::get('our-services/{id}','ServiceController@show')->name('our.service');
 
 // Route::get('/contact-us', function () {
 //     return view('frontend.contactus');
@@ -56,11 +57,8 @@ Route::group(['middleware' => ['auth','verified']], function () {
     // Route::post('state/events', 'StateController@events')->name('state.events');
 
     Route::resource('state-event', 'StateActivityController');
-
     Route::resource('users', 'UserController');
-
     Route::resource('desk', 'DeskController');
-
     Route::resource('lga', 'LGAController');
     Route::resource('service', 'ServiceController');
     Route::resource('slider', 'SliderController');
