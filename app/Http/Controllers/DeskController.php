@@ -37,12 +37,12 @@ class DeskController extends Controller
      */
     public function store(Request $request)
     {
-        $userData = $request->all();
+        $deskData = $request->all();
         if ($request->profile_photo) {
-            $userData['user_photo'] = parse_url($request->profile_photo, PHP_URL_PATH);
+            $deskData['user_photo'] = parse_url($request->profile_photo, PHP_URL_PATH);
         }
-        // $user = Desk::create($userData);
-        flash('User created successfully!')->success();
+        Desk::create($deskData);
+        flash('Desk created successfully!')->success();
         return redirect()->route('desk.create');
     }
 
@@ -54,7 +54,7 @@ class DeskController extends Controller
      */
     public function show(Desk $desk)
     {
-        //
+        return view('desk.edit',compact('desk'));
     }
 
     /**
@@ -65,7 +65,7 @@ class DeskController extends Controller
      */
     public function edit(Desk $desk)
     {
-        //
+        return view('desk.edit',compact('desk'));
     }
 
     /**
@@ -77,7 +77,15 @@ class DeskController extends Controller
      */
     public function update(Request $request, Desk $desk)
     {
-        //
+        $deskData = $request->except('user_photo');
+
+        if ($request->user_photo) {
+            $deskData['user_photo'] = parse_url($request->user_photo, PHP_URL_PATH);
+        }
+        $desk->update($deskData);
+        // $user->syncRoles($request->role);
+        flash('Desk updated successfully!')->success();
+        return redirect()->route('desk.index');
     }
 
     /**
@@ -88,6 +96,12 @@ class DeskController extends Controller
      */
     public function destroy(Desk $desk)
     {
-        //
+        // if ($user->id == Auth::user()->id || $user->id ==1) {
+        //     flash('You can not delete logged in user!')->warning();
+        //     return back();
+        // }
+        $desk->delete();
+        flash('Desk deleted successfully!')->info();
+        return back();
     }
 }

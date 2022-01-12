@@ -43,7 +43,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         {{ Form::label('speech', 'Speech', ['class' => 'form-control-label']) }}
-                                        {{ Form::textarea('speech', null, ['class' => 'form-control']) }}
+                                        {{ Form::textarea('speech', null, ['class' => 'form-control', 'id'=>'summernote']) }}
                                     </div>
                                 </div>
                             </div>
@@ -66,11 +66,28 @@
     </div>
 @endsection
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('assets/css/summernote-bs4.min.css') }}">
+@endpush
 @push('scripts')
-    <script src="{{ asset('vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
-    <script>
-        jQuery(document).ready(function(){
-            jQuery('#uploadFile').filemanager('file');
-        })
-    </script>
+<script src="{{ asset('assets/js/summernote-bs4.min.js') }}"></script>
+<script src="{{ asset('vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
+<script>
+    jQuery(document).ready(function() {
+        jQuery('#summernote').summernote({
+            height: 150,
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']]
+              ]
+
+        });
+        jQuery('#uploadFile').filemanager('file');
+    });
+  </script>
 @endpush
