@@ -2,10 +2,8 @@
 
 @section('header')
 @include('frontend.includes.mobileheader')
-@php
-    $stateName = $state->name;
-@endphp
-@include('frontend.includes.hero',['title'=>'Event','header2Text'=>'Events','header1Text'=>"Events In $stateName"])
+
+@include('frontend.includes.state_slider')
 @endsection
 
 @section('content')
