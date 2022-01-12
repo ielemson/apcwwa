@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @push('pg_btn')
-    <a href="{{route('users.index')}}" class="btn btn-sm btn-neutral">All Users</a>
+    <a href="{{route('desk.index')}}" class="btn btn-sm btn-neutral">All Desk</a>
 @endpush
 @section('content')
     <div class="row">
@@ -8,7 +8,7 @@
             <div class="card mb-5">
                 <div class="card-body">
                     {!! Form::open(['route' => 'desk.store', 'files' => true]) !!}
-                    <h6 class="heading-small text-muted mb-4">User information</h6>
+                    <h6 class="heading-small text-muted mb-4">Create Desk</h6>
                         <div class="pl-lg-4">
                             <div class="row">
                                 <div class="col-lg-6">

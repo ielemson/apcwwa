@@ -34,7 +34,16 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    
+                
                                     @endforeach
+
+                                    <div class="pagination-wrap text-center mb-2">
+                                        <ul class="pagination">
+                                            {!! $posts->links() !!}
+                                        </ul>
+                                    </div>
                                 @else
                                 <div class="alert alert-primary col-md-12 col-sm-12 col-lg-12" role="alert">
                                     <h4 class="alert-heading">Heads Up!</h4>

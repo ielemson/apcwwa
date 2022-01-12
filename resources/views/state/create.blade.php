@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @push('pg_btn')
-    <a href="{{ route('category.index') }}" class="btn btn-sm btn-neutral">All States</a>
+    <a href="{{ route('state.index') }}" class="btn btn-sm btn-neutral">All States</a>
 @endpush
 @section('content')
     <div class="row">
@@ -72,7 +72,7 @@
                                         {{ Form::text('lga_name', null, ['class' => 'form-control']) }}
                                     </div> --}}
 
-                            <label for="lga_name" class="form-control-label">State Name</label>
+                            <label for="lga_name" class="form-control-label">LGA Name</label>
 
                             <select class="form-control" name="lga_id" type="text" id="lga">
                                 <option>LGA</option>
@@ -91,12 +91,12 @@
                 </div>
                 <div class="pl-lg-4">
                     <div class="row">
-                        {{-- <div class="col-md-12">
+                        <div class="col-md-12">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" name="status" value="1" class="custom-control-input" id="status">
                                         {{ Form::label('status', 'Status', ['class' => 'custom-control-label']) }}
                                     </div>
-                                </div> --}}
+                                </div>
                         <div class="col-md-12">
                             {{ Form::submit('Submit', ['class' => 'mt-5 btn btn-primary']) }}
                         </div>

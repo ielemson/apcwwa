@@ -15,7 +15,8 @@ class DeskController extends Controller
     public function index()
     {
         $title =  'Manage Desk';
-        return view('desk.index', compact('title'));
+        $desks = Desk::all();
+        return view('desk.index', compact('title','desks'));
     }
 
     /**
@@ -40,7 +41,7 @@ class DeskController extends Controller
         if ($request->profile_photo) {
             $userData['user_photo'] = parse_url($request->profile_photo, PHP_URL_PATH);
         }
-        $user = Desk::create($userData);
+        // $user = Desk::create($userData);
         flash('User created successfully!')->success();
         return redirect()->route('desk.create');
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\State;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -45,8 +46,9 @@ class UserController extends Controller
     public function create()
     {
         $title = 'Create user';
+        $states = State::all();
         $roles = Role::pluck('name', 'id');
-        return view('users.create', compact('roles', 'title'));
+        return view('users.create', compact('roles', 'title','states'));
     }
 
     /**

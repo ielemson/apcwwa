@@ -85,9 +85,35 @@
                                         <a href="{{route('state.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New State</span></a>
                                     </li>
                                     @endcan
+                                    {{-- @can( 'create-state')
+                                    <li class="nav-item">
+                                        <a href="{{route('state.activity')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">State Activities</span></a>
+                                    </li>
+                                    @endcan --}}
+                                </ul>
+                            </div>
+                        </li>
+
+                    @endcan
+
+                    @canany(['view-state', 'create-state'])
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('state-event*')) ? 'active' : '' }}" href="#navbar-state-activity"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-state-activity">
+                                <i class="fas text-primary fa-list-alt"></i>
+                                <span class="nav-link-text">Manage State Events</span>
+                            </a>
+                            <div class="collapse" id="navbar-state-activity">
+                                <ul class="nav nav-sm flex-column">
+                                 
+                                    @can( 'view-state')
+                                    <li class="nav-item">
+                                        <a href="{{route('state-event.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">State Events</span></a>
+                                    </li>
+                                    @endcan
+                                 
                                     @can( 'create-state')
                                     <li class="nav-item">
-                                        <a href="{{route('category.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New LGA</span></a>
+                                        <a href="{{route('state-event.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Create State Events</span></a>
                                     </li>
                                     @endcan
                                 </ul>
@@ -146,7 +172,7 @@
                        @canany(['view-user', 'create-user'])
 
                         <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('users*')) ? 'active' : '' }}" href="#navbar-desk"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-users">
+                            <a class="nav-link {{ (request()->is('desk*')) ? 'active' : '' }}" href="#navbar-desk"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-users">
                                 <i class="fas text-primary fa-tasks"></i>
                                 <span class="nav-link-text">Manage Desk</span>
                             </a>
@@ -160,6 +186,55 @@
                                     @can( 'create-user')
                                     <li class="nav-item">
                                         <a href="{{route('desk.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New Desk</span></a>
+                                    </li>
+                                    @endcan
+
+                                </ul>
+                            </div>
+                        </li>
+                    @endcan
+                       @canany(['view-user', 'create-user'])
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('slider*')) ? 'active' : '' }}" href="#navbar-slider"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-users">
+                                <i class="fas text-primary fa-tasks"></i>
+                                <span class="nav-link-text">Manage Slider</span>
+                            </a>
+                            <div class="collapse" id="navbar-slider">
+                                <ul class="nav nav-sm flex-column">
+                                 @can('view-user')
+                                    <li class="nav-item">
+                                        <a href="{{route('slider.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">All Sliders</span></a>
+                                    </li>
+                                    @endcan
+                                    @can( 'create-user')
+                                    <li class="nav-item">
+                                        <a href="{{route('slider.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New Slider</span></a>
+                                    </li>
+                                    @endcan
+
+                                </ul>
+                            </div>
+                        </li>
+                    @endcan
+
+                       @canany(['view-user', 'create-user'])
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('service*')) ? 'active' : '' }}" href="#navbar-service"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-services">
+                                <i class="fas text-primary fa-tasks"></i>
+                                <span class="nav-link-text">Manage Services</span>
+                            </a>
+                            <div class="collapse" id="navbar-service">
+                                <ul class="nav nav-sm flex-column">
+                                 @can('view-user')
+                                    <li class="nav-item">
+                                        <a href="{{route('service.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">All Services</span></a>
+                                    </li>
+                                    @endcan
+                                    @can( 'create-user')
+                                    <li class="nav-item">
+                                        <a href="{{route('service.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New Service</span></a>
                                     </li>
                                     @endcan
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Config;
 
@@ -42,6 +43,6 @@ class CreateSettingsTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop($this->tablename);
+		Schema::dropIfExists($this->tablename);
 	}
 }

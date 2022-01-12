@@ -9,6 +9,9 @@ use Spatie\Permission\Models\Role;
 use App\User;
 use App\Desk;
 use App\Post;
+use App\Service;
+use App\State;
+
 class HomeController extends Controller
 {
     /**
@@ -31,19 +34,37 @@ class HomeController extends Controller
     }
 
 
+    public function about_us(){
+        $states = State::all();
+        return view('frontend.aboutus',compact('states'));
+    }
+
+    public function contact_us(){
+        $states = State::all();
+        return view('frontend.contactus',compact('states'));
+    }
+
     public function welcome()
     {
         $state_cordinator = User::whereHas('roles', function ($query) {
             return $query->where('name', 'state-cordinator');
         })->get();
 
+
         $diaspora_network_chapter = User::whereHas('roles', function ($query) {
             return $query->where('name', 'diaspora-network-chapter');
         })->get();
 
+
         $desk = Desk::all();
 
-        return view('welcome',compact('state_cordinator','diaspora_network_chapter','desk'));
+        $states = State::all();
+
+        $upcoming_events = Post::where('status',1)->where('event_status','upcoming')->paginate(10);
+
+        $services = Service::paginate(10);
+
+        return view('welcome',compact('state_cordinator','diaspora_network_chapter','desk','states','upcoming_events','services'));
     }
 
     public function dnc(){
@@ -51,27 +72,28 @@ class HomeController extends Controller
         $dncs = User::whereHas('roles', function ($query) {
             return $query->where('name', 'dnc');
         })->get();
-
-        return view('frontend.dnc',compact('dncs'));
+        $states = State::all();
+        return view('frontend.dnc',compact('dncs','states'));
     }
 
     public function events(){
 
         $posts = Post::where('status',1)
                         ->orderBy('id', 'asc')
-                        ->get();
-        return view('frontend.events',compact('posts'));
+                        ->paginate(9);
+         $states = State::all();
+        return view('frontend.events',compact('posts','states'));
     }
 
     public function event($slug){
 
         $post = Post::where('post_slug',$slug)->first();
-         $categories = Category::with('posts')->get();
+        $categories = Category::with('posts')->get();
 
-          $latest_posts = Post::where('status',1)
-         ->orderBy('id', 'asc')
-         ->limit(4)->get();
-
-        return view('frontend.event',compact('post','categories','latest_posts'));
+        $latest_posts = Post::where('status',1)
+                        ->orderBy('id', 'asc')
+                        ->limit(4)->get();
+        $states = State::all();
+        return view('frontend.event',compact('post','categories','latest_posts','states'));
     }
 }

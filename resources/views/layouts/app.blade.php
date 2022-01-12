@@ -6,8 +6,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" href="/frontend/images/logo/logo2.png" sizes="32x32" type="image/png">
+    <title>{{ config('app.name', 'APCWWA') }}</title>
 
     <link rel="stylesheet" href="{{asset('assets/fonts/stylesheet.css')}}">
     <!-- Icons -->

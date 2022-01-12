@@ -2330,14 +2330,7 @@ footer {
   letter-spacing: 0;
 }
 .pagination > li a {
-  height: 33px;
-  color: ;
-  float: left;
-  width: 33px;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  border: 1px solid #d2d2d2;
-  line-height: 33px;
+ 
 }
 .pagination > li.active a, 
 .pagination > li a:hover, 

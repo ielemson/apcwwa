@@ -11,7 +11,7 @@ $(function() {
         autoplay: true,
         pauseOnHover: false,
         dots: true,
-        nav: true,
+        nav: false,
         navText: ['<span class="icon-keyboard_arrow_left">', '<span class="icon-keyboard_arrow_right">']
     });
 

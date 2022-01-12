@@ -117,7 +117,7 @@
                                 <div class="rcnt-wrp">
                                     @foreach ($latest_posts as $latest)
                                     <div class="rcnt-bx">
-                                        <a href="{{route('event',$post->post_slug)}}" ><img src="{{$latest->featured_image}}" alt="" style="width: 100%; max-height:10vh"></a>
+                                        <a href="{{route('event',$post->post_slug)}}" ><img src="{{$latest->featured_image}}" style="width: 100%; max-height:10vh"></a>
                                         <div class="rcnt-inf">
                                             <h6><a href="{{route('event',$latest->post_slug)}}" >{{$latest->post_title}}</a></h6>
                                             <span class="thm-clr"><i class="fa fa-calendar-o"></i>{{ Carbon\Carbon::createFromTimeString($latest->created_at)->format('M d Y') }}</span>
