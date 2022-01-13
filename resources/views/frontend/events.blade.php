@@ -1,13 +1,14 @@
-@extends('layouts.frontend')
+@extends('layouts.master')
 
 @section('header')
+
 @include('frontend.includes.mobileheader')
 @php
     $img = "frontend/images/events.jpg"
 @endphp
 @include('frontend.includes.hero',['title'=>'Events','header2Text'=>'Events','header1Text'=>'Events','img'=>$img])
-@endsection
 
+@endsection
 
 @section('content')
 

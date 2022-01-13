@@ -23,4 +23,9 @@ class LGA extends Model
     public function stateActivity(){
         return $this->belongsTo('App\StateActivity','lga_id');
     }
+
+    public function wards()
+    {
+        return $this->hasMany('App\Ward','lga_id');
+    }
 }

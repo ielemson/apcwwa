@@ -47,7 +47,25 @@ class LGAController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+
+            'state_id'=>'required',
+            'name'=>'required|unique:lgas'
+        ],
+        [
+            'name.required'=>'LGA name is required',
+            'name.unique'=>$request->name.' '.'exists in our collection',
+            'state_id.required'=>'State name is required'
+        ]
+        );
+
+        $lga = new LGA();
+        $lga->name = $request->name;
+        $lga->state_id = $request->state_id;
+        $lga->save();
+
+        flash('State And LGA created successfully!')->success();
+        return redirect()->route('state.create');
     }
 
     /**
@@ -80,9 +98,23 @@ class LGAController extends Controller
      * @param  \App\LGA  $lGA
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LGA $lGA)
+    public function updateLga(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'lga_id'=>'required'
+        ],
+        [
+            'name.required'=>'LGA name is required',
+            'lga_id.required'=>'Please select LGA to edit'
+        ]
+    );
+
+    $lga = LGA::findorFail($request->lga_id);
+    $lga->name = $request->name;
+    $lga->save();
+    flash('LGA updated successfully!')->success();
+    return redirect()->back();
     }
 
     /**

@@ -30,6 +30,7 @@ Route::get('/events', 'HomeController@events')->name('events');
 Route::get('/event/{slug}', 'HomeController@event')->name('event');
 Route::get('events/{state}', 'StateActivityController@state_events')->name('events.state');
 Route::get('event/{state}/{slug}', 'StateActivityController@state_event')->name('event.state');
+Route::get('state/{slug}', 'StateActivityController@stateEventslga')->name('state.lga');
 Route::get('our-services/{id}','ServiceController@show')->name('our.service');
 
 // Route::get('/contact-us', function () {
@@ -62,14 +63,18 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::resource('lga', 'LGAController');
     Route::resource('service', 'ServiceController');
     Route::resource('slider', 'SliderController');
+    Route::resource('state', 'StateController');
+    Route::resource('ward','WardController');
 
     // Route::get('state/{id}/{lga_id}', 'StateController@edit_data')->name('edit.state.data');
 
-    Route::resource('state', 'StateController');
+    // Route::post('creat-lga', 'StateController@')->name('create.lga');
    
-    Route::resource('ward','WardController');
-
     Route::post('getLga','LGAController@getLga')->name('getLga');
+    Route::post('update-lga','LGAController@updateLga')->name('lga_update');
+    Route::post('getWard','WardController@getWard')->name('getWard');
+    Route::post('ward_update','WardController@updateWard')->name('ward_update');
+ 
 
     Route::get('/profile/{user}', 'UserController@profile')->name('profile.edit');
 

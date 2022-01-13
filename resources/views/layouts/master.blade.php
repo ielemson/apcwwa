@@ -30,6 +30,14 @@
     {{-- <link rel="stylesheet" href="{{asset('frontend/css/owl.theme.default.min.css')}}"> --}}
     <link rel="stylesheet" href="{{asset('frontend/fonts/icomoon/style.css')}}"> 
     <link rel="stylesheet" href="{{asset('frontend/css/slides.css')}}">
+
+    {{-- MAIN SLIDER STYLES --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:500" rel="stylesheet">
+    <link href="{{asset('frontend/main_slider/style.css')}}" rel="stylesheet">
+    {{-- MAIN SLIDER STYLES --}}
+
     {{-- sliders styles --}}
 <body>
 
@@ -47,7 +55,6 @@
         <!-- Pageloader Wrap -->
 
        @yield('header')
-
         <!-- Header -->
         @yield('content')
 
@@ -65,6 +72,9 @@
  <script src="{{asset('main/js/owl.carousel.min.js')}}"></script>
  <script src="{{asset('main/js/jquery.circliful.min.js')}}"></script>
  <script src="{{asset('main/js/custom-scripts.js')}}"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+ <script src="{{asset('frontend/main_slider/script.js')}}"></script>
  {{-- DEFAULT SCRIPTS --}}
 
  {{-- custom sliders --}}

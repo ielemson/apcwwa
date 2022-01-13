@@ -3,25 +3,85 @@
     <a href="{{ route('state.index') }}" class="btn btn-sm btn-neutral">All States</a>
 @endpush
 @section('content')
+
     <div class="row">
         <div class="col-md-12">
             <div class="card mb-5">
                 <div class="card-body">
                     {!! Form::open(['route' => 'state.store']) !!}
-                    <h6 class="heading-small text-muted mb-4">State & LGA information</h6>
+                    <h6 class="heading-small text-muted mb-4">Add State</h6>
                     <div class="pl-lg-4">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    {{ Form::label('state_name', 'State Name', ['class' => 'form-control-label']) }}
-                                    {{ Form::text('state_name', null, ['class' => 'form-control']) }}
+                                    {{ Form::label('name', 'State Name', ['class' => 'form-control-label']) }}
+                                    {{ Form::text('name', null, ['class' => 'form-control']) }}
+                                </div>
+
+                               
+                            </div>
+                            <div class="col-lg-6">
+                             
+                                <div class="form-group">
+                                    {{ Form::label('slogan', 'State Slogan', ['class' => 'form-control-label']) }}
+                                    {{ Form::text('slogan', null, ['class' => 'form-control']) }}
+                                </div>
+                               
+                            </div>
+
+                            {{-- <div class="col-lg-6">
+                                <div class="form-group">
+                                    {{ Form::label('lga_name', 'LGA Name', ['class' => 'form-control-label']) }}
+                                    {{ Form::text('lga_name', null, ['class' => 'form-control']) }}
+                                </div>
+                            </div> --}}
+                        </div>
+                    </div>
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            {{-- <div class="col-md-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="status" value="1" class="custom-control-input" id="status">
+                                        {{ Form::label('status', 'Status', ['class' => 'custom-control-label']) }}
+                                    </div>
+                                </div> --}}
+                            <div class="col-md-12">
+                                {{ Form::submit('Submit', ['class' => 'mt-5 btn btn-primary']) }}
+                            </div>
+                        </div>
+                    </div>
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-5">
+                <div class="card-body">
+                    {!! Form::open(['route' => 'lga.store']) !!}
+                    <h6 class="heading-small text-muted mb-4">Add Local Govt</h6>
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="name" class="form-control-label">State Name</label>
+                                    <select class="form-control" name="state_id" type="text">
+                                        <option value="">Select States</option>
+                                        @foreach ($states as $state)
+                                            <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                        @endforeach
+    
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    {{ Form::label('lga_name', 'LGA Name', ['class' => 'form-control-label']) }}
-                                    {{ Form::text('lga_name', null, ['class' => 'form-control']) }}
+                                    {{ Form::label('name', 'LGA Name', ['class' => 'form-control-label']) }}
+                                    {{ Form::text('name', null, ['class' => 'form-control']) }}
                                 </div>
                             </div>
                         </div>
@@ -50,14 +110,14 @@
         <div class="card mb-5">
             <div class="card-body">
                 {!! Form::open(['route' => 'ward.store']) !!}
-                <h6 class="heading-small text-muted mb-4">Add Ward To State And Ward</h6>
+                <h6 class="heading-small text-muted mb-4">Add Ward </h6>
                 <div class="pl-lg-4">
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label for="state_name" class="form-control-label">State Name</label>
+                                <label for="name" class="form-control-label">State Name</label>
                                 <select class="form-control" name="state_id" type="text" id="state">
-                                    <option>Select States</option>
+                                    <option value="">Select States</option>
                                     @foreach ($states as $state)
                                         <option value="{{ $state->id }}">{{ $state->name }}</option>
                                     @endforeach
@@ -68,11 +128,11 @@
 
                         <div class="col-lg-4">
                             {{-- <div class="form-group">
-                                        {{ Form::label('lga_name', 'LGA Name', ['class' => 'form-control-label']) }}
-                                        {{ Form::text('lga_name', null, ['class' => 'form-control']) }}
+                                        {{ Form::label('name', 'LGA Name', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('name', null, ['class' => 'form-control']) }}
                                     </div> --}}
 
-                            <label for="lga_name" class="form-control-label">LGA Name</label>
+                            <label for="name" class="form-control-label">LGA Name</label>
 
                             <select class="form-control" name="lga_id" type="text" id="lga">
                                 <option>LGA</option>
@@ -91,12 +151,12 @@
                 </div>
                 <div class="pl-lg-4">
                     <div class="row">
-                        <div class="col-md-12">
+                        {{-- <div class="col-md-12">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" name="status" value="1" class="custom-control-input" id="status">
                                         {{ Form::label('status', 'Status', ['class' => 'custom-control-label']) }}
                                     </div>
-                                </div>
+                                </div> --}}
                         <div class="col-md-12">
                             {{ Form::submit('Submit', ['class' => 'mt-5 btn btn-primary']) }}
                         </div>

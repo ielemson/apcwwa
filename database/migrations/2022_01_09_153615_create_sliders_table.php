@@ -20,6 +20,7 @@ class CreateSlidersTable extends Migration
             $table->string('title2');
             $table->unsignedBigInteger('state_id')->nullable();
             $table->unsignedBigInteger('position');
+            $table->enum('status',['front','states','dnc'])->default('front');
             $table->timestamps();
             $table->foreign('state_id')->references('id')->on('states');
         });

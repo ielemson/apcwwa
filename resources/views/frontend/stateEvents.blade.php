@@ -3,14 +3,33 @@
 @section('header')
 @include('frontend.includes.mobileheader')
 
-@include('frontend.includes.state_slider')
+@include('partials.states_slider')
 @endsection
 
 @section('content')
 
+
+    <div class="gap">
+        <div class="container">
+            <div class="contr-wrap text-center">
+                <div class="contr-inner">
+                    <div class="contr-desc contr-inr">
+                        <h2>Welcome to {{$state->name}} State</h2>
+                        <p>This is the event page for {{$state->name}}. Here, we publish events and news about the state.</p>
+                    </div>
+                    <div class="contr-butn contr-inr">
+                        <a class="secndry-btn brd-rd40" href="{{route('state.lga',$state->name)}}" title="">View LGA</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 <section>
     <div class="gap">
         <div class="container">
+            
             <div class="blog-wrap remove-ext7">
                 <div class="row mrg40">
                     @if (count($state_events) > 0)

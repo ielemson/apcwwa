@@ -20,7 +20,6 @@
 {{-- Our Services --}}
 @include('partials.Ourservices')
 
-
 {{-- Upcoming Events --}}
 @include('partials.upcomingEvents')
 

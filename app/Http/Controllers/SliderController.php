@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Slider;
+use App\SliderStatus;
 use App\State;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::paginate(10);
+        $sliders = Slider::Orderby('position','ASC')->paginate(10);
         return view('slider.index',compact('sliders'));
     }
 
@@ -27,7 +28,9 @@ class SliderController extends Controller
     public function create()
     {
         $states = State::pluck('name','id');
-        return view('slider.create',compact('states'));
+        $status = SliderStatus::all();
+        // $status = SliderStatus::pluck('status','id');
+        return view('slider.create',compact('states','status'));
     }
 
     /**
@@ -41,18 +44,22 @@ class SliderController extends Controller
         $request->validate([
             'title1' => 'required|max:255',
             'title2' => 'required|max:255',
-            'state_id' => 'required|max:255',
-            'image' => 'required|max:255',
+            'position' => 'required|max:255|unique:sliders',
+            'status' => 'required|max:255',
+            // 'image' => 'required|mimes:jpg,bmp,png|max:255',
         ],
         [
-          'title1.required'=>'Slider title is required' , 
-          'title2.required'=>'Slider title is required'  ,
-          'state_id.required'=>'Slider State is required' , 
-          'image.required'=>'Image is required'  
+          'title1.required'=>'Slider first title is required' , 
+          'title2.required'=>'Slider second title is required'  ,
+          'position.required'=>'Slider position is required'  ,
+          'status.required'=>'Slider Status is required' , 
+          'image.required'=>'Image is required',
+        //   'image.mimes'=>'Invalid image format'   
         ]
     
     );
 
+    // dd($request);
         $sliderData = $request->all();
         if ($request->image) {
             $sliderData['image'] = parse_url($request->image, PHP_URL_PATH);
@@ -81,7 +88,11 @@ class SliderController extends Controller
      */
     public function edit(Slider $slider)
     {
-        //
+        $states = State::pluck('name','id');
+        $slider_status = SliderStatus::all();
+        // $status = SliderStatus::pluck('status','id');
+        // $states = State::all();
+        return view('slider.edit',compact('slider','states','slider_status'));
     }
 
     /**
@@ -93,7 +104,33 @@ class SliderController extends Controller
      */
     public function update(Request $request, Slider $slider)
     {
-        //
+        $request->validate([
+            'title1' => 'required|max:255',
+            'title2' => 'required|max:255',
+            // 'position' => 'required|max:255',
+            // 'state_id' => 'required|max:255',
+            // 'image' => 'nullable|mimes:jpg,bmp,png',
+        ],
+        [
+          'title1.required'=>'Slider title is required' , 
+          'title2.required'=>'Slider title is required'  ,
+        //   'position.required'=>'Slider position is required'  ,
+        //   'state_id.required'=>'Slider State is required' , 
+        //   'image.mimes'=>'Invalid image format'  
+        ]
+    
+    );
+
+    // dd($request);
+    $sliderData = $request->except(['image']);
+
+    if ($request->image) {
+        $sliderData['image'] = parse_url($request->image, PHP_URL_PATH);
+    }
+    $slider->update($sliderData);
+    flash('Slider updated successfully!')->success();
+    return redirect()->route('slider.index');
+        
     }
 
     /**
@@ -104,6 +141,6 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        //
+        
     }
 }

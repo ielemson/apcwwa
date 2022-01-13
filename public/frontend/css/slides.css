@@ -101,15 +101,27 @@ h2 {
       background: #f8f9fa; 
     }
 
-    .hstry-desc span{
-      /* border:2px solid red; */
-      font-weight: bold;
-    }
+    
 
     .hstry-desc span h4{
       color: #38ab1e;
-      /* font-weight: bold; */
+      font-weight: bold;
+      font-size: 1.2rem;
     }
+
+    .hstry-desc  h2{
+      /* color: #38ab1e; */
+      font-weight: bold;
+      font-size: 1.95rem;
+      margin-bottom:10px;
+    }
+    
+    .hstry-desc  p{
+     line-height:1.8rem;
+    
+    }
+    
+    
 
 
 

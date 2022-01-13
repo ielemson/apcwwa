@@ -53,7 +53,9 @@ class StateActivityController extends Controller
         $sliders = Slider::where('state_id',$state->id)->get();
 
         if(count($sliders)==0){
-            $sliders = Slider::whereNull('state_id')->OrderBy('position','ASC')->get();
+            // $sliders = Slider::whereNull('state_id')->OrderBy('position','ASC')->get();
+            $sliders = Slider::where('status','front')->get();
+
         //    $sliders =  Slider::select("*")
         //                 ->whereNull('state_id')
         //                 ->get();
@@ -65,6 +67,8 @@ class StateActivityController extends Controller
         $state_events = StateActivity::where('state_id',$state->id)->where('status', '=',1)->with('state')->paginate(6);
         return view('frontend.stateEvents',compact('state_events','state','states','sliders'));
     }
+
+
 
     public function state_event($state,$slug){
 
@@ -103,6 +107,27 @@ class StateActivityController extends Controller
         return redirect()->route('state-event.index');
     }
 
+    public function stateEventslga($state){
+        
+        $state_id = State::where('name',$state)->first();
+
+        $sliders = Slider::where('state_id',$state_id->id)->get();
+
+        if(count($sliders)==0){
+            // $sliders = Slider::whereNull('state_id')->OrderBy('position','ASC')->get();
+            $sliders = Slider::where('status','front')->get();
+
+        //    $sliders =  Slider::select("*")
+        //                 ->whereNull('state_id')
+        //                 ->get();
+        }
+
+        $states = State::all();
+        $state_lga = State::where('name',$state)->with('lgas')->with('wards')->first();
+        // dd($states);
+
+        return view('frontend.stateEventslga',compact('state_lga','states','sliders'));
+    }
   
     public function destroy($id)
     {
@@ -113,4 +138,5 @@ class StateActivityController extends Controller
         flash('Event deleted successfully!')->info();
         return back();
     }
+
 }

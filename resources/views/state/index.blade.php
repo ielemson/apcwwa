@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @push('pg_btn')
-    <a href="{{ route('category.index') }}" class="btn btn-sm btn-neutral">All States</a>
+    <a href="{{ route('state.create') }}" class="btn btn-sm btn-neutral">Create States</a>
 @endpush
 @section('content')
 <div class="row">
@@ -16,6 +16,7 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col" class="sort" data-sort="name">State</th>
+                                    <th scope="col" class="sort" data-sort="name">Slogan</th>
                                     <th scope="col" class="sort" data-sort="budget">LGA</th>
                                     <th scope="col" class="sort" data-sort="status">Ward</th>
                                     {{-- <th scope="col" class="sort" data-sort="completion">Completion</th> --}}
@@ -29,6 +30,9 @@
                               <tr>
                                <td>
                                    {{$state->name}}
+                               </td>
+                               <td>
+                                   {{$state->slogan}}
                                </td>
                                 <td class="budget">
                                     @foreach ($state->lgas as $lga)

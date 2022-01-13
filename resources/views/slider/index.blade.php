@@ -17,8 +17,9 @@
                                 <tr>
                                     <th scope="col" class="sort" data-sort="name">Image</th>
                                     <th scope="col" class="sort" data-sort="budget">Position</th>
+                                    <th scope="col" class="sort" data-sort="completion">Display</th>
                                     <th scope="col" class="sort" data-sort="status">State</th>
-                                    {{-- <th scope="col" class="sort" data-sort="completion">Completion</th> --}}
+                                   
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -37,6 +38,9 @@
                                </td>
                                 <td class="budget">
                                  {{$slider->position}}
+                                </td>
+                                <td class="budget">
+                                 {{$slider->status}}
                                 </td>
                                
                                 <td>

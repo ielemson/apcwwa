@@ -57,9 +57,10 @@ class ServiceController extends Controller
      * @param  \App\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show($id)
     {
         $states = State::all();
+        $service = Service::where('id',$id)->first();
         return view('frontend.service',compact('service','states'));
     }
 
@@ -71,7 +72,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('services.edit',compact('service'));
     }
 
     /**
@@ -83,7 +84,16 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $serviceData = $request->except('featured_image');
+
+        if ($request->featured_image) {
+            $serviceData['featured_image'] = parse_url($request->featured_image, PHP_URL_PATH);
+        }
+
+        $service->update($serviceData);
+        // $user->syncRoles($request->role);
+        flash('Service updated successfully!')->success();
+        return redirect()->route('service.index');
     }
 
     /**
@@ -94,6 +104,8 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        flash('Service deleted successfully!')->info();
+        return back();
     }
 }

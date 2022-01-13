@@ -8,9 +8,12 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use App\User;
 use App\Desk;
+use App\LGA;
 use App\Post;
 use App\Service;
+use App\Slider;
 use App\State;
+use App\Ward;
 
 class HomeController extends Controller
 {
@@ -30,7 +33,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $states = State::count();
+        $wards = Ward::count();
+        $lgas = LGA::count();
+        $users = User::count();
+        return view('home',compact('states','lgas','wards','users'));
     }
 
 
@@ -64,8 +71,17 @@ class HomeController extends Controller
 
         $services = Service::paginate(10);
 
-        return view('welcome',compact('state_cordinator','diaspora_network_chapter','desk','states','upcoming_events','services'));
+        $sliders = Slider::where('status','front')->get();
+
+        return view('welcome',compact('state_cordinator','diaspora_network_chapter','desk','states','upcoming_events','services','sliders'));
     }
+
+    // public function service($id){
+
+    //     $services = Service::where('id',$id)->first();
+
+    //     return view('frontend.service');
+    // }
 
     public function dnc(){
 

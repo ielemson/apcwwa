@@ -7,26 +7,7 @@ use Illuminate\Http\Request;
 
 class WardController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+ 
     /**
      * Store a newly created resource in storage.
      *
@@ -41,40 +22,37 @@ class WardController extends Controller
         return redirect()->route('state.create');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Ward  $ward
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Ward $ward)
-    {
-        //
+
+    public function getWard(Request $request){
+
+        $lga_id = $request->lga_id;
+         
+        $wards = Ward::where('lga_id',$lga_id)->get();
+        return response()->json([
+            'wards' => $wards
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Ward  $ward
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Ward $ward)
-    {
-        //
-    }
+    public function updateWard(Request $request){
+        
+        $request->validate([
+            'lga_id'=>'required',
+            'name'=>'required',
+            'ward'=>'required',
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Ward  $ward
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Ward $ward)
-    {
-        //
-    }
+        ],[
+            'lga_id.required'=>'LGA name is required',
+            'ward.required'=>'Select Ward to update',
+            'name.required'=>'Enter New Ward'
+        ]);
 
+        $ward = Ward::find($request->ward);
+
+        $ward->name = $request->name;
+        $ward->save();
+        flash('Ward updated successfully!')->success();
+        return redirect()->back();
+    }
     /**
      * Remove the specified resource from storage.
      *

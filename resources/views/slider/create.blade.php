@@ -13,28 +13,48 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        {{ Form::label('title', 'Slider title - 1', ['class' => 'form-control-label']) }}
-                                        {{ Form::textarea('title1', null, ['class' => 'form-control', 'class'=>'summernote']) }}
+                                        {{-- {{ Form::label('title', 'Slider title - 1', ['class' => 'form-control-label']) }}
+                                        {{ Form::textarea('title1', null, ['class' => 'form-control']) }} --}}
+                                        <label for="name" class="form-control-label selectpicker">Slider Title - 1</label>
+                                        <textarea class="form-control" name="title1" rows="2"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        {{ Form::label('title', 'Slider title - 2', ['class' => 'form-control-label']) }}
-                                        {!! Form::textarea('title2', null, ['class' => 'form-control', 'class'=>'summernote']) !!}
+                                        {{-- {{ Form::label('title', 'Slider title - 2', ['class' => 'form-control-label']) }}
+                                        {!! Form::textarea('title2', null, ['class' => 'form-control']) !!} --}}
+                                        <label for="name" class="form-control-label selectpicker">Slider Title - 2</label>
+                                        <textarea class="form-control" name="title2" rows="2"></textarea>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6">
+                                <div class="col-lg-4">
                                     <div class="form-group">
                                         {{ Form::label('state', 'Select State', ['class' => 'form-control-label']) }}
                                         {{ Form::select('state_id', $states, null, [ 'class'=> 'selectpicker form-control', 'placeholder' => 'Select state...']) }}
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6">
+                                <div class="col-lg-4">
                                     <div class="form-group">
                                         {{ Form::label('position', 'Slider Position', ['class' => 'form-control-label']) }}
                                         {{ Form::select('position', [0,1,2,3,4,5], null, [ 'class'=> 'selectpicker form-control', 'placeholder' => 'Select position...']) }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        {{-- {{ Form::label('Status', 'Where to display', ['class' => 'form-control-label']) }}
+                                        {{ Form::select('status', $status, null, [ 'class'=> 'selectpicker form-control', 'placeholder' => 'Select position...']) }} --}}
+                                       
+                                            <label for="name" class="form-control-label selectpicker">Slider Display Status</label>
+                                            <select class="form-control" name="status" type="text">
+                                                <option value="">Select States</option>
+                                                @foreach ($status as $disp)
+                                                    <option value="{{ $disp->status}}">{{ $disp->status }}</option>
+                                                @endforeach
+            
+                                            </select>
+                                  
                                     </div>
                                 </div>
 

@@ -40,54 +40,28 @@ class StateController extends Controller
      */
     public function store(Request $request)
     {
-        $chck_state = State::where('name',$request->state_name)->first();
+        $request->validate([
 
-        if($chck_state){
+            // 'lga_name' => 'required|unique:lgas',
+            'name' => 'required|unique:states',
+        ],
+        [
+            'name.required'=>'State name is required.',
+            'name.unique'=>'State name is taken.'
+        ]
+        );
         
-        $chck_lga = LGA::where('name',$request->lga_name)->first();
+        
+        $state = new State();
 
-        if($chck_lga){
-
-        flash('LGA Already exists')->warning();
+        $state->name = $request->name;
+        $state->slogan = $request->slogan;
+        $state->save();
+        flash('State created successfully')->success();
         return redirect()->route('state.create');
-
-        }
-
-            $lga = new LGA();
-            $lga->name = $request->lga_name;
-            $lga->state_id = $chck_state->id;
-            $lga->save();
-
-            flash('State And LGA created successfully!')->success();
-            return redirect()->route('state.create');
-
-        }else{
-
-            $state = new State();
-
-            $state->name = $request->state_name;
-            $state->save();
-    
-            $chck_lga = LGA::where('name',$request->lga_name)->first();
-    
-            if($chck_lga){
-    
-            flash('LGA Already exists')->warning();
-            return redirect()->route('state.create');
-    
-            }
-    
-            $lga = new LGA();
-            $lga->name = $request->lga_name;
-            $lga->state_id = $state->id;
-            $lga->save();
-    
-            flash('State And LGA created successfully!')->success();
-            return redirect()->route('state.create');
-        }
-        
       
     }
+
 
     /**
      * Display the specified resource.
@@ -110,8 +84,9 @@ class StateController extends Controller
     {
         // dd($state);
         $state = State::where('id',$state->id)->with('lgas')->with('wards')->first();
+        $states = State::orderBy('name')->get();
         // dd($state);
-        return view('state.edit',compact('state'));
+        return view('state.edit',compact('state','states'));
     }
 
     /**
@@ -124,59 +99,17 @@ class StateController extends Controller
     public function update(Request $request, State $state)
     {
         $request->validate([
-
-            'state_name' => 'required',
-            // 'lga_id' => 'required',
-            // 'lga_name' => 'required',
-            // 'ward_name' => 'nullable',
-            // 'ward_id' => 'nullable',
+            'name'=>'required'
         ],
-           [
-               'state_name.required' => 'State name is required',
-            //    'lga_id.required' => 'Select LGA to update',
-            //    'lga_name.required' => 'LGA name is required',
-            //    'ward_name.required' => 'Ward name is required',
-            //    'ward_id.required' => 'Select a Ward to update',
-              
-           ]);
+        [
+            'name.required'=>'Please Select a valid state name'
+        ]
+    );
 
-
-            $state = State::findorFail($state->id);
-
-        //    if(strtolower($state->name) === strtolower($request->state_name)){
-            
-        //         flash('No new data to update')->info();
-        //         return redirect()->back();
-           
-
-        //    }
-           
-           if($state && strtolower($state->name) !== strtolower($request->state_name)){
-
-            $state->name = $request->state_name;
-            $state->save();
-            // flash('Data updated successfully!')->success();
-            // return redirect()->back();
-            
-           }
-
-           if(!empty($request->lga_id ) && !empty($request->lga_name)){
-
-            $lga = LGA::findorFail($request->lga_id);
-            $lga->name = $request->lga_name;
-            $lga->save();
-        }
-
-        if(!empty($request->ward_id) && !empty($request->ward_name)){
-
-            $ward = Ward::findorFail($request->ward_id);
-            $ward->name = $request->ward_name;
-            $ward->save();
-        }
-
-        flash('Data updated successfully!')->success();
-        return redirect()->back();
-
+    $state->name = $request->name;
+    $state->save();
+    flash('State updated successfully!')->success();
+    return redirect()->back();
     }
 
     /**

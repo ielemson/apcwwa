@@ -5,9 +5,9 @@
 @php
     $img = "frontend/images/events.jpg"
 @endphp
+
 @include('frontend.includes.hero',['title'=>'Event ','header2Text'=>'Event ','header1Text'=>'Event Details','img'=>$img])
 @endsection
-
 
 @section('content')
 <section>

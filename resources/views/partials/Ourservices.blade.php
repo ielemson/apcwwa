@@ -13,7 +13,7 @@
                 <div class="row">
                   @foreach ($services as $service)
                         
-                    <div class="col-md-4 col-sm-6 col-lg-4 fadeIn" data-wow-duration=".8s" data-wow-delay=".2s">
+                    <div class="col-md-4 col-sm-6 col-lg-4 fadeIn mt-4" data-wow-duration=".8s" data-wow-delay=".2s">
                         <div class="blog-box">
                             <div class="blog-thmb">
                                 <a href="{{route('our.service',$service->id)}}"><img src="{{$service->featured_image}}" alt="{{$service->title}}" class="mw-50" style="max-height:15vw"></a>
