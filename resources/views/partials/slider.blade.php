@@ -1,4 +1,4 @@
-<section>
+<section class="slider_section">
 
     <div class="swiper-container slideshow">
   

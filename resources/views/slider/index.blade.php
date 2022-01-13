@@ -16,6 +16,8 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col" class="sort" data-sort="name">Image</th>
+                                    <th scope="col" class="sort" data-sort="name">Title-1</th>
+                                    <th scope="col" class="sort" data-sort="name">Title-2</th>
                                     <th scope="col" class="sort" data-sort="budget">Position</th>
                                     <th scope="col" class="sort" data-sort="completion">Display</th>
                                     <th scope="col" class="sort" data-sort="status">State</th>
@@ -36,9 +38,17 @@
                                    
                                 </div>
                                </td>
+
+                               <td class="budget">
+                                {{$slider->title1}}
+                               </td>
+                               <td class="budget">
+                                {{$slider->title2}}
+                               </td>
                                 <td class="budget">
                                  {{$slider->position}}
                                 </td>
+                                
                                 <td class="budget">
                                  {{$slider->status}}
                                 </td>
@@ -51,11 +61,11 @@
                             @can('destroy-user')
                             {!! Form::open(['route' => ['slider.destroy', $slider],'method' => 'delete',  'class'=>'d-inline-block dform']) !!}
                             @endcan
-                            @can('view-user')
+                            {{-- @can('view-user')
                             <a class="btn btn-primary btn-sm m-1" data-toggle="tooltip" data-placement="top" title="View and edit slider details" href="{{route('slider.show', $slider)}}">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                             </a>
-                            @endcan
+                            @endcan --}}
                             @can('update-slider')
                             <a class="btn btn-info btn-sm m-1" data-toggle="tooltip" data-placement="top" title="Edit slider details" href="{{route('slider.edit',$slider)}}">
                                 <i class="fa fa-edit" aria-hidden="true"></i>
@@ -115,5 +125,29 @@
                 })
             });
         });
+
+        jQuery(document).ready(function(){
+            $('.delete').on('click', function(e){
+                e.preventDefault();
+                let that = jQuery(this);
+                jQuery.confirm({
+                    icon: 'fas fa-wind-warning',
+                    closeIcon: true,
+                    title: 'Are you sure!',
+                    content: 'You can not undo this action.!',
+                    type: 'red',
+                    typeAnimated: true,
+                    buttons: {
+                        confirm: function () {
+                            that.parent('form').submit();
+                            //$.alert('Confirmed!');
+                        },
+                        cancel: function () {
+                            //$.alert('Canceled!');
+                        }
+                    }
+                });
+            })
+        })
     </script>
 @endpush

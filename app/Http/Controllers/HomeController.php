@@ -71,8 +71,9 @@ class HomeController extends Controller
 
         $services = Service::paginate(10);
 
-        $sliders = Slider::where('status','front')->get();
+        $sliders = Slider::where('status','front')->Orderby('position','ASC')->get();
 
+        // dd($sliders);
         return view('welcome',compact('state_cordinator','diaspora_network_chapter','desk','states','upcoming_events','services','sliders'));
     }
 

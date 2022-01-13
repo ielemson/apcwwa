@@ -141,6 +141,9 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        
+        $slider->delete();
+        flash('Slider deleted successfully!')->success();
+     return redirect()->route('slider.index');
+
     }
 }
