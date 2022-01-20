@@ -16,6 +16,7 @@ class CreateDesksTable extends Migration
         Schema::create('desks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug');
             $table->string('post');
             $table->string('user_photo');
             $table->text('speech');

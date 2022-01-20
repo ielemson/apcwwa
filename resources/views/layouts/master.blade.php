@@ -17,7 +17,11 @@
     <link rel="stylesheet" href="{{asset('main/css/fancybox.min.css')}}">
     <link rel="stylesheet" href="{{asset('main/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('main/css/jquery.circliful.css')}}">
-    <link rel="stylesheet" href="{{asset('main/css/style.css')}}">
+
+    {{-- other styles --}}
+    @stack('frontend-styles')
+    {{-- other styles --}}
+
     <link rel="stylesheet" href="{{asset('main/css/responsive.css')}}">
     <!-- Color Scheme -->
     <link rel="stylesheet" href="{{asset('main/css/colors/color3.css')}}" title="color" />
@@ -34,6 +38,7 @@
     {{-- MAIN SLIDER STYLES --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.min.css" integrity="sha512-FEQLazq9ecqLN5T6wWq26hCZf7kPqUbFC9vsHNbXMJtSZZWAcbJspT+/NEAQkBfFReZ8r9QlA9JHaAuo28MTJA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css?family=Oswald:500" rel="stylesheet">
     <link href="{{asset('frontend/main_slider/style.css')}}" rel="stylesheet">
     {{-- MAIN SLIDER STYLES --}}
@@ -42,7 +47,7 @@
 <body>
 
     <main>
-        <div class="pageloader-wrap">
+        {{-- <div class="pageloader-wrap">
             <div class="loader">
                 <div class="loader__bar"></div>
                 <div class="loader__bar"></div>
@@ -51,7 +56,7 @@
                 <div class="loader__bar"></div>
                 <div class="loader__ball"></div>
             </div>
-        </div>
+        </div> --}}
         <!-- Pageloader Wrap -->
 
        @yield('header')

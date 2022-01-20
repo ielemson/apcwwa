@@ -26,13 +26,15 @@ Route::get('/', 'HomeController@welcome')->name('welcome');
 Route::get('/about-us', 'HomeController@about_us');
 Route::get('/contact-us', 'HomeController@contact_us');
 Route::get('/dnc', 'HomeController@dnc')->name('dnc');
+// Route::get('/dnc/{slug}', 'HomeController@dnc_details')->name('dnc_details');
+Route::get('desk/details/{slug}', 'HomeController@desk_more')->name('desk_more');
 Route::get('/events', 'HomeController@events')->name('events');
 Route::get('/event/{slug}', 'HomeController@event')->name('event');
-Route::get('events/{state}', 'StateActivityController@state_events')->name('events.state');
 Route::get('event/{state}/{slug}', 'StateActivityController@state_event')->name('event.state');
-Route::get('state/{slug}', 'StateActivityController@stateEventslga')->name('state.lga');
+Route::get('events/{state}', 'StateActivityController@state_events')->name('events.state');
+Route::get('state/events/{slug}', 'StateActivityController@stateEventslga')->name('state.lga');
 Route::get('our-services/{id}','ServiceController@show')->name('our.service');
-
+Route::resource('state-event', 'StateActivityController');
 // Route::get('/contact-us', function () {
 //     return view('frontend.contactus');
 // });
@@ -57,7 +59,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
     // Route::get('state/event/create', 'StateController@create_activities')->name('state.create.events');
     // Route::post('state/events', 'StateController@events')->name('state.events');
 
-    Route::resource('state-event', 'StateActivityController');
+
     Route::resource('users', 'UserController');
     Route::resource('desk', 'DeskController');
     Route::resource('lga', 'LGAController');

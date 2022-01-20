@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-12 col-lg-4">
                         <div class="wdgt-box style2">
-                            <div class="logo"><a href="index-2.html" title="Logo"><img src="/frontend/images/logo/logo2.png" alt="footer" style="width:100%; height:6vw"></a></div>
+                            <div class="logo"><a href="{{url('/')}}" title="Logo"><img src="/frontend/images/logo/logo2.png" alt="footer" style="width:100%; height:6vw"></a></div>
                             <p>APC Ward to Ward Ambassadors is a National Political Action Group operating in the entire 8,665 Political Wards; 774 local government areas of the 36 States of the federation, the FCT. </p>
                         </div>
                     </div>

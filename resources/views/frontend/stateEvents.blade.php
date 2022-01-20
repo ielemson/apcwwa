@@ -18,7 +18,7 @@
                         <p>This is the event page for {{$state->name}}. Here, we publish events and news about the state.</p>
                     </div>
                     <div class="contr-butn contr-inr">
-                        <a class="secndry-btn brd-rd40" href="{{route('state.lga',$state->name)}}" title="">View LGA</a>
+                        <a class="secndry-btn brd-rd40" href="{{route('state.lga',strtolower($state->name))}}" title="">View LGA</a>
                     </div>
                 </div>
             </div>
@@ -31,8 +31,9 @@
         <div class="container">
             
             <div class="blog-wrap remove-ext7">
+                @if (count($state_events) > 0)
                 <div class="row mrg40">
-                    @if (count($state_events) > 0)
+                   
                         
                     @foreach ($state_events as $state_event)
                     <div class="col-md-4 col-sm-6 col-lg-4 fadeIn" data-wow-duration=".8s" data-wow-delay=".2s">
@@ -52,17 +53,17 @@
                     </div>
                     @endforeach
 
-                    @else
-                       <div class="alert alert-primary col-md-12 col-sm-12 col-lg-12 text-center py-2" role="alert">
-                            <h4 class="alert-heading">Heads Up!</h4>
-                            <p>No Event For {{$state->name}} is Available</p>
-                        </div> 
-                    @endif
                   
-                     
                 </div>
-
-            </div><!-- Blog Wrap -->
+                @else
+                <div class="alert alert-primary container col-md-12 col-sm-12 col-lg-12 text-center py-2" role="alert">
+                     <h4 class="alert-heading">Heads Up!</h4>
+                     <p>No Event For {{$state->name}} is Available</p>
+                 </div> 
+             @endif
+           
+            </div>
+            <!-- Blog Wrap -->
             <div class="pagination-wrap text-center">
                 <ul class="pagination">
                     {!! $state_events->links() !!}
@@ -72,5 +73,8 @@
         </div>
     </div>
 </section>
-
 @endsection
+
+@push('frontend-styles')
+<link rel="stylesheet" href="{{asset('main/css/pages.css')}}">
+@endpush

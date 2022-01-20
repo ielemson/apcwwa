@@ -17,13 +17,13 @@
                 </div>
                 {{-- <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis um voluptatum deleniti atque orrupti quos dolores et quas molestias. Excepturi sint occaecati cupiditate.</p> --}}
             </div>
-            <div class="contr-wrap text-center">
+            <div class="contr-wrap table-responsive">
                 <table class="table table-striped table-inverse">
                     <thead>
                       <tr>
                         {{-- <th>#</th> --}}
-                        <th>Local government</th>
-                        <th>Wards</th>
+                        <th>Local government <span class="badge badge-pill badge-dark">{{count($state_lga->lgas)}}</span></th>
+                        <th>Wards  <span class="badge badge-pill badge-dark">{{count($state_lga->wards)}}</span></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -49,5 +49,8 @@
         </div>
     </div>
 
-
 @endsection
+
+@push('frontend-styles')
+<link rel="stylesheet" href="{{asset('main/css/pages.css')}}">
+@endpush

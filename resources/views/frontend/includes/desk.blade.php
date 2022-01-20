@@ -16,8 +16,10 @@
                                 </span>
                                 <h2>{{$user->name}}</h2>
                                 <p>
-                                 {!! $user->speech !!}
+                                 {{-- {!! $user->speech !!} --}}
+                                 {!! Str::words($user->speech, 120) !!}
                                </p>
+                               <a class="thm-btn mt-2" href="{{route('desk_more',$user->slug)}}" title="">Read More</a>
                             </div>
                         </div>
                         </div>  <!-- .item -->

@@ -35,7 +35,7 @@
 </head>
 <body>
     <main>
-        <div class="pageloader-wrap">
+        {{-- <div class="pageloader-wrap">
             <div class="loader">
                 <div class="loader__bar"></div>
                 <div class="loader__bar"></div>
@@ -44,7 +44,7 @@
                 <div class="loader__bar"></div>
                 <div class="loader__ball"></div>
             </div>
-        </div>
+        </div> --}}
         <!-- Pageloader Wrap -->
 
        @yield('header')

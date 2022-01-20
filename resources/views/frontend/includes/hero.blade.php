@@ -6,7 +6,7 @@
         <div class="fixed-bg" style="background-image: url({{$img ?? ''}});"></div>
         <div class="container">
             <div class="page-title-wrap">
-                <h1 class="text-white">{{$header1Text ?? ''}}</h1>
+                <h1 class="text-white text-uppercase">{{$header1Text ?? ''}}</h1>
                 <h2>{{$header2Text ?? ''}}</h2>
                 <ul class="breadcrumbs">
                     <li><a href="{{url('/')}}" title="">Home</a></li>

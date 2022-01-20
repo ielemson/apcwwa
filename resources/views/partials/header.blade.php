@@ -19,8 +19,8 @@
                                         Select State 
                                       </button>                       
                                        <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenuButton"> 
-                                           @if (count($states)>0)
-                                               @foreach ($states as $state)
+                                           @if (count($states ?? '')>0)
+                                               @foreach ($states ?? '' as $state)
                                                <a class="dropdown-item" href="{{route('events.state',strtolower($state->name))}}">{{$state->name}}</a>
                                                @endforeach
                                            @else

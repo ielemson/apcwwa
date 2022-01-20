@@ -84,6 +84,12 @@ class HomeController extends Controller
     //     return view('frontend.service');
     // }
 
+    public function desk_more($slug){
+        $states = State::all();
+        $desk = Desk::where('slug',$slug)->first();
+        return view('frontend.desk_detail',compact('states','desk'));
+    }
+
     public function dnc(){
 
         $dncs = User::whereHas('roles', function ($query) {
@@ -91,6 +97,13 @@ class HomeController extends Controller
         })->get();
         $states = State::all();
         return view('frontend.dnc',compact('dncs','states'));
+    }
+
+
+    public function dnc_details($slug){
+        $dncs = User::where('name',$slug)->first();
+        $states = State::all();
+        return view('frontend.dnc_details',compact('dncs','states'));
     }
 
     public function events(){

@@ -39,8 +39,6 @@
                                         </div>
                                     </div>
 
-                                    
-                
                                     @endforeach
 
                                     <div class="pagination-wrap text-center mb-2">
@@ -65,4 +63,9 @@
         </div>
     </div>
 </section>
+
+@push('frontend-styles')
+<link rel="stylesheet" href="{{asset('main/css/pages.css')}}">
+@endpush
 @endsection
+

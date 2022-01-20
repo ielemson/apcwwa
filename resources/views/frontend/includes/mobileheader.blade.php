@@ -6,10 +6,10 @@
             <li><a href="#" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a></li>
             <li><a href="#" title="Google Plus" target="_blank"><i class="fa fa-google-plus"></i></a></li>                   
         </ul>
-        <form class="rspn-srch">
+        {{-- <form class="rspn-srch">
             <input type="text" placeholder="Enter Your Keyword" />
             <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
+        </form> --}}
     </div>
     <div class="lg-mn">
         <div class="logo"><a href="{{url('/')}}" title="Logo"><img src="/frontend/images/logo/logo2.png" alt="logo" style="height: 8vh"></a></div>
@@ -25,16 +25,37 @@
             <li ><a href="{{url('/')}}" title="">Home</a>
                     
             </li>
-            <li><a href="#" title="">Blog</a>
-                
+            <li class="menu-item-has-children"><a href="#" title="">36 States And The FCT</a>
+                <ul>
+                    {{-- <li><a href="{{route('login')}}" title="">Login</a></li> --}}
+                    
+                        <li class="dropdown menu-item-has-children">        
+                            <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expande  d="false">       
+                                Select State 
+                              </button>                       
+                               <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenuButton"> 
+                                   @if (count($states ?? '')>0)
+                                       @foreach ($states ?? '' as $state)
+                                       <a class="dropdown-item" href="{{route('events.state',strtolower($state->name))}}">{{$state->name}}</a>
+                                       @endforeach
+                                   @else
+                                   <a class="dropdown-item" href="#">No State Available</a>
+                                   @endif                                                                             
+                              </div>
+                            </li>
+                                                 
+            
+                </ul>
             </li>
-            <li><a href="event.html" title="">Event</a></li>
-            <li class="menu-item-has-children"><a href="#" title="">Account</a>
+            <li><a href="{{route('dnc')}}" title="dnc">Diaspora Network Coordinate</a> </li>
+            <li><a href="{{route('events')}}" title="event">Event</a></li>
+
+            {{-- <li class="menu-item-has-children"><a href="#" title="">Account</a>
                 <ul>
                     <li><a href="{{route('login')}}" title="">Login</a></li>
                     <li><a href="{{route('register')}}" title="">Register</a></li>
                 </ul>
-            </li>
+            </li> --}}
             <li><a href="{{url('/about-us')}}" title="">About</a></li>
             <li><a href="{{url('/contact-us')}}" title="">Contact</a></li>
         </ul>

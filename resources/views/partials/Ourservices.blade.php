@@ -16,12 +16,14 @@
                     <div class="col-md-4 col-sm-6 col-lg-4 fadeIn mt-4" data-wow-duration=".8s" data-wow-delay=".2s">
                         <div class="blog-box">
                             <div class="blog-thmb">
-                                <a href="{{route('our.service',$service->id)}}"><img src="{{$service->featured_image}}" alt="{{$service->title}}" class="mw-50" style="max-height:15vw"></a>
+                                <a href="{{route('our.service',$service->id)}}"><img src="{{$service->featured_image}}" alt="{{$service->title}}" class="mw-50" style="min-height:15vw ! important;"></a>
                             </div>
                             <div class="blog-info">
                                
-                                <h4><a href="{{route('our.service',$service->id)}}" title="">{{$service->title}}</a></h4>
-                                <p>{!!\Illuminate\Support\Str::limit($service->content, 100) !!}</p>
+                                <h5><a href="{{route('our.service',$service->id)}}" title="">{{$service->title}}</a></h5>
+                                <!--<p>{!! Str::words($service->content, 30) !!}</p>-->
+                                
+
                                 <a href="{{route('our.service',$service->id)}}" title="">Read More</a>
                             </div>
                         </div>

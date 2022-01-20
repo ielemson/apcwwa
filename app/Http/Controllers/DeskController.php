@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Desk;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class DeskController extends Controller
@@ -37,7 +38,25 @@ class DeskController extends Controller
      */
     public function store(Request $request)
     {
-        $deskData = $request->all();
+        // $deskData = $request->all();
+        // $slug = Str::slug($request->name.'-'.Str::random(5), '-');
+        // $request->merge(['slug' =>$slug]);
+
+        $request->validate([
+            'name'=>'required|unique:desks',
+            'post'=>'required',
+            'user_photo'=>'required'
+
+        ],[
+            'name.required'=>'Cordinator name is required',
+            'post.required'=>'Cordinator post is required',
+            'user_photo.required'=>'Cordinator picture is required'
+        ]);
+        
+        $slug = Str::slug($request->name, '-');
+        $request->merge(['slug' =>$slug]);
+        $deskData = $request->except('user_photo');
+
         if ($request->profile_photo) {
             $deskData['user_photo'] = parse_url($request->profile_photo, PHP_URL_PATH);
         }
@@ -77,8 +96,20 @@ class DeskController extends Controller
      */
     public function update(Request $request, Desk $desk)
     {
-        $deskData = $request->except('user_photo');
+        $request->validate([
+            'name'=>'required|unique:desks',
+            'post'=>'required',
+            'user_photo'=>'required'
 
+        ],[
+            'name.required'=>'Cordinator name is required',
+            'post.required'=>'Cordinator post is required',
+            'user_photo.required'=>'Cordinator picture is required'
+        ]);
+        
+        $slug = Str::slug($request->name, '-');
+        $request->merge(['slug' =>$slug]);
+        $deskData = $request->except('user_photo');
         if ($request->user_photo) {
             $deskData['user_photo'] = parse_url($request->user_photo, PHP_URL_PATH);
         }
@@ -103,5 +134,9 @@ class DeskController extends Controller
         $desk->delete();
         flash('Desk deleted successfully!')->info();
         return back();
+    }
+
+    public function desk_more($slug){
+        return $slug;
     }
 }

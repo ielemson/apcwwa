@@ -139,3 +139,7 @@
     </div>
 </section>
 @endsection
+
+@push('frontend-styles')
+<link rel="stylesheet" href="{{asset('main/css/pages.css')}}">
+@endpush

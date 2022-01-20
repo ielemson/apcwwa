@@ -108,4 +108,9 @@
         </div>
     </div>
 </section>
+
+@push('frontend-styles')
+<link rel="stylesheet" href="{{asset('main/css/style.css')}}">
+@endpush
+
 @endsection
