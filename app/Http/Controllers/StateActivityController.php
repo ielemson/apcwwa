@@ -6,6 +6,8 @@ use App\LGA;
 use App\Slider;
 use App\State;
 use App\StateActivity;
+use App\Ward;
+use App\WardCoordinator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -65,7 +67,7 @@ class StateActivityController extends Controller
 
         $states = State::all();
         $state_events = StateActivity::where('state_id',$state->id)->where('status', '=',1)->with('state')->paginate(6);
-        return view('frontend.stateEvents',compact('state_events','state','states','sliders'));
+        return view('frontend.state.stateEvents',compact('state_events','state','states','sliders'));
     }
 
 
@@ -79,7 +81,7 @@ class StateActivityController extends Controller
         $states = State::all();
         $state_event = StateActivity::where('event_slug',$slug)->with('state')->first();
         $state_events = StateActivity::where('state_id',$state->id)->where('status', '=',1)->with('state')->limit(4)->get();
-        return view('frontend.stateEvent',compact('state_event','state','states','state_events'));
+        return view('frontend.state.stateEvent',compact('state_event','state','states','state_events'));
     }
 
     public function edit($id)
@@ -126,8 +128,10 @@ class StateActivityController extends Controller
         $state_lga = State::where('name',$state)->with('lgas')->with('wards')->first();
         // dd($states);
 
-        return view('frontend.stateEventslga',compact('state_lga','states','sliders'));
+        return view('frontend.state.stateEventslga',compact('state_lga','states','sliders'));
     }
+
+   
   
     public function destroy($id)
     {

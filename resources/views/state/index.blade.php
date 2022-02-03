@@ -18,6 +18,7 @@
                                     <th scope="col" class="sort" data-sort="name">State</th>
                                     <th scope="col" class="sort" data-sort="name">Slogan</th>
                                     <th scope="col" class="sort" data-sort="budget">LGA</th>
+                                    <th scope="col" class="sort" data-sort="budget">LGA-Total</th>
                                     <th scope="col" class="sort" data-sort="status">Ward</th>
                                     {{-- <th scope="col" class="sort" data-sort="completion">Completion</th> --}}
                                     <th scope="col">Action</th>
@@ -34,11 +35,17 @@
                                <td>
                                    {{$state->slogan}}
                                </td>
+
+                               <td class="budget">
+                                {{count($state->lgas)}}
+                               
+                             </td>
                                 <td class="budget">
                                     @foreach ($state->lgas as $lga)
                                   <span class="badge badge-pill badge-default">{{$lga->name}}</span>
                                     @endforeach
                                 </td>
+                                
                                 <td>
                                    @foreach ($state->wards as $ward)
                                        
@@ -46,17 +53,7 @@
                                    @endforeach
                                 </td>
                                 <td>
-                                    {{-- <div class="dropdown">
-                                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="{{route('edit.state.data',[$state->id,$lga->id])}}">Edit</a>
-                                            <a class="dropdown-item" href="#">Delete</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div> --}}
+                                    <a class="btn btn-sm btn-info" href="{{route('state.show',$state->id)}}">view</a>
                                     <a class="btn btn-sm btn-primary" href="{{route('state.edit',$state->id)}}">Edit</a>
                                 </td>
                             </tr>

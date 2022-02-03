@@ -32,35 +32,10 @@
                                         {{ Form::text('phone_number', null, ['class' => 'form-control']) }}
                                     </div>
                                 </div>
-
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        {{ Form::label('user_post', 'User post', ['class' => 'form-control-label']) }}
-                                        {{ Form::text('post', null, ['class' => 'form-control']) }}
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    {{-- <div class="form-group">
-                                        {{ Form::label('user_state', 'User state', ['class' => 'form-control-label']) }}
-                                        {{ Form::text('state', null, ['class' => 'form-control']) }}
-                                    </div> --}}
-                                    <div class="form-group">
-                                        <label for="user_state" class="form-control-label">Select State</label>
-                                        <select class="form-control" name="state_id" id="state_id">
-                                            <option>Select States</option>
-                                            
-                                            @foreach ($states as $state)
-                                            <option value="{{$state->id}}">{{$state->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        {{ Form::label('user_base', 'User base', ['class' => 'form-control-label']) }}
-                                        {{ Form::text('base', null, ['class' => 'form-control']) }}
+                                        {{ Form::label('role', 'Select Role', ['class' => 'form-control-label']) }}
+                                        {{ Form::select('role', $roles, null, [ 'class'=> 'selectpicker form-control', 'placeholder' => 'Select role...']) }}
                                     </div>
                                 </div>
                                 
@@ -85,12 +60,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        {{ Form::label('role', 'Select Role', ['class' => 'form-control-label']) }}
-                                        {{ Form::select('role', $roles, null, [ 'class'=> 'selectpicker form-control', 'placeholder' => 'Select role...']) }}
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                         <hr class="my-4" />

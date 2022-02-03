@@ -23,29 +23,30 @@ h2 {
   font-size: 20px; } */
 
 /* Carousel 4*/
-.testimony-29101 .image {
+.desk .image {
   width: 100%;
+  height: 70vh;
   background-size:cover;
   background-position: center center; }
   @media (max-width: 991.98px) {
-    .testimony-29101 .image {
+    .desk .image {
       height: 300px; } }
 
-.testimony-29101 .text {
+.desk .text {
   width: 60%;
   padding: 7rem 4rem;
   background: #f8f9fa; }
-  .testimony-29101 .text blockquote {
+  .desk .text blockquote {
     position: relative;
     padding-bottom: 50px;
     font-size: 18px; }
-    .testimony-29101 .text blockquote .author {
+    .desk .text blockquote .author {
       font-size: 14px;
       position: absolute;
       bottom: 0; }
 
 @media (max-width: 991.98px) {
-  .testimony-29101 .image, .testimony-29101 .text {
+  .desk .image, .desk .text {
     width: 100%;
     display: block !important; } }
 
@@ -124,58 +125,3 @@ h2 {
     
 
 
-
-    /* main slider */
-
-    #carousel .carousel-item.boat {
-      background-image: url("../images/slider/slider-2_1200x600.jpg");
-    }
-    
-    #carousel .carousel-item.sea {
-      background-image: url("../images//slider/slider-2.jpg");
-    }
-    
-    #carousel .carousel-item.river {
-      background-image: url("../images//slider/slider-4_1200x600.jpg");
-    }
-    
-    #carousel .carousel-item {
-      height: 100vh;
-      width: 100%;
-      min-height: 400px;
-      background: no-repeat center center scroll;
-      background-size: cover;
-    }
-    
-    #carousel .carousel-inner .carousel-item {
-      transition: -webkit-transform 2s ease;
-      transition: transform 2s ease;
-      transition: transform 2s ease, -webkit-transform 2s ease;
-    }
-    
-    #carousel .carousel-item .caption {
-      /* background-color: rgba(0, 0, 0, 0.5); */
-      border-radius: 2px;
-      padding: 40px;
-      color: #fff !important;
-      animation-duration: 1s;
-      animation-delay: 2s;
-      margin-top:20px;
-    }
-    
-    #carousel .caption h2 {
-      animation-duration: 1s;
-      animation-delay: 2s;
-    }
-    
-    #carousel .caption p {
-      animation-duration: 1s;
-      animation-delay: 2.2s;
-    }
-    
-    #carousel .caption a {
-      animation-duration: 1s;
-      animation-delay: 2.4s;
-    }
-    
-    /* main slider */

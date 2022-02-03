@@ -44,7 +44,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         {{ Form::label('user_state', 'User state', ['class' => 'form-control-label']) }}
-                                        {{ Form::text('state', $user->state, ['class' => 'form-control']) }}
+                                        {{ Form::text('state', $user->state->name, ['class' => 'form-control']) }}
                                     </div>
                                 </div>
 

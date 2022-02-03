@@ -103,7 +103,7 @@
                 <h6 class="heading-small text-muted mb-4">Edit Ward</h6>
                 <div class="pl-lg-4">
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
                             <div class="form-group">
                                 <label for="name" class="form-control-label">Select LGA</label>
                                     <select class="form-control" name="lga_id" type="text" id="Lga_Id">
@@ -116,38 +116,38 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4">
-
+                        <div class="col-lg-3">
                             <label for="name" class="form-control-label">Select Ward</label>
-
-                            <select class="form-control" name="ward" type="text" id="ward">
-                                <option>LGA</option>
+                            <select class="form-control" name="ward_id" type="text" id="ward">
+                                <option>Select Ward </option>
                             </select>
                         </div>
 
-                        <div class="col-lyyg-4">
+                        <div class="col-lg-3">
                             <div class="form-group">
-                                {{ Form::label('name', 'New Ward Name', ['class' => 'form-control-label']) }}
+                                {{ Form::label('name', 'Ward Name', ['class' => 'form-control-label']) }}
                                 {{ Form::text('name', null, ['class' => 'form-control']) }}
                             </div>
-
-
                         </div>
+
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                {{ Form::label('name', 'Ward Coordinator', ['class' => 'form-control-label']) }}
+                                {{ Form::text('cordname', null, ['class' => 'form-control']) }}
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+
                 <div class="pl-lg-4">
                     <div class="row">
-                        {{-- <div class="col-md-12">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" name="status" value="1" class="custom-control-input" id="status">
-                                        {{ Form::label('status', 'Status', ['class' => 'custom-control-label']) }}
-                                    </div>
-                                </div> --}}
                         <div class="col-md-12">
                             {{ Form::submit('Update Ward', ['class' => 'mt-5 btn btn-primary']) }}
                         </div>
                     </div>
                 </div>
+                
                 {!! Form::close() !!}
             </div>
         </div>

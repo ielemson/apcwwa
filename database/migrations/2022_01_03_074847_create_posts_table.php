@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('post_slug', 255);
             $table->text('post_body');
             $table->string('featured_image');
-            $table->enum('event_status', ['upcoming','past'])->default('upcoming');
+            $table->enum('event_status', ['upcoming','past','dnc'])->default('upcoming');
             $table->boolean('status')->default(0);
             $table->foreignId('category_id')
                     ->constrained()

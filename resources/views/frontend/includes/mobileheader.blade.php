@@ -47,7 +47,16 @@
             
                 </ul>
             </li>
-            <li><a href="{{route('dnc')}}" title="dnc">Diaspora Network Coordinate</a> </li>
+  
+              <li class="menu-item-has-children"><a href="#" title="dnc">Diaspora Network Coordinate</a> 
+                    
+                        <ul>
+                            <li><a href="{{route('dnc_home')}}" >About DNC</a></li>
+                            <li><a href="{{route('dnc_members')}}" >DNC Members</a></li>
+                            <li><a href="{{route('dnc_post')}}" >DNC Event</a></li>
+                            <li><a href="{{route('dnc_gallery')}}" >DNC Gallery</a></li>
+                        </ul>
+                    </li>
             <li><a href="{{route('events')}}" title="event">Event</a></li>
 
             {{-- <li class="menu-item-has-children"><a href="#" title="">Account</a>

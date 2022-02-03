@@ -18,7 +18,8 @@
                         <p>This is the event page for {{$state->name}}. Here, we publish events and news about the state.</p>
                     </div>
                     <div class="contr-butn contr-inr">
-                        <a class="secndry-btn brd-rd40" href="{{route('state.lga',strtolower($state->name))}}" title="">View LGA</a>
+                        <a class="secndry-btn brd-rd40" href="{{route('state.lga',strtolower($state->name))}}" title="view LGA">View LGA</a>
+                        {{-- <a class="secndry-btn brd-rd40" href="href="{{route('state.lga',['state'=>$post->id,'name'=>$post->title])}}"" title="view LGA">View LGA</a> --}}
                     </div>
                 </div>
             </div>

@@ -32,12 +32,19 @@
                         {{-- <th >1</th> --}}
                         <td>{{$lga->name}}</td>
                         <td>
-                            @foreach ($lga->wards as $ward)
+                            {{-- @foreach ($lga->wards as $ward)
                             <span class="badge badge-pill badge-primary">
                                 {{$ward->name}} 
                             </span>
                             
-                            @endforeach
+                            @endforeach --}}
+
+                            <a href="{{route('lga.ward',strtolower($lga->name))}}">
+                                view ward 
+                                <span class="badge badge-pill badge-primary">
+                                   {{count($lga->wards)}} 
+                                </span>
+                            </a>
                         </td>
                       </tr>
                      @endforeach

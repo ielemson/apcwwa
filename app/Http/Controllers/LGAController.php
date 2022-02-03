@@ -50,21 +50,33 @@ class LGAController extends Controller
         $request->validate([
 
             'state_id'=>'required',
-            'name'=>'required|unique:lgas'
+            'name'=>'required'
         ],
-        [
-            'name.required'=>'LGA name is required',
-            'name.unique'=>$request->name.' '.'exists in our collection',
-            'state_id.required'=>'State name is required'
-        ]
+        // [
+        //     'name.required'=>'LGA name is required',
+        //     'name.unique'=>$request->name.' '.'exists in our collection',
+        //     'state_id.required'=>'State name is required'
+        // ]
         );
 
         $lga = new LGA();
+        $lga_check = LGA::where([
+            ['state_id', '=', $request->state_id],
+            ['name', '=', $request->name]
+        ])
+        ->first();
+
+        if(!empty($lga_check)){
+
+            flash('LGA already exist for this state')->error();
+            return redirect()->route('state.create');
+        }
+
         $lga->name = $request->name;
         $lga->state_id = $request->state_id;
         $lga->save();
 
-        flash('State And LGA created successfully!')->success();
+        flash('LGA created successfully!')->success();
         return redirect()->route('state.create');
     }
 

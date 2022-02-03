@@ -4,7 +4,7 @@
 
 @include('frontend.includes.mobileheader')
 @php
-    $img = "frontend/images/events.jpg"
+    $img = "/frontend/images/events.jpg"
 @endphp
 @include('frontend.includes.hero',['title'=>'Events','header2Text'=>'Events','header1Text'=>'Events','img'=>$img])
 
@@ -23,7 +23,7 @@
                             <div class="row">
                                 @if (count($posts)>0)
                                     @foreach ($posts as $post)
-                                    <div class="col-md-4 col-sm-6 col-lg-4">
+                                    {{-- <div class="col-md-4 col-sm-6 col-lg-4">
                                         <div class="event-box2">
                                             <div class="event-thumb">
                                                 <a href="{{route('event',$post->post_slug)}}" title="{{$post->post_title}}"><img src="{{$post->featured_image}}" alt="{{$post->post_title}}" style="max-height:35vh"></a>
@@ -35,6 +35,24 @@
                                                     <li><i class="fa fa-user"></i>by Admin</li>
                                                     <li><i class="flaticon-clock"></i>{{ Carbon\Carbon::createFromTimeString($post->created_at)->format('M d Y') }}</li>
                                                 </ul>
+                                            </div>
+                                        </div>
+                                    </div> --}}
+
+                                    <div class="col-md-4 col-sm-6 col-lg-4 fadeIn" data-wow-duration=".8s" data-wow-delay=".2s">
+                                        <div class="blog-box">
+                                            <div class="blog-thmb">
+                                                <a href="{{route('event',$post->post_slug)}}" title=""><img src="{{$post->featured_image}}" alt="{{$post->post_title}}"></a>
+                                            </div>
+                                            <div class="blog-info">
+                                                <ul class="pst-mta2">
+                                                    <li><a href="#" title="">{{$post->category->category_name}}</a></li>
+                                                </ul>
+                                                <h4><a href="{{route('event',$post->post_slug)}}" title="">{{$post->post_title}}</a></h4>
+                                                <p>
+                                                    {!! Str::words($post->post_body, 25) !!}
+                                                </p>
+                                                <a href="{{route('event',$post->post_slug)}}" title="">Read More</a>
                                             </div>
                                         </div>
                                     </div>

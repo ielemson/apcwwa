@@ -113,7 +113,7 @@
                 <h6 class="heading-small text-muted mb-4">Add Ward </h6>
                 <div class="pl-lg-4">
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
                             <div class="form-group">
                                 <label for="name" class="form-control-label">State Name</label>
                                 <select class="form-control" name="state_id" type="text" id="state">
@@ -126,12 +126,8 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4">
-                            {{-- <div class="form-group">
-                                        {{ Form::label('name', 'LGA Name', ['class' => 'form-control-label']) }}
-                                        {{ Form::text('name', null, ['class' => 'form-control']) }}
-                                    </div> --}}
-
+                        <div class="col-lg-3">
+                          
                             <label for="name" class="form-control-label">LGA Name</label>
 
                             <select class="form-control" name="lga_id" type="text" id="lga">
@@ -139,33 +135,38 @@
                             </select>
                         </div>
 
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
                             <div class="form-group">
                                 {{ Form::label('name', 'Ward Name', ['class' => 'form-control-label']) }}
                                 {{ Form::text('name', null, ['class' => 'form-control']) }}
                             </div>
 
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                {{ Form::label('name', 'Ward Coordinator', ['class' => 'form-control-label']) }}
+                                {{ Form::text('cordname', null, ['class' => 'form-control']) }}
+                            </div>
 
                         </div>
                     </div>
                 </div>
-                <div class="pl-lg-4">
+
+                <div class="pl-lg-3">
                     <div class="row">
-                        {{-- <div class="col-md-12">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" name="status" value="1" class="custom-control-input" id="status">
-                                        {{ Form::label('status', 'Status', ['class' => 'custom-control-label']) }}
-                                    </div>
-                                </div> --}}
+                   
                         <div class="col-md-12">
                             {{ Form::submit('Submit', ['class' => 'mt-5 btn btn-primary']) }}
                         </div>
                     </div>
                 </div>
+
                 {!! Form::close() !!}
             </div>
         </div>
     </div>
+    
     </div>
     </div>
 @endsection

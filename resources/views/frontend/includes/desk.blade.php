@@ -7,7 +7,7 @@
                     <div class="owl-carousel slide-one-item">
             @foreach ($desk as $user)
                 
-                 <div class="d-md-flex testimony-29101 align-items-stretch" style="height:auto">
+                 <div class="d-md-flex desk align-items-stretch" style="height:auto">
                           <div class="image" style="background-image: url('{{$user->user_photo}}');"></div>
                           <div class="col-md-6 col-sm-12 col-lg-6">
                             <div class="hstry-desc">
@@ -16,10 +16,10 @@
                                 </span>
                                 <h2>{{$user->name}}</h2>
                                 <p>
-                                 {{-- {!! $user->speech !!} --}}
-                                 {!! Str::words($user->speech, 120) !!}
+                                  {!! $user->speech !!} 
+                                 <!--{!! Str::words($user->speech, 100) !!}-->
                                </p>
-                               <a class="thm-btn mt-2" href="{{route('desk_more',$user->slug)}}" title="">Read More</a>
+                               <!--<a class="thm-btn mt-2" href="{{route('desk_more',$user->slug)}}" title="">Read More</a>-->
                             </div>
                         </div>
                         </div>  <!-- .item -->

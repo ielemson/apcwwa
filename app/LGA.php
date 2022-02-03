@@ -28,4 +28,6 @@ class LGA extends Model
     {
         return $this->hasMany('App\Ward','lga_id');
     }
+
+   
 }

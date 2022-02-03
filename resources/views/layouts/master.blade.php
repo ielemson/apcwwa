@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link rel="icon" href="{{asset('main/images/favicon.png')}}" sizes="32x32" type="image/png">
+    <link rel="icon" href="{{asset('/main/images/favicon.png')}}" sizes="32x32" type="image/png">
     <title>apcwwa - APC Ward To Ward Ambassadors</title>
 
     {{-- EFAULT STYLES-SHEETS --}}
@@ -87,6 +87,8 @@
  {{-- <script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script> --}}
  <script src="{{asset('frontend/js/main.js')}}"></script>
  {{-- custom sliders --}}
+
+ @stack('frontend-js')
 </body>	
 
 </html>

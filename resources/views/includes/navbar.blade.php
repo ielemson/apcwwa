@@ -29,14 +29,14 @@
                 <!-- Nav items -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link {{ (request()->is('home*')) ? 'active' : '' }}" href="{{route('home')}}">
+                        <a class="nav-link {{ (request()->is('admin/home*')) ? 'active' : '' }}" href="{{route('home')}}">
                             <i class="ni ni-shop text-primary"></i>
                             <span class="nav-link-text">Dashboard</span>
                         </a>
                     </li>
                     @can('update-settings')
                         <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('settings*')) ? 'active' : '' }}" href="{{route('settings.index')}}">
+                            <a class="nav-link {{ (request()->is('admin/settings*')) ? 'active' : '' }}" href="{{route('settings.index')}}">
                                 <i class="ni ni-settings-gear-65 text-primary"></i>
                                 <span class="nav-link-text">Manage Settings</span>
                             </a>
@@ -45,7 +45,7 @@
 
                     @canany(['view-category', 'create-category'])
                         <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('category*')) ? 'active' : '' }}" href="#navbar-category"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-category">
+                            <a class="nav-link {{ (request()->is('admin/category*')) ? 'active' : '' }}" href="#navbar-category"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-category">
                                 <i class="fas text-primary fa-list-alt"></i>
                                 <span class="nav-link-text">Manage Category</span>
                             </a>
@@ -67,9 +67,57 @@
 
                     @endcan
 
+                    @canany('manage-dnc')
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('admin/dnc*')) ? 'active' : '' }}" href="#navbar-dnc"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-category">
+                                <i class="fas text-primary fa-list-alt"></i>
+                                <span class="nav-link-text">Manage DNC</span>
+                            </a>
+                            <div class="collapse" id="navbar-dnc">
+                                <ul class="nav nav-sm flex-column">
+                                 @can('view-category')
+                                    <li class="nav-item">
+                                        <a href="{{route('dnc.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">All DNC</span></a>
+                                    </li>
+                                    @endcan
+                                    @can( 'create-category')
+                                    <li class="nav-item">
+                                        <a href="{{route('dnc.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New DNC</span></a>
+                                    </li>
+                                    @endcan
+                                </ul>
+                            </div>
+                        </li>
+
+                    @endcan
+
+                    @canany(['view-category', 'create-category'])
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('admin/gallery*')) ? 'active' : '' }}" href="#navbar-gallery"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-category">
+                                <i class="fas text-primary fa-list-alt"></i>
+                                <span class="nav-link-text">Manage Gallery</span>
+                            </a>
+                            <div class="collapse" id="navbar-gallery">
+                                <ul class="nav nav-sm flex-column">
+                                 @can('view-category')
+                                    <li class="nav-item">
+                                        <a href="{{route('gallery.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">DNC Gallery</span></a>
+                                    </li>
+                                    @endcan
+                                    @can( 'create-category')
+                                    <li class="nav-item">
+                                        <a href="{{route('gallery.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New Gallery</span></a>
+                                    </li>
+                                    @endcan
+                                </ul>
+                            </div>
+                        </li>
+
+                    @endcan
+
                     @canany(['view-state', 'create-state'])
                         <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('state*')) ? 'active' : '' }}" href="#navbar-state"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-category">
+                            <a class="nav-link {{ (request()->is('admin/state*')) ? 'active' : '' }}" href="#navbar-state"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-category">
                                 <i class="fas text-primary fa-list-alt"></i>
                                 <span class="nav-link-text">Manage State</span>
                             </a>
@@ -98,7 +146,7 @@
 
                     @canany(['view-state', 'create-state'])
                         <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('state-event*')) ? 'active' : '' }}" href="#navbar-state-activity"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-state-activity">
+                            <a class="nav-link {{ (request()->is('admin/state-event*')) ? 'active' : '' }}" href="#navbar-state-activity"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-state-activity">
                                 <i class="fas text-primary fa-list-alt"></i>
                                 <span class="nav-link-text">Manage State Events</span>
                             </a>
@@ -125,7 +173,7 @@
                     @canany(['view-post', 'create-post'])
 
                         <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('post*')) ? 'active' : '' }}" href="#navbar-post"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-post">
+                            <a class="nav-link {{ (request()->is('admin/post*')) ? 'active' : '' }}" href="#navbar-post"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-post">
                                 <i class="fas text-primary fa-tasks"></i>
                                 <span class="nav-link-text">Manage Posts</span>
                             </a>
@@ -148,7 +196,7 @@
                     @canany(['view-user', 'create-user'])
 
                         <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('users*')) ? 'active' : '' }}" href="#navbar-users"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-users">
+                            <a class="nav-link {{ (request()->is('admin/users*')) ? 'active' : '' }}" href="#navbar-users"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-users">
                                 <i class="fas text-primary fa-tasks"></i>
                                 <span class="nav-link-text">Manage Users</span>
                             </a>
@@ -172,7 +220,7 @@
                        @canany(['view-user', 'create-user'])
 
                         <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('desk*')) ? 'active' : '' }}" href="#navbar-desk"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-users">
+                            <a class="nav-link {{ (request()->is('admin/desk*')) ? 'active' : '' }}" href="#navbar-desk"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-users">
                                 <i class="fas text-primary fa-tasks"></i>
                                 <span class="nav-link-text">Manage Desk</span>
                             </a>
@@ -196,7 +244,7 @@
                        @canany(['view-user', 'create-user'])
 
                         <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('slider*')) ? 'active' : '' }}" href="#navbar-slider"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-users">
+                            <a class="nav-link {{ (request()->is('admin/slider*')) ? 'active' : '' }}" href="#navbar-slider"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-users">
                                 <i class="fas text-primary fa-tasks"></i>
                                 <span class="nav-link-text">Manage Slider</span>
                             </a>
@@ -221,7 +269,7 @@
                        @canany(['view-user', 'create-user'])
 
                         <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('service*')) ? 'active' : '' }}" href="#navbar-service"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-services">
+                            <a class="nav-link {{ (request()->is('admin/service*')) ? 'active' : '' }}" href="#navbar-service"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-services">
                                 <i class="fas text-primary fa-tasks"></i>
                                 <span class="nav-link-text">Manage Services</span>
                             </a>
@@ -245,7 +293,7 @@
 
                     @canany(['view-permission', 'create-permission'])
                         <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('permissions*')) ? 'active' : '' }}" href="{{route('permissions.index')}}">
+                            <a class="nav-link {{ (request()->is('admin/permissions*')) ? 'active' : '' }}" href="{{route('permissions.index')}}">
                                 <i class="fas fa-lock-open text-primary"></i>
                                 <span class="nav-link-text">Manage Permissions</span>
                             </a>
@@ -262,7 +310,7 @@
 
                     @canany(['media'])
                         <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('media*')) ? 'active' : '' }}" href="{{route('media.index')}}">
+                            <a class="nav-link {{ (request()->is('admin/media*')) ? 'active' : '' }}" href="{{route('media.index')}}">
                                 <i class="fas fa-images text-primary"></i>
                                 <span class="nav-link-text">Manage Media</span>
                             </a>
@@ -270,7 +318,7 @@
                     @endcan
                     @canany(['view-activity-log'])
                         <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('activity-log*')) ? 'active' : '' }}" href="{{route('activity-log.index')}}">
+                            <a class="nav-link {{ (request()->is('admin/activity-log*')) ? 'active' : '' }}" href="{{route('activity-log.index')}}">
                                 <i class="fas fa-history text-primary"></i>
                                 <span class="nav-link-text">Activity Log</span>
                             </a>
