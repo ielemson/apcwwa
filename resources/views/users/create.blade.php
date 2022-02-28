@@ -5,6 +5,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
+
             <div class="card mb-5">
                 <div class="card-body">
                     {!! Form::open(['route' => 'users.store', 'files' => true]) !!}
@@ -100,9 +101,57 @@
                     {!! Form::close() !!}
                 </div>
                 </div>
+
+
+            <div class="card mb-5">
+                <div class="card-body">
+                      {!! Form::open(['route' => 'zonal_state_cord.store']) !!}
+                    <h6 class="heading-small text-muted mb-4">Zonal Cord information</h6>
+                        <div class="pl-lg-4">
+                        
+                            <div class="row">
+                            
+                             
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        {{ Form::label('user_id', 'Select User', ['class' => 'form-control-label']) }}
+                                        {{ Form::select('user_id', $users, null, [ 'class'=> 'selectpicker form-control', 'placeholder' => 'Select user...']) }}
+                                    </div>
+                                </div>
+                                
+                               
+                                
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        {{ Form::label('Portfolio', 'Portfolio', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('portfolio', null, ['class' => 'form-control','placeholder'=>' Zone e.g South East']) }}
+                                    </div>
+                                </div>
+           
+                                
+                 
+
+                            </div>
+                        </div>
+                        <hr class="my-4" />
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                
+                                <div class="col-md-12">
+                                    {{ Form::submit('Submit', ['class'=> 'mt-5 btn btn-primary']) }}
+                                </div>
+                            </div>
+                        </div>
+
+                    {!! Form::close() !!}
+                </div>
+                </div>
             </div>
         </div>
     </div>
+
+
 @endsection
 
 @push('scripts')

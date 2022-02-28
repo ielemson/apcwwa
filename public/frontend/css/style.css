@@ -146,6 +146,12 @@ section {
   position: relative;
   width: 100%;
 }
+.gap-donate {
+  float: left;
+  padding: 100px 10px;
+  position: relative;
+  width: 100%;
+}
 .less-gap,
 .gap.less-gap {padding: 80px 0;}
 .top-spac30,
@@ -515,7 +521,7 @@ header.style1 {
   position: fixed;
   top: 0;
   left: 0;
-  padding: 15px 0 20px 0;
+  padding: 5px 0 8px 0;
   background: rgba(0,0,0,0.2);
 }
 header.style1 .logo {float: left; padding-top:5px;}
@@ -644,7 +650,7 @@ header.style2.sticky-active .logo,
 header.style2.sticky-active nav {margin-bottom: -6.4px;}
 header.style1.sticky-active {
   background-color: #fff;
-  padding: 15px 0;
+  padding: 8px 0;
 }
 header.style1.sticky-active nav {margin-top: 0;}
 header.style1.sticky-active nav > div > ul > li {color: #666;}

@@ -20,11 +20,17 @@ class State extends Model
 
     public function wards()
     {
-        return $this->hasMany('App\Ward');
+        return $this->hasMany(Ward::class);
     }
 
     public function state_events()
     {
         return $this->hasMany('App\StateActivity');
     }
+
+
+    public function state_cordinator(){
+        return $this->belongsTo(StateCordinator::class,'state_id');
+    }
+
 }

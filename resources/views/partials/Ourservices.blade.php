@@ -3,12 +3,20 @@
     <div class="gap">
         
         <div class="container">
-            <div class="sec-title2 text-center">
+            {{-- <div class="sec-title2 text-center">
                 <div class="sec-title-inner2">
                     <span>Serving Humanity</span>
                     <h3>Our Services</h3>
                 </div>
+            </div> --}}
+
+            <div class="sec-title">
+                <div class="sec-title-inner" >
+                    <h3><span>Our Flagship </span> Programs</h3>
+                </div>
+                <p>Serving Humanity</p>
             </div>
+
             <div class="serv-wrap text-center remove-ext3">
                 <div class="row">
                   @foreach ($services as $service)

@@ -5,9 +5,18 @@
       <div class="sec-title2 text-center">
          <div class="sec-title-inner2">
             {{-- <span>What Our</span> --}}
-            <h3>Diaspora Network Chapter (DNC) </h3>
+            <h3> </h3>
          </div>
       </div>
+
+      
+      <div class="sec-title">
+         <div class="sec-title-inner" >
+             <h3><span>Diaspora Network Chapter</span> DNC </h3>
+         </div>
+         {{-- <p>The aims and objectives of APC Ward-to-Ward Ambassadors are as follows:</p> --}}
+     </div>
+     
       <div class="team-wrap text-center remove-ext3">
          <div class="gtco-testimonials">
          @if (count($diaspora_network_chapter)>0)

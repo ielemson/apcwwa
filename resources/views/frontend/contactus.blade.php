@@ -21,16 +21,16 @@
             </div>
             <div class="contact-info-wrap text-center remove-ext3">
                 <div class="row">
-                    <div class="col-md-4 col-sm-6 col-lg-4">
+                    <div class="col-md-4 col-sm-12 col-lg-3">
                         <div class="contact-info-box">
                             <i class="flaticon-location-pin"></i>
                             <strong>Our Location</strong>
                             <span>#11 Ngwa Close, Off Fumilayo Ransome Kuti Way, 
                              </span>
-                            <a href="#" title="">Area 3 Garki, FCT- Abuja.</a>
+                            <a href="#" >Area 3 Garki, FCT- Abuja.</a>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 col-lg-4">
+                    <div class="col-md-4 col-sm-6 col-lg-3">
                         <div class="contact-info-box">
                             <i class="flaticon-call"></i>
                             <strong>Contact us Anytime</strong>
@@ -39,13 +39,24 @@
                             <span>0802-275-5235</span>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 col-lg-4">
+                    <div class="col-md-4 col-sm-6 col-lg-3">
                         <div class="contact-info-box">
                             <i class="flaticon-email"></i>
-                            <strong>Write Some Words</strong>
-                            <a href="#" title="">Apcward2wardambassadors@gmail.com</a>
-                            <a href="#" title="">info@apcwwa.com</a>
-                            <a href="#" title="">support@apcwwa.com</a>
+                            <strong>Write us anytime</strong>
+                            <a href="#" >apcward2wardambassadors<br/> @gmail.com</a>
+                            <a href="#" >info@apcwwa.com</a>
+                            {{-- <a href="#" >support@apcwwa.com</a> --}}
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-lg-3">
+                        <div class="contact-info-box">
+                            <i class="fa fa-thumbs-up"></i>
+                            <strong>our social medial handles</strong>
+                            {{-- <a href="#" >apcward2wardambassadors<br/>@gmail.com</a> --}}
+                            <a href="https://www.facebook.com/apc.w.ambassadors" ><i class="fa fa-facebook"></i> Facebook</a> <br/>
+                            <a href="https://twitter.com/apc_ward2ward" ><i class="fa fa-twitter"></i> Twitter</a><br/>
+                            <a href="https://instagram.com/apcward2ward" ><i class="fa fa-instagram"></i> Instagram</a>
+                            {{-- <a href="#" >support@apcwwa.com</a> --}}
                         </div>
                     </div>
                 </div>

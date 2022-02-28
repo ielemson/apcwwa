@@ -4,7 +4,7 @@
         <nav>
             <div>
                 <a class="srch-btn" href="#" title=""><i class="fa fa-search"></i></a>
-                <a class="thm-btn brd-rd5" href="{{url('/contact-us')}}" title="">Membership</a>
+                <a class="thm-btn brd-rd5" href="{{url('/contact-us')}}" title="">Donate</a>
                 <ul>
                     <li ><a href="{{url('/')}}" title="">Home</a>
                     

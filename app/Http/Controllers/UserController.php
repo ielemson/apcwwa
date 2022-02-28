@@ -48,7 +48,8 @@ class UserController extends Controller
         $title = 'Create user';
         $states = State::all();
         $roles = Role::pluck('name', 'id');
-        return view('users.create', compact('roles', 'title','states'));
+        $users = User::pluck('name', 'id');
+        return view('users.create', compact('roles', 'title','states','users'));
     }
 
     /**
@@ -93,6 +94,7 @@ class UserController extends Controller
     {
         $title = "User Details";
         $roles = Role::pluck('name', 'id');
+        $user = User::where('id',$user->id)->first();
         return view('users.edit', compact('user','title', 'roles'));
     }
 

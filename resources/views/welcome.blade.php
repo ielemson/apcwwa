@@ -17,8 +17,18 @@
 
 @include('frontend.includes.diaspora')
 
+
+{{-- @include('partials.objectives') --}}
+@include('partials.aims_and_objective')
+
+
+{{-- Organizational Structure starts --}}
+@include('partials.structure')
+{{-- Organizational Structure ends --}}
+
 {{-- Our Services --}}
 @include('partials.Ourservices')
+{{-- Our Services --}}
 
 {{-- Upcoming Events --}}
 @include('partials.upcomingEvents')
@@ -89,25 +99,7 @@
     </div>
 </section> --}}
 
-<section>
-    <div class="gap thm-layer opc9">
-        <div class="fixed-bg" style="background-image: url(/frontend/images/slider/slider-5.jpeg);"></div>
-        <div class="container">
-            <div class="nwsltr-wrp text-center">
-                <div class="nwsltr-innr">
-                    <div class="nwsltr-title">
-                        <h3>Newsletter</h3>
-                        <span>Subscribe to our mailing list</span>
-                    </div>
-                    <form>
-                        <input type="email" placeholder="Enter your email">
-                        <button type="submit">Sign up</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@include('frontend.includes.donate')
 @endsection
 
 @push('frontend-styles')

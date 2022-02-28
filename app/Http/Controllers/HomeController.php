@@ -16,6 +16,8 @@ use App\Service;
 use App\Slider;
 use App\State;
 use App\Ward;
+use App\ZonalStateCord;
+
 // use WardCordinator;
 
 class HomeController extends Controller
@@ -54,11 +56,14 @@ class HomeController extends Controller
         return view('frontend.contactus',compact('states'));
     }
 
+    public function membership(){
+        return view('frontend.membership');
+    }
+    
+
     public function welcome()
     {
-        $state_cordinator = User::whereHas('roles', function ($query) {
-            return $query->where('name', 'state-cordinator');
-        })->get();
+        $state_zonal_cords = ZonalStateCord::all();
 
 
         $diaspora_network_chapter = User::whereHas('roles', function ($query) {
@@ -77,7 +82,7 @@ class HomeController extends Controller
         $sliders = Slider::where('status','front')->Orderby('position','ASC')->get();
 
         // dd($sliders);
-        return view('welcome',compact('state_cordinator','diaspora_network_chapter','desk','states','upcoming_events','services','sliders'));
+        return view('welcome',compact('state_zonal_cords','diaspora_network_chapter','desk','states','upcoming_events','services','sliders'));
     }
 
     // public function service($id){
@@ -95,11 +100,21 @@ class HomeController extends Controller
 
     public function dnc(){
 
-        $dncs = User::whereHas('roles', function ($query) {
-            return $query->where('name', 'diaspora-network-chapter');
-        })->orderBy("id", "asc")->get();
+        // $dncs = User::whereHas('roles', function ($query) {
+        //     return $query->where('name', 'diaspora-network-chapter');
+        // })->orderBy("id", "asc")->get();
+
+        $dncs = dnc::with('user')->orderBy('dnc_order','ASC')->get();
+
+        $posts = Post::where('status',1)
+        ->where('event_status','dnc')
+        ->orderBy('id', 'asc')
+        ->paginate(9);
+
+        $galleries = Gallery::where('category','dnc')->get();
+
         $states = State::all();
-        return view('frontend.dnc.dnc',compact('dncs','states'));
+        return view('frontend.dnc.dnc',compact('dncs','states','posts','galleries'));
     }
 
 

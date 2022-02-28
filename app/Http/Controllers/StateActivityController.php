@@ -52,22 +52,29 @@ class StateActivityController extends Controller
 
         $state = State::where('name',$state)->first();
 
-        $sliders = Slider::where('state_id',$state->id)->get();
+        if ($state != null) {
+          
+            $sliders = Slider::where('state_id',$state->id)->get();
 
-        if(count($sliders)==0){
-            // $sliders = Slider::whereNull('state_id')->OrderBy('position','ASC')->get();
-            $sliders = Slider::where('status','front')->get();
+            if(count($sliders)==0){
+                // $sliders = Slider::whereNull('state_id')->OrderBy('position','ASC')->get();
+                $sliders = Slider::where('status','front')->get();
+    
+            //    $sliders =  Slider::select("*")
+            //                 ->whereNull('state_id')
+            //                 ->get();
+            }
+    
+            // dd($sliders);
+    
+            $states = State::all();
+            $state_events = StateActivity::where('state_id',$state->id)->where('status', '=',1)->with('state')->paginate(6);
+            return view('frontend.state.stateEvents',compact('state_events','state','states','sliders'));
 
-        //    $sliders =  Slider::select("*")
-        //                 ->whereNull('state_id')
-        //                 ->get();
+        }else{
+            return redirect()->route('welcome');
         }
-
-        // dd($sliders);
-
-        $states = State::all();
-        $state_events = StateActivity::where('state_id',$state->id)->where('status', '=',1)->with('state')->paginate(6);
-        return view('frontend.state.stateEvents',compact('state_events','state','states','sliders'));
+      
     }
 
 

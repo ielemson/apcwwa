@@ -90,6 +90,53 @@
                         </li>
 
                     @endcan
+                    
+                    
+                    @canany('manage-zonalcord')
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('admin/zones*')) ? 'active' : '' }}" href="#navbar-zonalcord"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="zonalcord">
+                                <i class="fas text-primary fa-list-alt"></i>
+                                <span class="nav-link-text">Manage Zones</span>
+                            </a>
+                            <div class="collapse" id="navbar-zonalcord">
+                                <ul class="nav nav-sm flex-column">
+                                 @can('view-category')
+                                    <li class="nav-item">
+                                        <a href="{{route('zones.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">All Zones</span></a>
+                                    </li>
+                                    @endcan
+                                    @can( 'create-category')
+                                    <li class="nav-item">
+                                        <a href="{{route('zones.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New Zones</span></a>
+                                    </li>
+                                    @endcan
+                                </ul>
+                            </div>
+                        </li>
+                    @endcan
+
+                    @canany('manage-statecord')
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('admin/statecord*')) ? 'active' : '' }}" href="#navbar-statecord"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="statecord">
+                                <i class="fas text-primary fa-list-alt"></i>
+                                <span class="nav-link-text">Manage State Cord.</span>
+                            </a>
+                            <div class="collapse" id="navbar-statecord">
+                                <ul class="nav nav-sm flex-column">
+                                 @can('view-category')
+                                    <li class="nav-item">
+                                        <a href="{{route('statecord.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">All State Cord.</span></a>
+                                    </li>
+                                    @endcan
+                                    @can( 'create-category')
+                                    <li class="nav-item">
+                                        <a href="{{route('statecord.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New State Cord</span></a>
+                                    </li>
+                                    @endcan
+                                </ul>
+                            </div>
+                        </li>
+                    @endcan
 
                     @canany(['view-category', 'create-category'])
                         <li class="nav-item">
@@ -207,9 +254,16 @@
                                         <a href="{{route('users.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">All Users</span></a>
                                     </li>
                                     @endcan
+
                                     @can( 'create-user')
                                     <li class="nav-item">
                                         <a href="{{route('users.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New User</span></a>
+                                    </li>
+                                    @endcan
+
+                                    @can( 'create-user')
+                                    <li class="nav-item">
+                                        <a href="{{route('zonal_state_cord.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">New Zonal&State Cord</span></a>
                                     </li>
                                     @endcan
                                 </ul>

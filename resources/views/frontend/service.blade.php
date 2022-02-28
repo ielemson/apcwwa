@@ -4,8 +4,9 @@
 @include('frontend.includes.mobileheader')
 @php
     $name = $service->title;
+    $img = "/frontend/images/our-service.jpg"
 @endphp
-@include('frontend.includes.hero',['title'=>'Our Service','header2Text'=>'Our Services','header1Text'=>$name])
+@include('frontend.includes.hero',['title'=>'Our Service','header2Text'=>'Our Services','header1Text'=>$name,'img'=>$img])
 @endsection
 
 

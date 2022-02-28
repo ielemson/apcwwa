@@ -24,9 +24,10 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'HomeController@welcome')->name('welcome');
 Route::get('/about-us', 'HomeController@about_us');
+Route::get('/membership', 'HomeController@membership')->name('membership');
 Route::get('/contact-us', 'HomeController@contact_us');
 Route::get('/dnc/about', 'HomeController@dnc')->name('dnc_home');
-Route::get('/dnc/members', 'HomeController@dnc_members')->name('dnc_members');
+Route::get('/dnc/committee', 'HomeController@dnc_members')->name('dnc_members');
 Route::get('/dnc/event', 'HomeController@dnc_event')->name('dnc_post');
 Route::get('/dnc/gallery', 'HomeController@dnc_gallery')->name('dnc_gallery');
 // Route::get('/dnc/{slug}', 'HomeController@dnc_details')->name('dnc_details');
@@ -78,6 +79,11 @@ Route::group(['middleware' => ['auth','verified']], function () {
         Route::resource('ward','WardController');
         Route::resource('gallery','GalleryController');
         Route::resource('dnc','DncController');
+        Route::resource('zones','ZonesController');
+        Route::resource('statecord','StateCordinatorController');
+        Route::resource('zone_state','ZoneStateController');
+        Route::resource('zonal_state_cord','ZonalStateCordController')->except(['create']);
+
 
         Route::post('getLga','LGAController@getLga')->name('getLga');
         Route::post('update-lga','LGAController@updateLga')->name('lga_update');

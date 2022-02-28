@@ -644,7 +644,7 @@ header.style2.sticky-active .logo,
 header.style2.sticky-active nav {margin-bottom: -6.4px;}
 header.style1.sticky-active {
   background-color: #fff;
-  padding: 15px 0;
+  padding: 8px 0;
 }
 header.style1.sticky-active nav {margin-top: 0;}
 header.style1.sticky-active nav > div > ul > li {color: #666;}
@@ -2844,6 +2844,8 @@ footer {
   width: 100%;
   min-height: 455px;
   position: relative;
+  top: 15vh;
+  padding: auto;
 }
 .msn-thmb-wrap > a {
   -webkit-box-shadow: 0 0 20px rgba(0,0,0,.15);

@@ -4,7 +4,7 @@
         <nav>
             <div>
                 {{-- <a class="srch-btn" href="#" ><i class="fa fa-search"></i></a> --}}
-                <a class="thm-btn brd-rd5" href="{{url('/contact-us')}}" >Membership</a>
+                {{-- <a class="thm-btn brd-rd5" href="{{route('membership')}}" >Membership</a> --}}
                 <ul>
                     <li ><a href="{{url('/')}}" >Home</a>
                     
@@ -30,13 +30,13 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="menu-item-has-children"><a href="#" title="dnc">Diaspora Network Coordinate</a> 
+                    <li ><a href="{{route('dnc_home')}}" title="dnc">Diaspora Network Coordinate</a> 
                     
                         <ul>
-                            <li><a href="{{route('dnc_home')}}" >About DNC</a></li>
-                            <li><a href="{{route('dnc_members')}}" >DNC Members</a></li>
-                            <li><a href="{{route('dnc_post')}}" >DNC Event</a></li>
-                            <li><a href="{{route('dnc_gallery')}}" >DNC Gallery</a></li>
+                            {{-- <li><a href="{{route('dnc_home')}}" >About DNC</a></li> --}}
+                            {{-- <li><a href="{{route('dnc_members')}}" >DNC Committee</a></li> --}}
+                            {{-- <li><a href="{{route('dnc_post')}}" >DNC Event</a></li> --}}
+                            {{-- <li><a href="{{route('dnc_gallery')}}" >DNC Gallery</a></li> --}}
                         </ul>
                     </li>
                     <li><a href="{{route('events')}}" title="event">Event</a></li>

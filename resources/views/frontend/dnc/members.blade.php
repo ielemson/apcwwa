@@ -19,7 +19,7 @@
                 <div class="team-wrap2 text-center remove-ext3">
 
                     <div class="sec-title-inner mb-5">
-                        <h3><span class="secndry-clr">DNC </span> Members</h3>
+                        <h3><span class="secndry-clr">DNC </span> Committee</h3>
                     </div>
 
                     <div class="row">
@@ -53,6 +53,7 @@
         </div>
     </section>
 @endsection
+
 
 @push('frontend-styles')
     <link rel="stylesheet" href="{{ asset('main/css/pages.css') }}">

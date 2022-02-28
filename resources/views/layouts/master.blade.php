@@ -42,12 +42,13 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald:500" rel="stylesheet">
     <link href="{{asset('frontend/main_slider/style.css')}}" rel="stylesheet">
     {{-- MAIN SLIDER STYLES --}}
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    
     {{-- sliders styles --}}
 <body>
 
     <main>
-        {{-- <div class="pageloader-wrap">
+        <div class="pageloader-wrap">
             <div class="loader">
                 <div class="loader__bar"></div>
                 <div class="loader__bar"></div>
@@ -56,7 +57,7 @@
                 <div class="loader__bar"></div>
                 <div class="loader__ball"></div>
             </div>
-        </div> --}}
+        </div>
         <!-- Pageloader Wrap -->
 
        @yield('header')
@@ -69,7 +70,7 @@
  {{-- DEFAULT SCRIPTS --}}
  <script src="{{asset('main/js/jquery.min.js')}}"></script>
  <script src="{{asset('main/js/bootstrap.min.js')}}"></script>
- <script src="{{asset('main/js/downCount.js')}}"></script>
+ {{-- <script src="{{asset('main/js/downCount.js')}}"></script> --}}
  <script src="{{asset('main/js/fancybox.min.js')}}"></script>
  <script src="{{asset('main/js/isotope.pkgd.min.js')}}"></script>
  <script src="{{asset('main/js/perfectscrollbar.min.js')}}"></script>
@@ -81,7 +82,7 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
  <script src="{{asset('frontend/main_slider/script.js')}}"></script>
  {{-- DEFAULT SCRIPTS --}}
-
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
  {{-- custom sliders --}}
  {{-- <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'></script> --}}
  {{-- <script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script> --}}

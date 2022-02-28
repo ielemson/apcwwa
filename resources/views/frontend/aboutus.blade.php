@@ -62,70 +62,9 @@
                     APC Ward to Ward Ambassadors is a National Political Action Group operating in the entire <strong>8,665</strong> Political Wards; <strong>774</strong> local government areas of the <strong>36</strong> States of the federation, the FCT., and the Diaspora with a clear vision of bridging communications gap between Nigerians and their party and government of choice, the APC.
                     The greatest challenge confronting the ruling party - our party is not that we have performed below expectations or that we are not achieving the goals outlined in our manifesto which Nigerians gladly bought in 2015 and reaffirmed in 2019 through the ballot. The greatest challenge is that we are faced with a determined opposition whose propaganda machinery is on a top-flight mobility. Our brief therefore is to innovate a grassroots citizen engagement ecosystem that will constantly keep the opposition in check by bridging all communication gap between Nigerians and their party and government of choice.                                     
                 </p>
-
         </div>
-
-
-
-{{-- 
-            <div class="srv-wrap3">
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-lg-4">
-                        <div class="srv-mckp mt-5">
-                            <img src="/frontend/images/slider/apc.jpeg" alt="what-we-are-doing">
-                        </div>
-                    </div>
-                    <div class="col-md-8 col-sm-12 col-lg-8">
-                        <div class="remove-ext5">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                    <div class="srv-box3">
-                                        <div class="srv-ttl">
-                                            <i class="flaticon-quran-rehal"></i>
-                                            <h4>Education</h4>
-                                            <span>Teaching Quran Ayah</span>
-                                        </div>
-                                        <p>At vero eos et accusamus et iusto odio disimos ducimus qui blanditiis um voluptatum deleniti atque orrupti qlores et...</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                    <div class="srv-box3">
-                                        <div class="srv-ttl">
-                                            <i class="flaticon-heart-1"></i>
-                                            <h4>Charity Service</h4>
-                                            <span>Noble Cause To Help</span>
-                                        </div>
-                                        <p>At vero eos et accusamus et iusto odio disimos ducimus qui blanditiis um voluptatum deleniti atque orrupti qlores et...</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                    <div class="srv-box3">
-                                        <div class="srv-ttl">
-                                            <i class="flaticon-heart-1"></i>
-                                            <h4>Church Development</h4>
-                                            <span>Renovating Church Everywhere</span>
-                                        </div>
-                                        <p>At vero eos et accusamus et iusto odio disimos ducimus qui blanditiis um voluptatum deleniti atque orrupti qlores et...</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                    <div class="srv-box3">
-                                        <div class="srv-ttl">
-                                            <i class="flaticon-social-care"></i>
-                                            <h4>Help Poor's</h4>
-                                            <span>Feeding The Hungry</span>
-                                        </div>
-                                        <p>At vero eos et accusamus et iusto odio disimos ducimus qui blanditiis um voluptatum deleniti atque orrupti qlores et...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-
-
         </div>
+        
     </div>
 </section>
 
@@ -177,7 +116,8 @@
     </div>
 </section>
 
-
+@include('frontend.includes.aims_and_objective')
+@include('frontend.includes.membership')
 
 
 @endsection

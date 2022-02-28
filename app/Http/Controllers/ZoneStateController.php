@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\UserPost;
+use App\ZoneState;
 use Illuminate\Http\Request;
 
-class UserPostController extends Controller
+class ZoneStateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,16 +35,33 @@ class UserPostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+
+            'zone_id'=>'required',
+            'user_id'=>'required',
+            'state_id'=>'required|unique:zone_states',
+        ]);
+
+
+        $zone_state_model = new ZoneState();
+
+        $zone_state_model->zone_id = $request->zone_id;
+        $zone_state_model->user_id = $request->user_id;
+        $zone_state_model->state_id = $request->state_id;
+
+        $zone_state_model->save();
+
+        flash('Data created successfully')->success();
+            return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\UserPost  $userPost
+     * @param  \App\ZoneState  $zoneState
      * @return \Illuminate\Http\Response
      */
-    public function show(UserPost $userPost)
+    public function show(ZoneState $zoneState)
     {
         //
     }
@@ -52,10 +69,10 @@ class UserPostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\UserPost  $userPost
+     * @param  \App\ZoneState  $zoneState
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserPost $userPost)
+    public function edit(ZoneState $zoneState)
     {
         //
     }
@@ -64,10 +81,10 @@ class UserPostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\UserPost  $userPost
+     * @param  \App\ZoneState  $zoneState
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserPost $userPost)
+    public function update(Request $request, ZoneState $zoneState)
     {
         //
     }
@@ -75,10 +92,10 @@ class UserPostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\UserPost  $userPost
+     * @param  \App\ZoneState  $zoneState
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserPost $userPost)
+    public function destroy(ZoneState $zoneState)
     {
         //
     }
