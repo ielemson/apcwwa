@@ -17,6 +17,7 @@ use App\Slider;
 use App\State;
 use App\Ward;
 use App\ZonalStateCord;
+use App\Zone;
 
 // use WardCordinator;
 
@@ -63,8 +64,7 @@ class HomeController extends Controller
 
     public function welcome()
     {
-        $state_zonal_cords = ZonalStateCord::all();
-
+        $state_zonal_cords = ZonalStateCord::orderBy('id','desc')->get();
 
         $diaspora_network_chapter = User::whereHas('roles', function ($query) {
             return $query->where('name', 'diaspora-network-chapter');
@@ -173,7 +173,6 @@ class HomeController extends Controller
         return view('frontend.event.event',compact('post','categories','latest_posts','states'));
     }
 
-
     public function lgaWard($slug){
 
         $lga = LGA::where('name',$slug)->first();
@@ -189,5 +188,12 @@ class HomeController extends Controller
             return back();
         }
         
+    }
+
+    public function zonal_state_cord(){
+        $states = State::all();
+        $zones = Zone::all();
+        // dd($zones);
+        return view('frontend.zonal-state-cord.index',compact('zones','states'));
     }
 }

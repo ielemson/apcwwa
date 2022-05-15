@@ -36,13 +36,12 @@
                   </div>
                </div>
               @endforeach
-             
-             
-
             </div>
+         </div>  
+        </div>
+         </div><!-- Team Wrap -->
+         <a class="thm-btn brd-rd5" href="{{route('zonal_state_cord')}}" title="">View More</a>
          </div>
-                        </div>
-                    </div><!-- Team Wrap -->
-                </div>
+         
             </div>
         </section>

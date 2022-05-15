@@ -30,6 +30,8 @@ Route::get('/dnc/about', 'HomeController@dnc')->name('dnc_home');
 Route::get('/dnc/committee', 'HomeController@dnc_members')->name('dnc_members');
 Route::get('/dnc/event', 'HomeController@dnc_event')->name('dnc_post');
 Route::get('/dnc/gallery', 'HomeController@dnc_gallery')->name('dnc_gallery');
+Route::get('/zonal/state/cord', 'HomeController@zonal_state_cord')->name('zonal_state_cord');
+
 // Route::get('/dnc/{slug}', 'HomeController@dnc_details')->name('dnc_details');
 Route::get('desk/details/{slug}', 'HomeController@desk_more')->name('desk_more');
 Route::get('/events', 'HomeController@events')->name('events');
@@ -50,8 +52,8 @@ Route::resource('state-event', 'StateActivityController');
 //     return view('frontend.aboutus');
 // });
 
-Auth::routes(['verify'=>true]);
-
+Auth::routes(['verify'=>true,'register' => false]);
+// Auth::routes(['register' => false]);
 
 Route::group(['middleware' => ['auth','verified']], function () {
 

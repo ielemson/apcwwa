@@ -16,7 +16,7 @@ class ZonesController extends Controller
      */
     public function index()
     {
-        $zones = Zone::with('user')->with('state_cordinators')->with('zone_states')->paginate(10);
+        $zones = Zone::with('user')->with('zone_states')->paginate(10);
         // dd($zones);
             return view('nzsc.index',compact('zones'));
     }
@@ -84,7 +84,11 @@ class ZonesController extends Controller
      */
     public function edit(Zone $zone)
     {
-        //
+        $zones = Zone::all();
+        $users = User::all();
+        $states = State::all();
+        // dd($states);
+        return view('nzsc.edit',compact('zones','states','users','zone'));
     }
 
     /**

@@ -9,7 +9,7 @@
                         </div>
                         <p>We need your support to fulfill all over goals, we can not complete all the set targets without the help of you so please donate also to support the needy people.</p>
                         <div class="view-all text-center">
-                            <a class="thm-btn brd-rd5" href="#" title="donate"  data-toggle="modal" data-target="#sideModalBRDangerDemo">Donate Now</a>
+                            <a class="thm-btn brd-rd5" href="#" title="donate"  data-toggle="modal" data-target="#sideModalBRDangerDemo"> <i class="fas fa-hand-holding-heart"></i> Donate Now</a>
                         </div>
                     </div>
                 
@@ -46,11 +46,10 @@
                         <p>
 
                             <b>BANK ACCOUNT DETAILS: </b><br/>
-
-                            Banker: Sterling Bank PLC
-                            Account Title: 	APC Ward to Ward Ambassadors  
-                            Account Number: 0083480806 
-                            Swift Code: ……………
+                            <b>Bank</b>: Sterling Bank PLC <br/>
+                            <b>Account Title</b>: APC Ward to Ward Ambassadors  <br/>
+                            <b>Account Number</b>: <i>0083480806</i><br/>
+                            <b>Swift Code</b>: ……………
 
 
                         </p>

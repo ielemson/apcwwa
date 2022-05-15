@@ -1,10 +1,10 @@
 <header class="style1">
     <div class="container">
-        <div class="logo"><a href="/" title="Logo"><img src="{{asset('main/images/logo.png')}}" style="width: 100%; height:3.5vw"></a></div>
+        <div class="logo"><a href="{{route('welcome')}}" title="Logo"><img src="{{asset('main/images/logo.png')}}" style="width: 100%; height:3.5vw"></a></div>
         <nav>
             <div>
                 {{-- <a class="srch-btn" href="#" ><i class="fa fa-search"></i></a> --}}
-                {{-- <a class="thm-btn brd-rd5" href="{{route('membership')}}" >Membership</a> --}}
+                <a class="thm-btn brd-rd5" href="#" title="donate"  data-toggle="modal" data-target="#sideModalBRDangerDemo"> <i class="fas fa-hand-holding-heart"></i> Donate </a>
                 <ul>
                     <li ><a href="{{url('/')}}" >Home</a>
                     

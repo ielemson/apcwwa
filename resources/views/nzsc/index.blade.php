@@ -69,15 +69,15 @@
                                         </td>
                                        <td class="text-center">
                                             @can('manage-dnc')
-                                            {!! Form::open(['route' => ['dnc.destroy', $zone],'method' => 'delete',  'class'=>'d-inline-block dform']) !!}
+                                            {!! Form::open(['route' => ['zones.destroy', $zone],'method' => 'delete',  'class'=>'d-inline-block dform']) !!}
                                             @endcan
-                                            @can('manage-dnc')
+                                            {{-- @can('manage-dnc')
                                             <a class="btn btn-primary btn-sm m-1" data-toggle="tooltip" data-placement="top" title="View and edit user details" href="{{route('dnc.show', $zone)}}">
                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                             </a>
-                                            @endcan
+                                            @endcan --}}
                                             @can('manage-dnc')
-                                            <a class="btn btn-info btn-sm m-1" data-toggle="tooltip" data-placement="top" title="Edit user details" href="{{route('dnc.edit',$zone)}}">
+                                            <a class="btn btn-info btn-sm m-1" data-toggle="tooltip" data-placement="top" title="Edit user details" href="{{route('zones.edit',$zone)}}">
                                                 <i class="fa fa-edit" aria-hidden="true"></i>
                                             </a>
                                             @endcan

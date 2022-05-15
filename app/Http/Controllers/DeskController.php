@@ -97,9 +97,8 @@ class DeskController extends Controller
     public function update(Request $request, Desk $desk)
     {
         $request->validate([
-            'name'=>'required|unique:desks',
+            'name'=>'required',
             'post'=>'required',
-            'user_photo'=>'required'
 
         ],[
             'name.required'=>'Cordinator name is required',
@@ -140,3 +139,5 @@ class DeskController extends Controller
         return $slug;
     }
 }
+
+

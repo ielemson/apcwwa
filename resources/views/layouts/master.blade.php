@@ -45,10 +45,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     
     {{-- sliders styles --}}
+
+
 <body>
 
     <main>
-        <div class="pageloader-wrap">
+        {{-- <div class="pageloader-wrap">
             <div class="loader">
                 <div class="loader__bar"></div>
                 <div class="loader__bar"></div>
@@ -57,7 +59,7 @@
                 <div class="loader__bar"></div>
                 <div class="loader__ball"></div>
             </div>
-        </div>
+        </div> --}}
         <!-- Pageloader Wrap -->
 
        @yield('header')
