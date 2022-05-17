@@ -61,7 +61,7 @@ class ServiceController extends Controller
     {
         $states = State::all();
         $service = Service::where('id',$id)->first();
-        return view('frontend.service',compact('service','states'));
+        return view('apcwwa.service_single',compact('service','states'));
     }
 
     /**

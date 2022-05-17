@@ -69,7 +69,7 @@ class StateActivityController extends Controller
     
             $states = State::all();
             $state_events = StateActivity::where('state_id',$state->id)->where('status', '=',1)->with('state')->paginate(6);
-            return view('frontend.state.stateEvents',compact('state_events','state','states','sliders'));
+            return view('apcwwa.state.events',compact('state_events','state','states','sliders'));
 
         }else{
             return redirect()->route('welcome');
@@ -88,7 +88,7 @@ class StateActivityController extends Controller
         $states = State::all();
         $state_event = StateActivity::where('event_slug',$slug)->with('state')->first();
         $state_events = StateActivity::where('state_id',$state->id)->where('status', '=',1)->with('state')->limit(4)->get();
-        return view('frontend.state.stateEvent',compact('state_event','state','states','state_events'));
+        return view('apcwwa.state.event',compact('state_event','state','states','state_events'));
     }
 
     public function edit($id)

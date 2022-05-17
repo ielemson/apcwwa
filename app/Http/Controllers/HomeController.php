@@ -49,12 +49,12 @@ class HomeController extends Controller
 
     public function about_us(){
         $states = State::all();
-        return view('frontend.aboutus',compact('states'));
+        return view('apcwwa.aboutus',compact('states'));
     }
 
     public function contact_us(){
         $states = State::all();
-        return view('frontend.contactus',compact('states'));
+        return view('apcwwa.contact',compact('states'));
     }
 
     public function membership(){
@@ -95,7 +95,12 @@ class HomeController extends Controller
     public function desk_more($slug){
         $states = State::all();
         $desk = Desk::where('slug',$slug)->first();
-        return view('frontend.desk.desk_detail',compact('states','desk'));
+        return view('apcwwa.desk_single',compact('states','desk'));
+    }
+
+    public function states(){
+        $states = State::all();
+        return view('apcwwa.state.states',compact('states'));
     }
 
     public function dnc(){
@@ -114,7 +119,8 @@ class HomeController extends Controller
         $galleries = Gallery::where('category','dnc')->get();
 
         $states = State::all();
-        return view('frontend.dnc.dnc',compact('dncs','states','posts','galleries'));
+        return view('apcwwa.dnc_page',compact('dncs','states','posts','galleries'));
+        // return view('frontend.dnc.dnc',compact('dncs','states','posts','galleries'));
     }
 
 

@@ -143,21 +143,7 @@
                                 <div class="row">
                                     @if (count($posts) > 0)
                                         @foreach ($posts as $post)
-                                            {{-- <div class="col-md-4 col-sm-6 col-lg-4">
-                                        <div class="event-box2">
-                                            <div class="event-thumb">
-                                                <a href="{{route('event',$post->post_slug)}}" title="{{$post->post_title}}"><img src="{{$post->featured_image}}" alt="{{$post->post_title}}" style="max-height:35vh"></a>
-                                            </div>
-                                            <div class="event-info">
-                                                <h4><a href="{{route('event',$post->post_slug)}}" title="{{$post->post_title}}">{{$post->post_title}}</a></h4>
-                                                <p>{!!\Illuminate\Support\Str::limit($post->post_body, 100, $end='...') !!}</p>
-                                                <ul class="event-mta">
-                                                    <li><i class="fa fa-user"></i>by Admin</li>
-                                                    <li><i class="flaticon-clock"></i>{{ Carbon\Carbon::createFromTimeString($post->created_at)->format('M d Y') }}</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div> --}}
+                                     
 
                                             <div class="col-md-4 col-sm-6 col-lg-4 fadeIn" data-wow-duration=".8s"
                                                 data-wow-delay=".2s">
@@ -218,13 +204,7 @@
 
                 <div class="prtfl-wrap text-center">
                     @if (count($galleries) > 0)
-                        {{-- <ul class="fltr-lnks">
-                <li class="active"><a data-filter="*" href="#">All</a></li>
-                
-                @foreach ($galleries as $gallery)
-                <li class=""><a data-filter=".fltr-itm1" href="#">{{$gallery->category}}</a></li>
-                @endforeach
-            </ul> --}}
+            
 
                         <div class="prtfl-dta remove-ext1">
                             <div class="row mrg15 masonry">

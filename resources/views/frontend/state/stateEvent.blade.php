@@ -8,6 +8,7 @@
 @include('frontend.includes.hero',['title'=>'Event','header2Text'=>'Events','header1Text'=>"Events In $stateName"])
 @endsection
 
+
 @section('content')
 <section>
     <div class="gap">
