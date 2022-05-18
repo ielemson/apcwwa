@@ -32,11 +32,12 @@ Route::get('/dnc/event', 'HomeController@dnc_event')->name('dnc_post');
 Route::get('/dnc/gallery', 'HomeController@dnc_gallery')->name('dnc_gallery');
 Route::get('/zonal/state/cord', 'HomeController@zonal_state_cord')->name('zonal_state_cord');
 Route::get('states','HomeController@states')->name('states');
-
+Route::get('donate','HomeController@donate')->name('donate');
 // Route::get('/dnc/{slug}', 'HomeController@dnc_details')->name('dnc_details');
 Route::get('desk/details/{slug}', 'HomeController@desk_more')->name('desk_more');
 Route::get('/events', 'HomeController@events')->name('events');
 Route::get('/event/{slug}', 'HomeController@event')->name('event');
+Route::get('/event/category/{category}', 'HomeController@events_catgory')->name('events_catgory');
 Route::get('event/{state}/{slug}', 'StateActivityController@state_event')->name('event.state');
 Route::get('events/{state}', 'StateActivityController@state_events')->name('events.state');
 Route::get('state/lga/{slug}', 'StateActivityController@stateEventslga')->name('state.lga');

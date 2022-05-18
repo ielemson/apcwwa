@@ -118,9 +118,9 @@
   
                   <div class="footer-widget about-widget">
   
-                      <div class="logo">
+                      <div class="logo mx-auto" style="">
   
-                          <a href="#"><img src="{{asset('main/images/logo.png')}}" alt="logo" style="width:100px; height:100px"></a>
+                          <a href="{{url('/')}}"><img src="{{asset('main/images/logo.png')}}" alt="logo" style="width:50%; height:15vh"></a>
   
                       </div>
   
@@ -157,11 +157,11 @@
   
               <ul class="social-links clearfix">
   
-                  <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                  <li><a href="https://www.facebook.com/apc.w.ambassadors"><span class="fab fa-facebook-f"></span></a></li>
   
-                  <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                  <li><a href="https://twitter.com/apc_ward2ward"><span class="fab fa-twitter"></span></a></li>
   
-                  <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                  <li><a href="https://instagram.com/apcward2ward"><span class="fab fa-instagram"></span></a></li>
   
               </ul>
   

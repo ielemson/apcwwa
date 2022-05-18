@@ -28,8 +28,10 @@
                   <div class="phone"><a href="#"><span class="icon fa fa-phone-alt"></span>call on: 0703-151-4509, 0803-453-1635</a></div>
   
                   <div class="hours">
-  
-                      <div class="hours-btn btn-md">Donate </div>
+                    <a href="{{route('donate')}}">
+                        <div class="hours-btn btn-md" style="color:#ffffff">Donate </div>
+                    
+                    </a>
   
                   </div>
   
@@ -120,7 +122,7 @@
 
                           </li>
 
-                          <li><a href="events-list.html">Events</a> </li>
+                          <li><a href="{{route('events')}}">Events</a> </li>
 
                           <li><a href="{{url('/about-us')}}">About Us</a> </li>
 
@@ -175,13 +177,13 @@
 
                   <ul class="clearfix">
 
-                      <li><a href="#" class="has-tooltip"><span class="fab fa-facebook-f"></span><div class="c-tooltip"><div class="tooltip-inner">Facebook</div></div></a></li>
+                      <li><a href="https://www.facebook.com/apc.w.ambassadors" class="has-tooltip"><span class="fab fa-facebook-f"></span><div class="c-tooltip"><div class="tooltip-inner">Facebook</div></div></a></li>
 
-                      <li><a href="#" class="has-tooltip"><span class="fab fa-twitter"></span><div class="c-tooltip"><div class="tooltip-inner">Twitter</div></div></a></li>
+                      <li><a href="https://twitter.com/apc_ward2ward" class="has-tooltip"><span class="fab fa-twitter"></span><div class="c-tooltip"><div class="tooltip-inner">Twitter</div></div></a></li>
 
-                      <li><a href="#" class="has-tooltip"><span class="fab fa-linkedin-in"></span><div class="c-tooltip"><div class="tooltip-inner">Linkedin</div></div></a></li>
+                      <li><a href="https://instagram.com/apcward2ward" class="has-tooltip"><span class="fab fa-instagram"></span><div class="c-tooltip"><div class="tooltip-inner">Instagram</div></div></a></li>
 
-                  </ul>
+                  </ul>         
 
               </div>
 
@@ -211,7 +213,7 @@
 
       <div class="logo pull-left">
 
-          <a href="index.html" title=""><img src="images/sticky-logo.png" alt="" title=""></a>
+          <a href="{{url('/')}}" title=""><img src="{{asset('main/images/logo.png')}}" alt="" title=""></a>
 
       </div>
 
@@ -250,7 +252,7 @@
   <nav class="menu-box">
 
       <div class="nav-logo">
-          <a href="index.html"><img src="images/nav-logo.png" alt="" title=""></a>
+          <a href="index.html"><img src="{{asset('main/images/logo.png')}}" alt="" title=""></a>
       </div>
 
       <div class="menu-outer">

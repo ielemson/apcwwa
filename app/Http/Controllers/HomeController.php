@@ -164,7 +164,24 @@ class HomeController extends Controller
                         ->orderBy('id', 'asc')
                         ->paginate(9);
          $states = State::all();
-        return view('frontend.event.events',compact('posts','states'));
+         $categories = Category::all();
+
+         $latest_posts = Post::where('status',1)
+                        ->orderBy('id', 'asc')
+                        ->limit(4)->get();
+        return view('apcwwa.event.events',compact('posts','states','categories','latest_posts'));
+    }
+
+    public function events_catgory($slug){
+        $category = Category::where('category_name',$slug)->first();
+        $posts = Post::where([['status', '=',1],['category_id','=',$category->id]])
+        ->whereNotIn('event_status', ['dnc'])
+        ->orderBy('id', 'asc')
+        ->paginate(9);
+        $states = State::all();
+        $categories = Category::all();
+
+        return view('apcwwa.event.events',compact('posts','states','categories'));
     }
 
     public function event($slug){
@@ -176,9 +193,10 @@ class HomeController extends Controller
                         ->orderBy('id', 'asc')
                         ->limit(4)->get();
         $states = State::all();
-        return view('frontend.event.event',compact('post','categories','latest_posts','states'));
+        return view('apcwwa.event.event',compact('post','categories','latest_posts','states'));
     }
 
+    
     public function lgaWard($slug){
 
         $lga = LGA::where('name',$slug)->first();
@@ -189,7 +207,7 @@ class HomeController extends Controller
             $wards = Ward::where('lga_id',$lga->id)->with('cordinator')->with('state')->with('lga')->get();
             // dd($wards);
             $states = State::all();
-            return view('frontend.state.lgaWard',compact('wards','states','slug'));
+            return view('apcwwa.state.ward',compact('wards','states','slug'));
         }else{
             return back();
         }
@@ -201,5 +219,9 @@ class HomeController extends Controller
         $zones = Zone::all();
         // dd($zones);
         return view('frontend.zonal-state-cord.index',compact('zones','states'));
+    }
+
+    public function donate(){
+        return view('apcwwa.donation.donate');
     }
 }

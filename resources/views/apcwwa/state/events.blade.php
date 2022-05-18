@@ -1,10 +1,7 @@
 @extends('layouts.mainLayout')
 
 @section('banner')
-    @include('apcwwa.pageSection', [
-        'title_1' => "$state->name State Event",
-        'title_2' => 'Events',
-    ])
+    @include('apcwwa.slider')
 @endsection
 
 @section('content')
@@ -12,12 +9,23 @@
 
     <div class="sidebar-page-container">
 
-        <div class="container-fluid">
+        <div class="auto-container">
+            <div class="sec-title with-separator ">
 
+                <h2>Welcome to {{$state->name}} State</h2>
+
+                <div class="separator"><span class="cir c-1"></span><span class="cir c-2"></span><span class="cir c-3"></span></div>
+
+                <div class="lower-text">
+                    This is the event page for Anambra. Here, we publish events and news about the state.
+                </div>
+
+            </div>
             <div class="row clearfix">
 
                 <!--Content Side-->
                 <div class="content-side col-lg-8 col-md-12 col-sm-12">
+                  
                     <div class="content-inner">
 
                         <div class="blog-posts">
@@ -27,18 +35,16 @@
                                 <!--News Block-->
                                 @if (count($state_events) > 0)
                                     @foreach ($state_events as $state_event)
-                                        <div class="news-block-five col-md-4 col-sm-12">
+                                        <div class="news-block-five col-md-6 col-sm-12">
 
                                             <div class="inner-box">
 
-                                                <div class="image-box"
-                                                    style="height:100%;">
+                                                <div class="image-box">
 
-                                                    <figure class="image img-fluid img-thumbnail"><img
-                                                            src="{{ $state_event->featured_image }}" alt="img"
-                                                            style="height: 100%; width: 100%; object-fit: contain"></figure>
+                                                    <figure class="image img-fluid img-thumbnail">
+                                                        <img src="{{ $state_event->featured_image }}" alt="img" style="height:35vh; width: 100%;"></figure>
 
-                                                    <div class="date"><span>27.11.2019</span></div>
+                                                    <div class="date"><span>{{ Carbon\Carbon::createFromTimeString($state_event->created_at)->format('M d Y') }}</span></div>
 
                                                     <div class="hover-box">
 
@@ -97,7 +103,7 @@
 
                                     </div>
                                 @else
-                                    <div class="alert alert-primary container col-md-12 col-sm-12 col-lg-12 text-center py-2"
+                                    <div class="container alert alert-primary container col-md-12 col-sm-12 col-lg-12 text-center py-2"
                                         role="alert">
                                         <h4 class="alert-heading">Heads Up!</h4>
                                         <p>No Event For {{ $state->name }} is Available</p>
@@ -122,9 +128,18 @@
                         <div class="bg-layer">
 
                             <div class="image-layer"
-                                style="background-image:url(images/background/sidebar-bg-image.jpg);"></div>
+                                style="background-image:url({{asset('/apcwwa/images/background/sidebar-bg-image.jpg')}});" ></div>
                         </div>
 
+
+                        <div class="sidebar-widget search-box">
+
+                            <a href="{{route('state.lga',strtolower($state->name))}}">
+                                <button   class="theme-btn btn-style-one btn-block"><span class="btn-title">View LGA in {{$state->name}}</span></button>    
+
+                            </a>
+
+                        </div>
 
                         <div class="sidebar-widget popular-tags">
 

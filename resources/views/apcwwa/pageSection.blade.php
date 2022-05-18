@@ -1,6 +1,6 @@
 <section class="page-banner">
 
-    <div class="image-layer" style="background-image:url(/apcwwa/images/background/banner-image-2.jpg);"></div>
+    <div class="image-layer" style="background-image:url({{$img ?? ''}});"></div>
 
 
 

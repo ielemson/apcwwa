@@ -1,24 +1,25 @@
-@extends('layouts.master')
+@extends('layouts.mainLayout')
 
-@section('header')
-@include('frontend.includes.mobileheader')
-
-@include('partials.states_slider')
+@section('banner')
+    @include('apcwwa.slider')
 @endsection
 
 @section('content')
+    <!--Events Section-->
+
+    <div class="sidebar-page-container">
+
+        <div class="auto-container">
+            <div class="sec-title with-separator ">
+
+                <h2 class="text-capitalize">{{$state}} Local Government & Wards</h2>
+
+                <div class="separator"><span class="cir c-1"></span><span class="cir c-2"></span><span class="cir c-3"></span></div>
 
 
-
-
-    <div class="gap">
-        <div class="container">
-            <div class="sec-title style2 text-center">
-                <div class="sec-title-inner">
-                    <h3><span class="secndry-clr">{{$state_lga->name}} State</span> Local Government & Wards</h3>
-                </div>
-                {{-- <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis um voluptatum deleniti atque orrupti quos dolores et quas molestias. Excepturi sint occaecati cupiditate.</p> --}}
             </div>
+       
+
             <div class="contr-wrap table-responsive">
                 <table class="table table-striped table-inverse">
                     <thead>
@@ -54,12 +55,8 @@
                     </tbody>
                   </table>
                 </div>
-            </div>
+
         </div>
+
     </div>
-
 @endsection
-
-@push('frontend-styles')
-<link rel="stylesheet" href="{{asset('main/css/pages.css')}}">
-@endpush

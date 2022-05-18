@@ -1,7 +1,7 @@
 @extends('layouts.mainLayout')
 
 @section('banner')
-    @include('apcwwa.pageSection',['title_1'=>"Contact Us",'title_2'=>"Contact Us"])
+    @include('apcwwa.pageSection',['title_1'=>"Contact Us",'title_2'=>"Contact Us","img"=>"/apcwwa/images/banner/contact.jpg"])
 @endsection
 
 @section('content')

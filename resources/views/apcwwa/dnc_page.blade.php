@@ -1,7 +1,7 @@
 @extends('layouts.mainLayout')
 
 @section('banner')
-    @include('apcwwa.pageSection',['title_1'=>"Diaspora Network Cordinate",'title_2'=>"DNC"])
+    @include('apcwwa.pageSection',['title_1'=>"Diaspora Network Cordinate",'title_2'=>"DNC",'img'=>"/apcwwa/images/banner/dnc_banner.jpg"])
 @endsection
 
 @section('content')

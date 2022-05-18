@@ -135,7 +135,7 @@ class StateActivityController extends Controller
         $state_lga = State::where('name',$state)->with('lgas')->with('wards')->first();
         // dd($states);
 
-        return view('frontend.state.stateEventslga',compact('state_lga','states','sliders'));
+        return view('apcwwa.state.lga',compact('state_lga','states','sliders','state'));
     }
 
    
