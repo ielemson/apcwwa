@@ -20,12 +20,12 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedBigInteger('state_id')->nullable();
-            $table->unsignedBigInteger('user_post_id')->nullable();
+            // $table->unsignedBigInteger('user_post_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
             // /LINK FOREIGN KEY
               $table->foreign('state_id')->references('id')->on('states');
-              $table->foreign('user_post_id')->references('id')->on('user_posts');
+            //   $table->foreign('user_post_id')->references('id')->on('user_posts');
         });
     }
 

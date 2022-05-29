@@ -17,4 +17,10 @@ class StateActivity extends Model
     {
         return $this->belongsTo('App\LGA');
     }
+
+    public function postimages()
+    {
+        // a post has one or many images (Image), using the foreign key 'product_id'
+        return $this->hasMany(StatePostImageGallery::class, 'post_id');
+    }
 }

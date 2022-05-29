@@ -1,111 +1,51 @@
 @extends('layouts.mainLayout')
 
 @section('banner')
-    @include('apcwwa.pageSection',['title_1'=>"All States",'title_2'=>"All States"])
+    @include('apcwwa.pageSection', [
+        'title_1' => 'States in Nigeria',
+        'title_2' => 'States in Nigeria',
+        'img' => '/apcwwa/images/banner/flag.jpg',
+    ])
 @endsection
 
 @section('content')
-<div class="sidebar-page-container">
+
+
+<section class="get-info-section">
 
     <div class="auto-container">
 
-        <div class="row clearfix">
+        <div class="sec-title with-separator">
 
+            <h2>All States in Nigeria</h2>
 
-
-            <!--Content Side-->
-
-            <div class="content-side col-lg-12 col-md-12 col-sm-12">
-
-                <div class="content-inner">
-
-                    <div class="event-filters-box">
-
-                        <div id="search-popup" class="search-popup popup-visible">
-
-                      
-                
-                            <div class="popup-inner">
-                
-                         
-                
-                                <div class="search-form">
-                
-                                    <form method="post" action="index.html">
-                
-                                        <div class="form-group">
-                
-                                            <fieldset>
-                
-                                                <input type="search" class="form-control" name="search-input" value="" placeholder="Search Here" required="">
-                
-                                                <input type="submit" value="Search Now!" class="theme-btn">
-                
-                                            </fieldset>
-                
-                                        </div>
-                
-                                    </form>
-                
-                                </div>       
-                
-                            </div>
-                
-                        </div>
-
-                    </div>
-
-                    <div class="events-list">
-                        <div class="row">
-
-              @if (count($states) > 0)
-               
-                 <div class="mx-auto">
-                    <aside class="sidebar mx-auto">
-
-                        <div class="sidebar-widget services-widget">
-
-                            <div class="widget-content">
-
-                                <ul class="links clearfix row">
-                                    @foreach ($states as $state)
-                                    <div class="col-lg-3 col-md-4 col-sm-4 mb-4">
-                                    <li><a href="{{route('events.state',strtolower($state->name))}}">{{$state->name}} State <br> <small>{{$state->slogan}}</small></a></li>
-
-                                    </div>
-
-                                    @endforeach
-
-
-                                    {{-- <li class="current"><a href="health-safety.html"><span class="icon flaticon-hospital"></span> <span class="ttl">Health &amp; safety</span></a></li> --}}
-
-                                </ul>
-
-                            </div>
-
-                        </div>
-
-                    </aside>
-                </div>    
-              @else
-                  No States Available
-              @endif
-                        </div>
-                      
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-
-
+            <div class="separator"><span class="cir c-1"></span><span class="cir c-2"></span><span class="cir c-3"></span></div>
 
         </div>
 
+    
+            <div class="featured-block-four row mx-auto">
+                @foreach ($states as $state)
+                <div class="inner-box col-md-3 col-sm-3 col-lg-3 mr-lg-4 mb-4">
+                    <div class="count-box"><span>{{count($state->posts)}}</span></div>
+                    <div class="content">
+            
+                       @if ($state->name == 'FCT - Abuja')
+                       <h4>{{$state->name}} Capital</h4> 
+                       @else
+                       <h4>{{$state->name}} State</h4>
+                       @endif
+                        <h5>{{$state->slogan}}</h5>
+            
+                        <div class="read-more"><a href="{{route('events.state',strtolower($state->name))}}"><span>view event</span></a></div>
+            
+                    </div>
+            
+                </div>
+                @endforeach     
+            </div>  
+        
     </div>
 
-</div>
+</section>
 @endsection

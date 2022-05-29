@@ -1,7 +1,7 @@
 
         <section class="get-info-section structure-section ">
 
-            <div class="auto-container">
+            <div class="auto-container p-5">
 
                 <div class="sec-title with-separator centered">
 

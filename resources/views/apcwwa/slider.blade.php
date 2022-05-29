@@ -38,21 +38,6 @@
                 </div>
     
             </div>
-    
-            {{-- <div class="next-slide">
-    
-                <div class="inner">
-    
-                    <div class="count">02</div>
-    
-                    <div class="text">Save time , pay your tax online</div>
-    
-                    <div class="arrow"><span class="flaticon-next"></span></div>
-    
-                </div>
-    
-            </div> --}}
-    
         </div>
       @endforeach
   

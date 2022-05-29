@@ -188,10 +188,43 @@
                                 </ul>
                             </div>
                         </li>
-
                     @endcan
 
-                    @canany(['view-state', 'create-state'])
+
+
+                    {{-- @canany(['view-state', 'create-state'])
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('admin/state*')) ? 'active' : '' }}" href="#navbar-state-gallery"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-category">
+                                <i class="fas text-primary fa-list-alt"></i>
+                                <span class="nav-link-text">Manage File Gallery</span>
+                            </a>
+                            <div class="collapse" id="navbar-state-gallery">
+                                <ul class="nav nav-sm flex-column">
+                                 @can('view-state')
+                                    <li class="nav-item">
+                                        <a href="{{route('file.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">All Galleries</span></a>
+                                    </li>
+                                    @endcan
+                                    @can( 'create-state')
+                                    <li class="nav-item">
+                                        <a href="{{route('file.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New Gallery</span></a>
+                                    </li>
+                                    @endcan
+                                    @can( 'create-state')
+                                    <li class="nav-item">
+                                        <a href="{{route('state.activity')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">State Activities</span></a>
+                                    </li>
+                                    @endcan
+                                </ul>
+                            </div>
+                        </li>
+                    @endcan
+
+ --}}
+
+
+
+                    {{-- @canany(['view-state', 'create-state'])
                         <li class="nav-item">
                             <a class="nav-link {{ (request()->is('admin/state-event*')) ? 'active' : '' }}" href="#navbar-state-activity"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-state-activity">
                                 <i class="fas text-primary fa-list-alt"></i>
@@ -214,8 +247,7 @@
                                 </ul>
                             </div>
                         </li>
-
-                    @endcan
+                    @endcan --}}
 
                     @canany(['view-post', 'create-post'])
 
@@ -230,12 +262,20 @@
                                     <li class="nav-item">
                                         <a href="{{route('post.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">All Posts</span></a>
                                     </li>
+                                    @endcan 
+                                    
+                                    @can( 'create-post')
+                                    <li class="nav-item">
+                                        <a href="{{route('type.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Create Post Type</span></a>
+                                    </li>
                                     @endcan
                                     @can( 'create-post')
                                     <li class="nav-item">
                                         <a href="{{route('post.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New Post</span></a>
                                     </li>
                                     @endcan
+
+                                  
                                 </ul>
                             </div>
                         </li>

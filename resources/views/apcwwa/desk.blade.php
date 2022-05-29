@@ -24,47 +24,19 @@
 
                     <div class="inner-box">
 
-                        <div class="image-box">
-
-                            <figure class="image"><img src="{{$user->user_photo}}" alt="desk" style="max-height: 35vh">
-                            </figure>
-
-                            <div class="hover-box">
-
-                                <div class="link zoom-link">
-
-                                    <a href="{{$user->user_photo}}" class="lightbox-image"><span
-                                            class="icon flaticon-zoom-in"></span></a>
-
-                                </div>
-
-                                <div class="link single-link">
-
-                                    <a href="{{route('desk_more',$user->slug)}}"><span class="icon flaticon-link-4"></span></a>
-
-                                </div>
-
+                        <div class="card card-profile">
+                            <div class="card-image">
+                                <a href="#"> <img class="img" src="{{$user->user_photo}}">
+                                    <div class="card-caption"> {{$user->name}} </div>
+                                </a>
                             </div>
-
-                        </div>
-
-                        <div class="lower-box">
-
-                            <div class="upper-info">
-
-                                <h4><a href="{{route('desk_more',$user->slug)}}">{{$user->name}}</a></h4>
-
-                                <div class="cat-info"><a href="{{route('desk_more',$user->slug)}}"><span
-                                            class="fa fa-folder"></span>From the desk of the {{$user->post}}</a></div>
-
+                            <div class="table">
+                                <h6 class="category"><b>{{$user->post}}</b></h6>
+                                <p class="text">{!! Str::words($user->speech, 15) !!}</p>
+                                <div class="read-more"><a href="{{route('desk_more',$user->slug)}}">Read More</a></div>
                             </div>
-
-                         
-
                         </div>
-
                     </div>
-
                 </div>
                 @endforeach 
 

@@ -29,8 +29,22 @@ class SliderController extends Controller
     {
         $states = State::pluck('name','id');
         $status = SliderStatus::all();
+
+        $slider_position = array(
+                 "1"=>1,
+                  "2"=>2,  
+                  "3"=>3, 
+                  "4"=>4,  
+                  "5"=>5,
+                  "6"=>6,
+                  "7"=>7,
+                  "8"=>8,
+                  "9"=>9,
+                  "10"=>10,
+                );
+                // dd($slider_position);
         // $status = SliderStatus::pluck('status','id');
-        return view('slider.create',compact('states','status'));
+        return view('slider.create',compact('states','status','slider_position'));
     }
 
     /**
@@ -69,30 +83,26 @@ class SliderController extends Controller
         return redirect()->route('slider.create');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Slider  $slider
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Slider $slider)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Slider  $slider
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit(Slider $slider)
     {
         $states = State::pluck('name','id');
         $slider_status = SliderStatus::all();
+        $slider_position = array(
+            "1"=>1,
+             "2"=>2,  
+             "3"=>3, 
+             "4"=>4,  
+             "5"=>5,
+             "6"=>6,
+             "7"=>7,
+             "8"=>8,
+             "9"=>9,
+             "10"=>10,
+           );
         // $status = SliderStatus::pluck('status','id');
         // $states = State::all();
-        return view('slider.edit',compact('slider','states','slider_status'));
+        return view('slider.edit',compact('slider','states','slider_status','slider_position'));
     }
 
     /**

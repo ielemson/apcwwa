@@ -38,7 +38,20 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         {{ Form::label('position', 'Slider Position', ['class' => 'form-control-label']) }}
-                                        {{ Form::select('position', [0,1,2,3,4,5], null, [ 'class'=> 'selectpicker form-control', 'placeholder' => 'Select position...']) }}
+                                        {{ Form::select('position', $slider_position, null, [ 'class'=> 'selectpicker form-control', 'placeholder' => 'Select position...']) }}
+                                        {{-- <label for="name" class="form-control-label selectpicker">Slider Display Position</label>
+                                        <select class="form-control" name="position">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                         </select> --}}
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -47,7 +60,7 @@
                                         {{ Form::select('status', $status, null, [ 'class'=> 'selectpicker form-control', 'placeholder' => 'Select position...']) }} --}}
                                        
                                             <label for="name" class="form-control-label selectpicker">Slider Display Status</label>
-                                            <select class="form-control" name="status" type="text">
+                                            <select class="form-control" name="status">
                                                 <option value="">Select States</option>
                                                 @foreach ($status as $disp)
                                                     <option value="{{ $disp->status}}">{{ $disp->status }}</option>

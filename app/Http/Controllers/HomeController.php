@@ -18,6 +18,12 @@ use App\State;
 use App\Ward;
 use App\ZonalStateCord;
 use App\Zone;
+use App\Mail\ContactUs;
+use App\PostType;
+use App\Types;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 // use WardCordinator;
 
@@ -65,6 +71,7 @@ class HomeController extends Controller
     public function welcome()
     {
         $state_zonal_cords = ZonalStateCord::orderBy('id','desc')->get();
+        // dd($state_zonal_cords);
 
         $diaspora_network_chapter = User::whereHas('roles', function ($query) {
             return $query->where('name', 'diaspora-network-chapter');
@@ -75,14 +82,14 @@ class HomeController extends Controller
 
         $states = State::all();
 
-        $upcoming_events = Post::where('status',1)->where('event_status','upcoming')->paginate(10);
+        // $upcoming_events = Post::where('status',1)->where('event_status','upcoming')->paginate(10);
 
         $services = Service::paginate(10);
 
         $sliders = Slider::where('status','front')->Orderby('position','ASC')->get();
 
         // dd($sliders);
-        return view('welcome',compact('state_zonal_cords','diaspora_network_chapter','desk','states','upcoming_events','services','sliders'));
+        return view('welcome',compact('state_zonal_cords','diaspora_network_chapter','desk','states','services','sliders'));
     }
 
     // public function service($id){
@@ -103,6 +110,66 @@ class HomeController extends Controller
         return view('apcwwa.state.states',compact('states'));
     }
 
+   
+    function getstates(Request $request)
+    {
+     if($request->ajax())
+     {
+      $output = '';
+      $query = $request->get('query');
+      if($query != '')
+      {
+        $queryStr = strtolower($query);
+       $data = DB::table('states')
+         ->where('name', 'like', '%'.$queryStr.'%')
+         ->orWhere('slogan', 'like', '%'.$queryStr.'%')
+         ->orderBy('id', 'desc')
+         ->get();
+         
+      }
+      else
+      {
+       $data = DB::table('states')
+         ->orderBy('id', 'desc')
+         ->get();
+      }
+      $total_row = $data->count();
+      if($total_row > 0)
+      {
+       foreach($data as $state)
+       {
+        $output .= '
+        <div class="inner-box col-md-3 col-sm-3 col-lg-3 mr-lg-4 mb-4">
+        <div class="content">
+
+            <h4>'.$state->name.' State</h4>
+            <h5>'.$state->slogan.'</h5>
+
+            <div class="read-more"><a href="/event/'.$state->name.'/'.$state->slug.'"><span>view event</span></a></div>
+
+        </div>
+
+    </div>
+        ';
+       }
+      }
+      else
+      {
+       $output = '
+       <tr>
+        <td align="center" colspan="5">No Data Found</td>
+       </tr>
+       ';
+      }
+      $data = array(
+       'state_data'  => $output,
+    //    'total_data'  => $total_row
+      );
+
+      echo json_encode($data);
+     }
+    }
+
     public function dnc(){
 
         // $dncs = User::whereHas('roles', function ($query) {
@@ -111,10 +178,18 @@ class HomeController extends Controller
 
         $dncs = dnc::with('user')->orderBy('dnc_order','ASC')->get();
 
+        // $posts = Post::where('status',1)
+        // ->where('event_status','dnc')
+        // ->orderBy('id', 'asc')
+        // ->paginate(9);
+        $typeId = Types::where('type','dnc')->pluck('id');
+
+        $postTypeIds = PostType::whereIn('type_id',$typeId)->pluck('post_id');
+        // dd($postTypeIds);
         $posts = Post::where('status',1)
-        ->where('event_status','dnc')
-        ->orderBy('id', 'asc')
-        ->paginate(9);
+                        ->whereIn('id', $postTypeIds)
+                        ->orderBy('id', 'asc')
+                        ->paginate(9);
 
         $galleries = Gallery::where('category','dnc')->get();
 
@@ -159,29 +234,35 @@ class HomeController extends Controller
 
     public function events(){
 
+        $typeId = Types::where('type','general')->pluck('id');
+
+        $postTypeIds = PostType::whereIn('type_id',$typeId)->pluck('post_id');
+        // dd($postTypeIds);
         $posts = Post::where('status',1)
-                        ->whereNotIn('event_status', ['dnc'])
+                        ->whereIn('id', $postTypeIds)
                         ->orderBy('id', 'asc')
                         ->paginate(9);
          $states = State::all();
          $categories = Category::all();
 
          $latest_posts = Post::where('status',1)
-                        ->orderBy('id', 'asc')
-                        ->limit(4)->get();
+         ->whereIn('id', $postTypeIds)
+         ->orderBy('id', 'asc')
+         ->paginate(9);
         return view('apcwwa.event.events',compact('posts','states','categories','latest_posts'));
     }
 
     public function events_catgory($slug){
         $category = Category::where('category_name',$slug)->first();
         $posts = Post::where([['status', '=',1],['category_id','=',$category->id]])
-        ->whereNotIn('event_status', ['dnc'])
         ->orderBy('id', 'asc')
         ->paginate(9);
         $states = State::all();
         $categories = Category::all();
-
-        return view('apcwwa.event.events',compact('posts','states','categories'));
+        $latest_posts = Post::where('status',1)
+                        ->orderBy('id', 'asc')
+                        ->limit(4)->get();
+        return view('apcwwa.event.events',compact('posts','states','categories','latest_posts'));
     }
 
     public function event($slug){
@@ -196,7 +277,6 @@ class HomeController extends Controller
         return view('apcwwa.event.event',compact('post','categories','latest_posts','states'));
     }
 
-    
     public function lgaWard($slug){
 
         $lga = LGA::where('name',$slug)->first();
@@ -224,4 +304,25 @@ class HomeController extends Controller
     public function donate(){
         return view('apcwwa.donation.donate');
     }
+
+    public function contact_email(Request $request){
+
+      $request->validate([
+        'name'=>'required',
+        'email'=>'required|email',
+        'location'=>'required',
+        'message'=>'required',
+        'g-recaptcha-response' => 'required|captcha',
+      ],
+    [
+        'g-recaptcha-response.required' => 'Please verify that you are not a robot.',
+        'g-recaptcha-response.captcha' => 'Captcha error! try again later or contact site admin.',
+        
+    ]);
+        $email = "info@apcwwa.com";
+      Mail::to($email)->send(new ContactUs($request));
+      return redirect()->back()->with('message', 'Thank you for contacting us, we will revert shortly');
+
+    }
+
 }

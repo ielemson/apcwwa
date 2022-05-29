@@ -16,7 +16,8 @@ class Post extends Model
         'status',
         'category_id',
         'user_id',
-        'event_status'
+        'event_status',
+        'img_gallery'
     ];
     protected static $logFillable = true;
     protected static $logName = 'post';
@@ -32,5 +33,19 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function postimages()
+    {
+        // a post has one or many images (Image), using the foreign key 'product_id'
+        return $this->hasMany(PostImageGallery::class, 'post_id');
+    }
+
+    public function postType(){
+        return $this->hasMany(PostType::class);
+    }
+
+    public function state(){
+        return $this->belongsTo(State::class);
     }
 }

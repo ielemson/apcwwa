@@ -26,20 +26,26 @@ Route::get('/', 'HomeController@welcome')->name('welcome');
 Route::get('/about-us', 'HomeController@about_us');
 Route::get('/membership', 'HomeController@membership')->name('membership');
 Route::get('/contact-us', 'HomeController@contact_us');
+Route::post('/contact', 'HomeController@contact_email')->name('contact_email');
 Route::get('/dnc/about', 'HomeController@dnc')->name('dnc_home');
 Route::get('/dnc/committee', 'HomeController@dnc_members')->name('dnc_members');
 Route::get('/dnc/event', 'HomeController@dnc_event')->name('dnc_post');
 Route::get('/dnc/gallery', 'HomeController@dnc_gallery')->name('dnc_gallery');
 Route::get('/zonal/state/cord', 'HomeController@zonal_state_cord')->name('zonal_state_cord');
 Route::get('states','HomeController@states')->name('states');
+Route::get('states/action','HomeController@getstates')->name('state.action');
 Route::get('donate','HomeController@donate')->name('donate');
 // Route::get('/dnc/{slug}', 'HomeController@dnc_details')->name('dnc_details');
 Route::get('desk/details/{slug}', 'HomeController@desk_more')->name('desk_more');
 Route::get('/events', 'HomeController@events')->name('events');
 Route::get('/event/{slug}', 'HomeController@event')->name('event');
 Route::get('/event/category/{category}', 'HomeController@events_catgory')->name('events_catgory');
+
+// State
 Route::get('event/{state}/{slug}', 'StateActivityController@state_event')->name('event.state');
+Route::get('state/{slug}', 'StateActivityController@chapter')->name('chapter');
 Route::get('events/{state}', 'StateActivityController@state_events')->name('events.state');
+Route::get('state/gallery/{state}', 'StateActivityController@state_gallery')->name('state.gallary');
 Route::get('state/lga/{slug}', 'StateActivityController@stateEventslga')->name('state.lga');
 Route::get('lga/{slug}/ward', 'HomeController@lgaWard')->name('lga.ward');
 Route::get('our-services/{id}','ServiceController@show')->name('our.service');
@@ -97,12 +103,15 @@ Route::group(['middleware' => ['auth','verified']], function () {
 
         
     Route::resource('roles', 'RoleController')->except('show');
+    Route::resource('file','FileGalleryController');
 
     Route::resource('permissions', 'PermissionController')->except(['show','destroy','update']);
 
     Route::resource('category', 'CategoryController')->except('show');
 
     Route::resource('post', 'PostController');
+    Route::resource('type', 'TypeController');
+    Route::post('dpt','TypeController@dpt')->name('pt.del');
 
     Route::get('activity-log', 'SettingController@activity')->name('activity-log.index');
 

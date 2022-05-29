@@ -33,4 +33,7 @@ class State extends Model
         return $this->belongsTo(StateCordinator::class,'state_id');
     }
 
+    public function posts(){
+        return $this->hasMany(Post::class,'state_id');
+    }
 }

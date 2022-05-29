@@ -54,13 +54,13 @@
                             </select>
                         </div>
 
-                        <div class="col-lg-3">
+                        {{-- <div class="col-lg-3">
                             <div class="form-group">
                                 {{ Form::label('ward_id', 'Ward Name', ['class' => 'form-control-label']) }}
                                 {{ Form::text('ward_id', null, ['class' => 'form-control']) }}
                             </div>
 
-                        </div>
+                        </div> --}}
 
                         <div class="col-lg-12">
                             <div class="form-group">

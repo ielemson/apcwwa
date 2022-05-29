@@ -7,7 +7,8 @@
     <div class="col-md-12">
         <div class="card mb-5">
             <div class="card-body">
-                {!! Form::open(['route' => 'state-event.store']) !!}
+              
+                {!! Form::open(['route' => 'state-event.store', 'files' => true]) !!}
                 <h6 class="heading-small text-muted mb-4">Create State Events</h6>
                 <div class="pl-lg-4">
                     <div class="row">
@@ -69,6 +70,17 @@
                                 </div>
                         </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    {{ Form::label('post_body', 'Picture Gallery', ['class' => 'form-control-label']) }}
+                                    <input type="file" id="file-input" class="form-control"  name="images[]" onchange="loadPreview(this)"  multiple=""/>
+                                    <div id="thumb-output"></div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
                 <div class="pl-lg-4">
@@ -93,6 +105,14 @@
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('assets/css/summernote-bs4.min.css') }}">
+    <style>
+         .thumb{
+           margin: 10px 5px 0 0;
+           width: 25%;
+           height: 15vh;
+ 
+       }
+   </style>
 @endpush
 
 @push('scripts')
@@ -150,5 +170,22 @@
         });
         jQuery('#uploadFile').filemanager('file');
     });
+
+     // multiple image loader
+     function loadPreview(input){
+        var data = $(input)[0].files;
+        $.each(data, function(index, file){
+            if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){
+                var fRead = new FileReader();
+                fRead.onload = (function(file){
+                    return function(e) {
+                        var img = $('<img/>').addClass('thumb').attr('src', e.target.result); //create image thumb element
+                        $('#thumb-output').append(img);
+                    };
+                })(file);
+                fRead.readAsDataURL(file);
+            }
+        });
+    }
   </script>
 @endpush

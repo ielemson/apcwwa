@@ -32,6 +32,7 @@
                                     <th scope="col">Title</th>
                                     <th scope="col">Category </th>
                                     <th scope="col">Status</th>
+                                    <th scope="col">Type</th>
                                     <th scope="col">Create By</th>
                                     <th scope="col">Photo</th>
                                     <th scope="col" class="text-center">Action</th>
@@ -54,6 +55,11 @@
                                             @else
                                                 <span class="badge badge-pill badge-lg badge-danger">Disabled</span>
                                             @endif
+                                        </td>
+                                        <td>
+                                           @foreach ($post->postType as $type)
+                                            <span class="badge badge-primary"> {{$type->typename->type}}</span>
+                                           @endforeach
                                         </td>
                                         <td>
                                             {{$post->user->name}}

@@ -1,7 +1,11 @@
 @extends('layouts.mainLayout')
 
 @section('banner')
-    @include('apcwwa.slider')
+@include('apcwwa.pageSection', [
+    'title_1' => "$state LGA & Ward",
+    'title_2' => "$state",
+    'img' => '/apcwwa/images/banner/flag.jpg',
+])
 @endsection
 
 @section('content')
@@ -12,7 +16,7 @@
         <div class="auto-container">
             <div class="sec-title with-separator ">
 
-                <h2 class="text-capitalize">{{$state}} Local Government & Wards</h2>
+                <h2 class="text-capitalize">{{$state}} State LGA & Wards</h2>
 
                 <div class="separator"><span class="cir c-1"></span><span class="cir c-2"></span><span class="cir c-3"></span></div>
 

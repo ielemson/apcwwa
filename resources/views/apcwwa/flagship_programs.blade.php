@@ -70,7 +70,7 @@
 
                             <div class="upper-info">
 
-                                <h4><a href="{{route('our.service',$service->id)}}">{{$service->title}}</a></h4>
+                                <h5><a href="{{route('our.service',$service->id)}}">{{$service->title}}</a></h5>
 
                                 <p ><a href="{{route('our.service',$service->id)}}" style="color:#222222 !important">{!! Str::words($service->content, 15) !!}</a></p>
 

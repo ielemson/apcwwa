@@ -40,7 +40,8 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         {{ Form::label('position', "Update Position", ['class' => 'form-control-label']) }}
-                                        {{ Form::select('position', [0,1,2,3,4,5], $slider->position, [ 'class'=> 'selectpicker form-control', 'placeholder' => 'Select position...']) }}
+                                        {{ Form::select('position', $slider_position, $slider->position, [ 'class'=> 'selectpicker form-control', 'placeholder' => 'Select position...']) }}
+                                      
                                     </div>
                                   
                                 </div>
@@ -50,13 +51,18 @@
                                         {{-- {{ Form::label('Status', "Where to display", ['class' => 'form-control-label']) }}
                                         {{ Form::select('status', $status, $slider->status, [ 'class'=> 'selectpicker form-control', 'placeholder' => 'Select position...']) }}
                                       --}}
-                                        <label for="status" class="form-control-label ">Select Display Position</label>
+                                        <label for="status" class="form-control-label ">Select Page</label>
                                         <select name="status" class="form-control">
-                                            <option value="">Select Display Position</option>
+                                            <option value="">Select Display Page</option>
                                             @foreach ($slider_status as $disp)
-                                           
-                                            <option value="{{$disp->status}}" selected>{{$disp->status}}</option>
+                                           @if ($disp->status == $slider->status)
+                                           <option value="{{$disp->status}}" selected>{{$disp->status}}</option>
                                          
+                                           @else
+                                           <option value="{{$disp->status}}" >{{$disp->status}}</option>
+                                         
+                                           @endif
+                                           
                                            @endforeach
                                         </select>
 

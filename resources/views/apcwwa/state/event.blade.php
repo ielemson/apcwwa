@@ -1,7 +1,7 @@
 @extends('layouts.mainLayout')
 
 @section('banner')
-    @include('apcwwa.pageSection',['title_1'=>"$state->name State Event",'title_2'=>"Events"])
+    @include('apcwwa.pageSection',['title_1'=>"$state->name State Event",'title_2'=>"Events", 'img' => '/apcwwa/images/banner/flag.jpg',])
 @endsection
 
 @section('content')
@@ -11,8 +11,6 @@
     <div class="auto-container">
 
         <div class="row clearfix">
-
-
 
             <!--Content Side-->
 
@@ -26,14 +24,15 @@
 
                             <div class="main-image-box">
 
-                                <figure class="image"><img src="{{$state_event->featured_image}}" alt=""></figure>
+                                <figure class="image"><img src="{{$state_event->featured_image}}" alt="img" style="max-height: 
+                                    60vh"></figure>
 
                             </div>
 
                                 
                             <div class="upper-info">
 
-                                <h2>{{$state_event->event_title}}</h2>
+                                <h2>{{$state_event->post_title}}</h2>
 
                                 <div class="cat-info">
 
@@ -43,12 +42,56 @@
 
                             </div>
 
-                            <p>{!!$state_event->event_body!!}</p>
+                            <p>{!!$state_event->post_body!!}</p>
                     
 
                         </div>
+                   
+                        @if ($state_event->postimages)
+                              <div class="auto-container">
+                    
+                                <!--Mixit Galery-->
+                                <div class="sec-title with-separator">
 
+                                    <h2>Gallery</h2>
+                        
+                                    <div class="separator"><span class="cir c-1"></span><span  class="cir c-2"></span><span class="cir c-3"></span></div>
+                        
+                                </div>
+                                <div class="mixit-gallery filter-gallery">
 
+                         <div class="filter-gallery-one row clearfix">
+                           @foreach ($state_event->postimages as $postimg)
+                            <div class="gallery-block all   col-lg-4 col-md-6 col-sm-12">
+                
+                                <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+    
+                                    <div class="image-box">
+    
+                                        <figure class="image">
+    
+                                            <img src="/{{$postimg->file_path}}" alt="">
+    
+                                        </figure>
+    
+                                        <div class="zoom-btn">
+    
+                                            <a class="lightbox-image zoom-link" href="/{{$postimg->file_path}}" data-fancybox="gallery"><span class="icon flaticon-zoom-in"></span></a>
+    
+                                        </div>
+                                           </div>
+      
+                                </div>
+    
+                            </div>
+                            @endforeach
+                        </div>
+                
+                                </div>
+                
+                            </div>
+                              @endif
+                                    
 
                         <div class="share-post">
 
@@ -68,15 +111,11 @@
 
                         </div>
 
-
-
                     </div>
 
                 </div>
 
             </div>
-
-
 
             <!--Sidebar Side-->
 
@@ -90,9 +129,6 @@
 
                     </div>
 
-
-
-                   
                     <!--Posts-->
 
                     <div class="sidebar-widget recent-posts">
@@ -106,8 +142,8 @@
                             </div>
 
 
-                            @if (count($state_events)>0)
-                            @foreach ($state_events as $event)
+                            @if (count($events)>0)
+                            @foreach ($events as $event)
                             <div class="recent-posts-box">
 
                                 <div class="post">
@@ -118,7 +154,7 @@
 
                                         <div class="post-date">{{ Carbon\Carbon::createFromTimeString($event->created_at)->format('M d Y') }}</div>
 
-                                        <h5 class="title"><a href="{{route('event.state',[strtolower($state->name),$event->event_slug])}}">{{{$event->event_title}}}</a></h5>
+                                        <h5 class="title"><a href="{{route('event.state',[strtolower($state->name),$event->post_slug])}}">{{{$event->post_title}}}</a></h5>
 
                                     </div>
 
@@ -136,8 +172,6 @@
                 </aside>
 
             </div>
-
-
 
         </div>
 

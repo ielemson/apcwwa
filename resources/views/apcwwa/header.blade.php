@@ -17,11 +17,7 @@
   
               </div>
   
-  
-  
               {{-- <div class="mid-text"><span>Visiting London?</span> Find events, residents and more.</div> --}}
-  
-  
   
               <div class="top-right clearfix">
   
@@ -29,7 +25,7 @@
   
                   <div class="hours">
                     <a href="{{route('donate')}}">
-                        <div class="hours-btn btn-md" style="color:#ffffff">Donate </div>
+                        <div class="hours-btn btn-md" style="color:#ffffff"><i class="fas fa-hand-holding-heart"></i> Donate </div>
                     
                     </a>
   
@@ -80,9 +76,9 @@
 
                       <ul class="navigation clearfix">
 
-                          <li class="current"><a href="{{url('/')}}">Home</a> </li>
+                          <li class="{{ (request()->is('/')) ? 'current' : '' }}"><a href="{{url('/')}}">Home</a> </li>
 
-                          <li class="dropdown"><a href="#">36 States & The FCT</a>
+                          <li class="dropdown {{ (request()->is('states*')) ? 'current' : '' }}"><a href="#">36 States & The FCT</a>
 
                               <ul>
 
@@ -113,7 +109,7 @@
 
                           </li>
 
-                          <li class="dropdown"><a href="#">DNC</a>
+                          <li class="dropdown {{ (request()->is('dnc*')) ? 'current' : '' }}"><a href="#">DNC</a>
 
                               <ul>
                                   <li><a href="{{route('dnc_home')}}">Diaspora Network Cordinate</a></li>
@@ -122,11 +118,11 @@
 
                           </li>
 
-                          <li><a href="{{route('events')}}">Events</a> </li>
+                          <li class="{{ (request()->is('events*')) ? 'current' : '' }}"><a href="{{route('events')}}">Events</a> </li>
 
-                          <li><a href="{{url('/about-us')}}">About Us</a> </li>
+                          <li class="{{ (request()->is('about-us*')) ? 'current' : '' }}"><a href="{{url('/about-us')}}">About Us</a> </li>
 
-                          <li><a href="{{url('/contact-us')}}">Contact</a></li>
+                          <li class="{{ (request()->is('contact-us*')) ? 'current' : '' }}"><a href="{{url('/contact-us')}}">Contact</a></li>
 
                       </ul>
 
@@ -265,15 +261,15 @@
 
           <ul class="clearfix">
 
-              <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+              <li><a href="https://twitter.com/apc_ward2ward"><span class="fab fa-twitter"></span></a></li>
 
-              <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+              <li><a href="https://www.facebook.com/apc.w.ambassadors"><span class="fab fa-facebook-square"></span></a></li>
 
-              <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+              <li><a href="https://instagram.com/apcward2ward"><span class="fab fa-instagram"></span></a></li>
 
-              <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+              {{-- <li><a href="#"><span class="fab fa-instagram"></span></a></li> --}}
 
-              <li><a href="#"><span class="fab fa-youtube"></span></a></li>
+              {{-- <li><a href="#"><span class="fab fa-youtube"></span></a></li> --}}
 
           </ul>
 

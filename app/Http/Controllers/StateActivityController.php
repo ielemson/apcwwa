@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\LGA;
+use App\Post;
+use App\PostImageGallery;
+use App\PostType;
 use App\Slider;
 use App\State;
 use App\StateActivity;
+use App\StatePostImageGallery;
+use App\Types;
 use App\Ward;
 use App\WardCoordinator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
+use Image;
 class StateActivityController extends Controller
 {
   
@@ -42,9 +47,26 @@ class StateActivityController extends Controller
         if ($request->featured_image) {
             $post['featured_image'] = parse_url($request->featured_image, PHP_URL_PATH);
         }
-        StateActivity::create($post);
+        $createdPost = StateActivity::create($post);
+        
+        if($request->file('images'))
+        {
+            $images = $request->file('images');
+            foreach ($images as $single_image) {
+                $upload_location = 'storage/files/1/post_gallery/';
+                $name_gen = hexdec(uniqid()).'.'.$single_image->getClientOriginalExtension();
+                Image::make($single_image)->resize(600,600)->save($upload_location.$name_gen);
+                $save_url = $upload_location.$name_gen;
+                StatePostImageGallery::create([
+                    'post_id' => $createdPost->id,
+                    'file_path' => $save_url,
+                ]);
+            }
+        }
+
         flash('Post created successfully!')->success();
         return redirect()->route('state-event.index');
+
     }
 
 
@@ -52,7 +74,7 @@ class StateActivityController extends Controller
 
         $state = State::where('name',$state)->first();
 
-        if ($state != null) {
+        // if ($state != null) {
           
             $sliders = Slider::where('state_id',$state->id)->get();
 
@@ -66,14 +88,25 @@ class StateActivityController extends Controller
             }
     
             // dd($sliders);
-    
+            
             $states = State::all();
-            $state_events = StateActivity::where('state_id',$state->id)->where('status', '=',1)->with('state')->paginate(6);
-            return view('apcwwa.state.events',compact('state_events','state','states','sliders'));
+            // $state_events = StateActivity::where('state_id',$state->id)->where('status', '=',1)->with('state')->paginate(6);
+       
+            // $state_events = StateActivity::where('state_id',$state->id)->where('status', '=',1)->with('state')->paginate(6);
+            $typeId = Types::where('type','state')->pluck('id');
+            
+            // dd($state->id);
+        $postTypeIds = PostType::whereIn('type_id',$typeId)->pluck('post_id');
+        // dd($postTypeIds);
+        $events = Post::where([['status','=',1],['state_id','=',$state->id]])
+                        ->whereIn('id', $postTypeIds)
+                        ->orderBy('id', 'asc')
+                        ->paginate(4);
+            return view('apcwwa.state.events',compact('events','state','states','sliders'));
 
-        }else{
-            return redirect()->route('welcome');
-        }
+        // }else{
+        //     return redirect()->route('welcome');
+        // }
       
     }
 
@@ -86,9 +119,20 @@ class StateActivityController extends Controller
         // dd($slider);
 
         $states = State::all();
-        $state_event = StateActivity::where('event_slug',$slug)->with('state')->first();
-        $state_events = StateActivity::where('state_id',$state->id)->where('status', '=',1)->with('state')->limit(4)->get();
-        return view('apcwwa.state.event',compact('state_event','state','states','state_events'));
+        $state_event = Post::where('post_slug',$slug)->with('state')->first();
+        // $state_events = StateActivity::where('state_id',$state->id)->where('status', '=',1)->with('state')->limit(4)->get();
+         $typeId = Types::where('type','state')->pluck('id');
+            
+            // dd($state->id);
+        $postTypeIds = PostType::whereIn('type_id',$typeId)->pluck('post_id');
+        // dd($postTypeIds);
+        $events = Post::where([['status','=',1],['state_id','=',$state->id]])
+                        ->whereIn('id', $postTypeIds)
+                        ->with('state')
+                        ->orderBy('id', 'asc')
+                        ->limit(4)->get();
+                        
+        return view('apcwwa.state.event',compact('state_event','state','states','events'));
     }
 
     public function edit($id)
@@ -138,7 +182,37 @@ class StateActivityController extends Controller
         return view('apcwwa.state.lga',compact('state_lga','states','sliders','state'));
     }
 
-   
+    public function chapter($state){
+
+        $state = State::where('name',$state)->first();
+
+        if ($state != null) {
+          
+            $sliders = Slider::where('state_id',$state->id)->get();
+
+            if(count($sliders)==0){
+                // $sliders = Slider::whereNull('state_id')->OrderBy('position','ASC')->get();
+                $sliders = Slider::where('status','front')->get();
+    
+            //    $sliders =  Slider::select("*")
+            //                 ->whereNull('state_id')
+            //                 ->get();
+            }
+    
+            // dd($sliders);
+    
+            $states = State::all();
+            $state_events = StateActivity::where('state_id',$state->id)->where('status', '=',1)->with('state')->paginate(6);
+            return view('apcwwa.state.chapter',compact('state_events','state','states','sliders'));
+
+        }else{
+            return redirect()->route('welcome');
+        }
+    }
+
+  public function state_gallery($slug){
+   return view('apcwwa.state.gallery.gallery');
+  }
   
     public function destroy($id)
     {

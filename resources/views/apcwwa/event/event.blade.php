@@ -1,150 +1,206 @@
 @extends('layouts.mainLayout')
 
 @section('banner')
-    @include('apcwwa.pageSection',['title_1'=>"Event",'title_2'=>"Event","img"=>"/apcwwa/images/banner/news.jpg"])
+    @include('apcwwa.pageSection', [
+        'title_1' => 'Event',
+        'title_2' => 'Event',
+        'img' => '/apcwwa/images/banner/news.jpg',
+    ])
 @endsection
 
 @section('content')
-<div class="sidebar-page-container">
+    <div class="sidebar-page-container">
 
-    <div class="auto-container">
+        <div class="auto-container">
 
-        <div class="row clearfix">
+            <div class="row clearfix">
 
 
 
-            <!--Content Side-->
+                <!--Content Side-->
 
-            <div class="content-side col-lg-8 col-md-12 col-sm-12">
+                <div class="content-side col-lg-8 col-md-12 col-sm-12">
 
-                <div class="content-inner">
+                    <div class="content-inner">
 
-                    <div class="single-post">
+                        <div class="single-post">
 
-                        <div class="post-details">
+                            <div class="post-details">
 
-                            <div class="main-image-box">
+                                <div class="main-image-box">
 
-                                <figure class="image"><img src="{{$post->featured_image}}" alt=""></figure>
+                                    <figure class="image"><img src="{{ $post->featured_image }}" alt=""></figure>
+
+                                </div>
+                                <h2>{{ $post->post_title }}</h2>
+
+
+                                {!! $post->post_body !!}
 
                             </div>
-                            <h2>{{$post->post_title}}</h2>
-                    
 
-                            {!!$post->post_body!!}
 
+
+                            @if ($post->postimages)
+                                <div class="auto-container">
+
+                                    <!--Mixit Galery-->
+                                    <div class="sec-title with-separator">
+
+                                        <h2>Gallery</h2>
+
+                                        <div class="separator"><span class="cir c-1"></span><span
+                                                class="cir c-2"></span><span class="cir c-3"></span></div>
+
+                                    </div>
+                                    <div class="mixit-gallery filter-gallery">
+
+                                        <div class="filter-gallery-one row clearfix">
+                                            @foreach ($post->postimages as $postimg)
+                                                <div class="gallery-block all   col-lg-4 col-md-6 col-sm-12">
+
+                                                    <div class="inner-box wow fadeInUp" data-wow-delay="0ms"
+                                                        data-wow-duration="1500ms">
+
+                                                        <div class="image-box">
+
+                                                            <figure class="image">
+
+                                                                <img src="/{{ $postimg->file_path }}" alt="">
+
+                                                            </figure>
+
+                                                            <div class="zoom-btn">
+
+                                                                <a class="lightbox-image zoom-link"
+                                                                    href="/{{ $postimg->file_path }}"
+                                                                    data-fancybox="gallery"><span
+                                                                        class="icon flaticon-zoom-in"></span></a>
+
+                                                            </div>
+
+                                                            {{-- <div class="cap-box">
+
+<h6>Tourist Guide</h6>
+
+<h3><a href="#"><span>[</span> Mayor golf day <span>]</span></a></h3>
+
+</div> --}}
+
+                                                        </div>
+
+
+
+                                                    </div>
+
+                                                </div>
+                                            @endforeach
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            @endif
+
+                            <div class="share-post">
+
+                                <strong>Share this post with your friends</strong>
+
+                                <ul class="links clearfix">
+
+                                    <li class="facebook"><a href="#"><span class="icon fab fa-facebook-f"></span><span
+                                                class="txt">Facebook</span></a></li>
+
+                                    <li class="twitter"><a href="#"><span class="icon fab fa-twitter"></span><span
+                                                class="txt">Twiter</span></a></li>
+
+                                    <li class="linkedin"><a href="#"><span
+                                                class="icon fab fa-linkedin-in"></span><span
+                                                class="txt">Linkedin</span></a></li>
+
+                                    <li class="pinterest"><a href="#"><span
+                                                class="icon fab fa-pinterest-p"></span><span
+                                                class="txt">Pinterest</span></a></li>
+                                </ul>
+                            </div>
                         </div>
-
-
-
-                        <div class="share-post">
-
-                            <strong>Share this post with your friends</strong>
-
-                            <ul class="links clearfix">
-
-                                <li class="facebook"><a href="#"><span class="icon fab fa-facebook-f"></span><span class="txt">Facebook</span></a></li>
-
-                                <li class="twitter"><a href="#"><span class="icon fab fa-twitter"></span><span class="txt">Twiter</span></a></li>
-
-                                <li class="linkedin"><a href="#"><span class="icon fab fa-linkedin-in"></span><span class="txt">Linkedin</span></a></li>
-
-                                <li class="pinterest"><a href="#"><span class="icon fab fa-pinterest-p"></span><span class="txt">Pinterest</span></a></li>
-
-                            </ul>
-
-                        </div>
-
-
                     </div>
-
                 </div>
+                <!--Sidebar Side-->
 
-            </div>
+                <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
 
-
-
-            <!--Sidebar Side-->
-
-            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
-
-                <aside class="sidebar">
-
-                    <div class="bg-layer">
-
-                        <div class="image-layer" style="background-image:url(/apcwwa/images/background/sidebar-bg-image.jpg);"></div>
-
-                    </div>
-                    @if (count($categories) > 0)
-                    <div class="sidebar-widget cat-widget">
-
-                        <div class="widget-content">
-
-                            <div class="sidebar-title">
-
-                                <h4>Categories</h4>
-
-                            </div>
-
-                            <ul class="cat-links clearfix">
-
-                                @foreach ($categories as $category)
-                                <li><a href="{{route('events_catgory',strtolower($category->category_name))}}">{{$category->category_name}}</a></li>
-                                    
-                                @endforeach
-                            </ul>
-
+                    <aside class="sidebar">
+                        <div class="bg-layer">
+                            <div class="image-layer"
+                                style="background-image:url(/apcwwa/images/background/sidebar-bg-image.jpg);"></div>
                         </div>
+                        @if (count($categories) > 0)
+                            <div class="sidebar-widget cat-widget">
 
-                    </div>
-                    @endif
+                                <div class="widget-content">
 
-                       <!--Posts-->
-                              
-                  <div class="sidebar-widget recent-posts">
+                                    <div class="sidebar-title">
 
-                    <div class="widget-inner">
+                                        <h4>Categories</h4>
 
-                        <div class="sidebar-title">
+                                    </div>
 
-                            <h4>Latest Post</h4>
+                                    <ul class="cat-links clearfix">
 
-                        </div>
-
-
-                        @if (count($latest_posts) > 0)
-                        <div class="recent-posts-box">
-
-                            @foreach ($latest_posts as $latest_post)
-                            <div class="post">
-
-                                <div class="inner">
-
-                                    <figure class="post-thumb"><img src="{{$latest_post->featured_image}}" alt=""><a href="{{$latest_post->featured_image}}" class="overlink"><span class="icon flaticon-zoom-in"></span></a></figure>
-
-                                    <div class="post-date">{{ Carbon\Carbon::createFromTimeString($latest_post->created_at)->format('M d Y') }}</div>
-
-                                    <h5 class="title"><a href="{{route('event',$latest_post->post_slug)}}">{{$latest_post->post_title}}</a></h5>
+                                        @foreach ($categories as $category)
+                                            <li><a
+                                                    href="{{ route('events_catgory', strtolower($category->category_name)) }}">{{ $category->category_name }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
 
                                 </div>
 
                             </div>
-                            @endforeach
-                            
-                        </div>
                         @endif
-                    </div>
 
+                        <!--Posts-->
+
+                        <div class="sidebar-widget recent-posts">
+                            <div class="widget-inner">
+                                <div class="sidebar-title">
+                                <h4>Latest Post</h4>
+                                </div>
+                                @if (count($latest_posts) > 0)
+                                    <div class="recent-posts-box">
+
+                                        @foreach ($latest_posts as $latest_post)
+                                            <div class="post">
+
+                                                <div class="inner">
+
+                                                    <figure class="post-thumb"><img
+                                                            src="{{ $latest_post->featured_image }}" alt=""><a
+                                                            href="{{ $latest_post->featured_image }}"
+                                                            class="overlink"><span
+                                                                class="icon flaticon-zoom-in"></span></a></figure>
+
+                                                    <div class="post-date">
+                                                        {{ Carbon\Carbon::createFromTimeString($latest_post->created_at)->format('M d Y') }}
+                                                    </div>
+
+                                                    <h5 class="title"><a
+                                                            href="{{ route('event', $latest_post->post_slug) }}">{{ $latest_post->post_title }}</a>
+                                                    </h5>
+
+                                                </div>
+
+                                            </div>
+                                        @endforeach
+
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                    </aside>
                 </div>
-                </aside>
-
-               
             </div>
-                           
-                            
         </div>
-
     </div>
-
-</div>
 @endsection
